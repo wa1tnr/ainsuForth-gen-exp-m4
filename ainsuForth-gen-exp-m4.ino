@@ -1,3 +1,10 @@
+// Sun 13 May 01:18:47 UTC 2018
+// 4737-a3a-01a-
+
+// ispo factotum milagre
+
+// working on an M4 implementation/port - may not require much rework.
+
 // Wed Jan 31 00:27:18 UTC 2018
 // 4737-a0e-01a-
 

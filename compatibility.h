@@ -1,11 +1,13 @@
+// Sun 13 May 01:18:47 UTC 2018
+// 4737-a3a-01a-
+
+// previous timestamps:
 // Tue Jan 16 02:30:09 UTC 2018
 // 4737-a0d-05j-
 
 // Tue Jan 16 01:14:29 UTC 2018
 // 4737-a0d-05f-
 
-
-// previous timestamps:
 // Mon Jan 15 19:19:47 UTC 2018
 // 4737-a0d-05d-
 
@@ -43,11 +45,6 @@
 
 // CPX - Circuit Playground M0 (Circuit Playground Express)
 // + npx x10  + SPI flash 2MB
-
-// line 45 and a half haha
-
-adafruit_metro_m4 __SAMD51J19A__ __SAMD51__ __FPU_PRESENT ARM_MATH_CM4 
-
 // CRYSTALLESS ARDUINO_SAMD_ZERO __SAMD21G18A__ ADAFRUIT_CIRCUITPLAYGROUND_M0
 
 // reverse these two lines to enable SPI flashROM support:
@@ -71,5 +68,7 @@ adafruit_metro_m4 __SAMD51J19A__ __SAMD51__ __FPU_PRESENT ARM_MATH_CM4
   #define HAS_SPI_FLASH_DEMO
 #endif // #ifdef __SAMD51J19A__
 
+// global override - debug
+#define HAS_SPI_FLASH_DEMO
 // load echo! remove download are relevant only to presence of SPI flashROM.
 

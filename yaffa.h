@@ -1,8 +1,10 @@
-// Mon Jan 15 18:14:33 UTC 2018
-// 4737-a0d-05c-
+// Sun 13 May 01:18:47 UTC 2018
+// 4737-a3a-01a-
 
 // version bump
 
+// Mon Jan 15 18:14:33 UTC 2018
+// 4737-a0d-05c-
 
 // Sat Nov 25 19:03:16 UTC 2017
 // 4735-b0c-09d-   the -09x- is new Nov 24, 2017.
@@ -149,7 +151,24 @@ static const unsigned long SRAM_SIZE = 32;
   #define STACK_SIZE    32
   #define BUFFER_SIZE   255
   #define WORD_SIZE     32
+
+#endif // #if defined(__SAMD21G18A__) | (__SAMD21E18A__)
+
+
   
+#if defined(__SAMD51J19A__) // Adafruit Metro M4 Express Beta - April/May 2018
+
+static const unsigned long SRAM_SIZE = 192;
+
+#define PROC_STR "SAMD51J19A"
+
+#define HOLD_SIZE     64
+#define PAD_SIZE      128
+#define RSTACK_SIZE   32
+#define STACK_SIZE    32
+#define BUFFER_SIZE   255
+#define WORD_SIZE     32
+
 #elif defined(__AVR_ATSAM3X8E__) // Due
 #elif defined(_AVR_AR9331__) // Yun 400Mhz
 #else
