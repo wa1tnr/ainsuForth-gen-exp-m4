@@ -1,6 +1,3 @@
-// Sun 13 May 01:18:47 UTC 2018
-// 4737-a3a-01a-
-
 // Tue Jan 16 02:30:09 UTC 2018
 // 4737-a0d-05j-
 
@@ -128,17 +125,15 @@ void setup_spi_flash(void) {
   // Serial.print("Flash chip JEDEC ID: 0x"); Serial.println(flash.GetJEDECID(), HEX);
   Serial.print("Flash chip JEDEC ID: 0x");
   Serial.println(flash.GetJEDECID(), HEX);
-  Serial.println("Line 128 seen."); // debug may 2018
-  Serial.println(" want to see a message that says: Flash chip JEDEC ID: 0x1401501\r\n"); // debug may 2018
+  // Serial.println("Line 095 seen.");
+  // Serial.println(" want to see a message that says: Flash chip JEDEC ID: 0x1401501\r\n");
 
   if (!fatfs.begin()) {
     Serial.println("E: fatfs.begin() fault.  LINE 099");
     Serial.print("Can haz ");
     Serial.println(SPI_FlashROM_FILENAME);
     Serial.println("Was the flash chip formatted with the fatfs_format example?");
-    Serial.println("\r\n\r\n");
-    Serial.println("WARNING: flash chip not identified!  Do not try to write.");
-    // while(1); // debug - want this hold as a trap for faults
+    while(1);
   }
   // Serial.println("fatfs is mounted.");
 }
