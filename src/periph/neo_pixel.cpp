@@ -1,3 +1,6 @@
+// Sun 13 May 01:18:47 UTC 2018
+// 4737-a3a-01a-
+
 // Tue Jan 16 02:30:09 UTC 2018
 // 4737-a0d-05j-
 
@@ -44,6 +47,7 @@
 
 
 // Which pin on the Arduino is connected to the NeoPixels?
+// #define PIN              40 // peculiar to Metro M4 Express.
 // #define PIN              40 // peculiar to Metro M0 Express.  Feather M0 Express: PIN 8
 // #define PIN               8 // peculiar to Feather M0 Express.  Metro M0 Express: PIN 40
 // #define PIN               8 // circuit playground Express
@@ -52,6 +56,10 @@
 // #ifdef ADAFRUIT_CIRCUITPLAYGROUND_M0
 
 #undef PIN
+
+#ifdef __SAMD51J19A__
+  #define PIN               40 // peculiar to Metro M4 Express.
+#endif
 
 #ifdef ADAFRUIT_METRO_M0_EXPRESS
   #define PIN               40 // peculiar to Metro M0 Express.
@@ -78,6 +86,10 @@
 // #define NUMPIXELS        10 // circuit playground Express
 
 #undef NUMPIXELS
+
+#ifdef __SAMD51J19A__
+  #define NUMPIXELS          1 // Metro M4 Express
+#endif
 
 #ifdef ADAFRUIT_METRO_M0_EXPRESS
   #define NUMPIXELS          1 // Metro M0 Express
