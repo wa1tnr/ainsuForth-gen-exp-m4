@@ -1,15 +1,17 @@
+// Sun 13 May 02:27:45 UTC 2018
+// 4737-a3a-03a-
+
+// iskee lager
+
+// ispo factotum milagre
+// kandra helgar tronde
+// working on an M4 implementation/port - may not require much rework.
+
 // Sun 13 May 01:18:47 UTC 2018
 // 4737-a3a-01a-
 
-// ispo factotum milagre
-
-// working on an M4 implementation/port - may not require much rework.
-
 // Wed Jan 31 00:27:18 UTC 2018
 // 4737-a0e-01a-
-
-// kandra helgar tronde
-
 
 // .arduino15/packages/adafruit/hardware/samd/1.0.21/variants/feather_m0_express/variant.h
 // that's the location for feather M0 Express that gave D29 and D30 correctly.  15 Feb 2018d
