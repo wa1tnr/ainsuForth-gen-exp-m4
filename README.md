@@ -1,8 +1,18 @@
-# ainsuForth-gen-exp
-ainsuForth - generalized - all targets - experimental
+# ainsuForth-gen-exp-m4
+ainsuForth - generalized - all targets including SAMD51 M4 - experimental
 
 
-previously ainsuForth-CPX_fs-exp
+previously ainsuForth-gen-exp
+
+Nothing else in this README.md is reliable, as it is a copy-over
+from an earlier project.
+
+Suggest: diff against ainsuForth-gen-exp -- which was the best
+         SAMD21 M0 effort, to date.
+
+
+Older notes follow.  No effort is made to update them, or remove
+where no longer applicable.
 
 August 2nd:
 
@@ -33,6 +43,10 @@ target board devices (subset of boards.txt found under
 
 Current platform is the
 
+    Adafruit Metro M4 Express Beta -- 13 May 2018.
+
+was:
+
     Adafruit Feather M0 Express -- 15 January 2018.
 
 All other platform declarations are incorrect, where they differ
@@ -46,18 +60,20 @@ Current platform is the
 which is ATSAMD21 Cortex M0+ based.
 ----------------------------------------------------------------
 
-Platform will change frequently -- five different targets are
+Platform will change frequently -- seven different targets are
 tested on a (somewhat) rotating basis:
 
-  * Arduino M0 Pro
-  * Adafruiit Feather M0 Express
+  * Adafruit Metro M4 Express Beta (SAMD51)
+  * Arduino M0 Pro (SAMD21)
+  * Adafruit Feather M0 Express
   * Adafruit Metro M0 Express
-  * Adafruit Circuit Playground Express (which is also an M0 board)
+  * Adafruit Circuit Playground Express
   * Adafruit Gemma M0
+  * Adafruit Trinket M0
 
 Sun 13 May 00:34:29 UTC 2018
 
-6xaxbxcxd2
+28f54e6bc7
 
 old:
 
