@@ -1,0 +1,92 @@
+Installation Instructions
+*************************
+
+Copyright (C) 2017 wa1tnr
+
+   Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.  This file is offered as-is,
+without warranty of any kind.
+
+Basic Installation
+==================
+
+   Briefly, you are looking at a skeleton file acting as a place-
+holder for any installation instructions offered.
+
+  1. July 2017: configured for Circuit Playground Express (#3333),
+                which is the current target MCU under development.
+
+                This changes frequently, and may be near the top
+                of the list of gotchas to watch for: a different
+                'Express' series target (Feather M0, Metro M0, et al.)
+                can break compiles -- or can crash the target MCU
+                after an upload (generally easy to resolve).
+
+                Note that this is not an Arduino IDE problem -- it
+                persists even after proper selection of the target
+                MCU in the Arduino IDE interface.
+
+                The problem is that, currently, ainsuForth does not
+                (always) detect (or compensate for) a change in
+                targets.  It is only periodically tested against
+                each of these four SAMD21 design targets:
+
+                       Arduino M0 Pro
+                       Adafruit Feather M0 Express
+                       Adafruit Metro M0 Express
+                       Adafruit Circuit Playground Express (#3333)
+     Currently:
+
+     src/periph/neo_pixel.cpp is affected (pin 8 vs pin 40 of the Metro)
+
+     There may be other target-specific issues to resolve, when
+     using another target MCU board in this (Adafruit Express SAMD21) family.
+
+     Eventually, some kind of #define-based configuration may be employed.
+
+  2. Install something.
+  3. Install something else.  Then install a thing.  Continue installing
+     until installation is complete.
+  4. These last three line items (2, 3 and 4) are meant as place-holders
+     for instructions, rather than as instructions.
+
+
+Compilers and Options
+=====================
+
+   This would be a good place to talk about the compiler.
+
+Compiling For Multiple Architectures
+====================================
+
+   This might talk about #define and #include directives to the C
+preprocessor.
+
+Installation Names
+==================
+
+   This section may talk about makefile targets, if there were any.
+
+Optional Features
+=================
+
+   This would possibly be more specific to individual, well-known
+features the program may (optionally) incorporate.  Or not.
+
+Particular systems
+==================
+
+   This might talk about Linux or about some other kind of system
+(name your system here; for example, Solaris).
+
+
+Other
+=====
+
+This INSTALL file format doesn't very well fit present needs.
+
+It is here to remind what sorts of standard files are often
+seen in distributed packages.
+
+Tue Jun  6 03:03:57 UTC 2017
