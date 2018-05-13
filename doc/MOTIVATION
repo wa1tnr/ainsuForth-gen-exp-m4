@@ -1,0 +1,38 @@
+Fri Jun  9 19:18:57 UTC 2017
+
+MOTIVATION
+
+ainsuForth is intended as the most (or nearly most) minimal
+implementation of a functioning YAFFA-like Forth, on the Cortex M0+
+architecture -- measured by the number of bytes occupying flashROM.
+
+This would (perhaps) entail auditing the development environment
+(Arduino IDE) looking for ways to remove uncalled vocabularies
+(subroutines that do nothing in the uploaded .HEX image -- dead
+code, essentially: unused library calls).
+
+ . . .
+
+This is the primary motivation behind the pursuit of a smaller
+program; one that is broken down into more manageable-
+sized chunks:
+
+        .. so that one person may see it more clearly,
+        without undue study of side-issues that don't
+        affect the immediate requirements of that
+        one person.
+
+
+
+Caveat
+
+
+This is a growth-document: it states ideas rather assuredly that,
+in truth, are more experimental in nature.  That is, the ideas are
+only the working ideas of the moment; they are not quite afforded
+the same standing as other expressed ideas (from the author, and
+from others) that have withstood test, and experimentation.
+
+                                                  WA1TNR
+                                              June, 2017.
+

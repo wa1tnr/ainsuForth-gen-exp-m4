@@ -1,0 +1,10 @@
+
+echo "# ainsuForth-CPX_fs-exp" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/wa1tnr/ainsuForth-CPX_fs-exp.git
+git push -u origin master
+
+
+UNTESTED.

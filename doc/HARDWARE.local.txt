@@ -1,0 +1,94 @@
+// Fri Jun  9 02:32:35 UTC 2017
+// 4735-a0f
+
+HARDWARE.local.txt
+
+
+  pin 18 is A4 - the LCD backlight driver is presently
+                 wired to it.  It can be used as a
+                 blinkenlight, in the absence of a
+                 conventional discrete LED (the onboard
+                 NeoPixel needs a library).
+
+
+: testLED
+ 1 18 pinMode ( p18 GPIO: OUTPUT )
+ 1 18 pinWrite ( p18 HIGH: LED is ON )
+ 5 1000 * ( 5000: 5 seconds )
+ delay
+ 0 18 pinWrite ( p18 LOW: LED is OFF )
+;
+
+
+relevant code in this Forth (Dictionary.cpp):
+
+2237 const char pinWrite_str[] = "pinWrite";
+2238 // ( u1 u2 -- )
+2239 // Write a high (1) or low (0) value to a digital pin
+2240 // u1 is the pin and u2 is the value ( 1 or 0 ). To turn the LED attached to
+2241 // pin 13 on type "13 1 pinwrite" p.s. First change its pinMode to output
+2242 void _pinWrite(void) {
+2243   digitalWrite(dStack_pop(), dStack_pop());
+2244 }
+2245 
+2246 const char pinMode_str[] = "pinMode";
+2247 // ( u1 u2 -- )
+2248 // Set the specified pin behavior to either an input (0) or output (1)
+2249 // u1 is the pin and u2 is the mode ( 1 or 0 ). To control the LED attached to
+2250 // pin 13 to an output type "13 1 pinmode"
+2251 void _pinMode(void) {
+2252   pinMode(dStack_pop(), dStack_pop());
+2253 }
+
+
+Example Application:
+
+( blinkenlight.fs written in ainsuForth - YAFFA-ARM Forth )
+
+( transpose 'pinX' and 'pin' in the code, below, )
+( when making use of the standard, onboard LED -- )
+( the one that is wired to pin 13. )
+( otherwise pin 18 -- A4 -- will be used. )
+
+: pin 18 ; ( the LED is on pin 18 aka A4 aka p18 )
+: pinX 13 ; ( the LED is on pin 13 )
+: OUTPUT 1 ; ( GPIO mode: OUTPUT is '1' )
+: HIGH 1 ; ( GPIO port pin state: Vcc )
+: LOW  0 ; ( GPIO port pin state: Gnd )
+: ledSetup ( set p18 to OUTPUT )
+  OUTPUT pin pinMode ; ( p18 GPIO: OUTPUT mode )
+: ledON ( supply Vcc to the LED circuit via GPIO p18 )
+  HIGH pin pinWrite ; ( p18 HIGH: LED is ON )
+: ledOFF ( bring p18 to ground potential, disabling the LED circuit )
+  LOW  pin pinWrite ; ( p18  LOW: LED is OFF )
+: del.5sec 5 100 * ( 500 milliseconds. )
+  delay ;
+: blink.5sec ledON del.5sec ledOFF ;
+: blink blink.5sec ; ( alias )
+: lowtos cr ." That idiom is meaningless." cr
+  abort" unexpected value <1  on TOS.  "
+  quit exit ;
+: tost ( test tos haha )
+  1 - ( tos is now one less )
+  dup 0< if lowtos quit exit then ( zero clue here )
+  1 + ; ( restore it )
+: blinkApp ( an application of the above code )
+  tost 1 + dup 0= if quit exit then
+  dup ( stack mismanagement kludge )
+  ledSetup ledON ledOFF
+  1 ( when this was '3' it blinked three less than TOS )
+  do 1 - blink del.5sec dup 0=
+  drop loop drop ;
+: blinks blinkApp ; ( alias )
+
+The above may be pasted directly into YAFFA or ainsuForth,
+from a text editor.
+
+That is, when you are on a tty in conversation with this
+Forth, you can compose new words (new colon definitions).
+
+Can't save them to disk, which is why you paste them
+directly into the Forth, each time you reboot -- as
+if you'd typed them, interactively.
+
+EOF

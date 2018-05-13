@@ -1,0 +1,73 @@
+// Sun Jul 30 02:55:32 UTC 2017
+// 4735-b0b-09-
+
+
+This is a skeletal file and at the moment is to be ignored, as
+are most of the files added or modified on June 6, 2017.
+
+NEXT:
+	Sun Jul 30 02:55:32 UTC 2017
+	Cycle Metro source to Feather, then to CPX and clone CPX back
+	to the base program (ainsuForth).
+
+	Develop for CPX, moving (possibly) into SPI flash stuff.
+
+OLD_NEXT:
+	Thu Jun  8 21:52:01 UTC 2017
+	in HARDWARE.local.txt:
+
+        blinkApp needs to be factored - has stack management kludge(s).
+
+OLDER_NEXT:
+	Tue Jun  6 19:06:03 UTC 2017
+
+	Try splitting and renaming and relocating code, without the
+	removal of commented code (from Dictionary.ino comment.)
+
+
+OLDEST_NEXT:
+	Tue Jun  6 05:32:17 UTC 2017
+
+	finish stripping the program prior to putting the pieces back
+	together again, restructured along different principles.
+
+
+
+
+
+- - - - - -   tear line   - - - - - -
+
+
+
+The rest of this file is facetious.
+
+BEFORE RELEASE:
+	fix this and that.
+	fix something broken.
+	break something, then fix it.
+	fix something that isn't broken.
+
+FEATURES:
+	Happy fun bar
+	Smoothed curves (on the box the project is housed in)
+	ANSI.  Got to have ANSI.
+
+EASY FIXES:
+	Be sure that the 'warm' word is defined.
+
+-----------------------------------------
+
+RATHER HARD FIXES, SHOULD BE DONE BUT NOT MANDATORY FOR RELEASE:
+	Make it hover in mid-air, but draw no power at all.
+	3-D print a gallon of drinking water, including the water.
+
+FEATURE WISHLIST (i.e. unlikely to get done):
+	Convert to a tethered Forth.
+	Mirror images of all LCD messages (so they can be seen in, you guessed it, a mirror).
+	Popcorn.  It should make popcorn.
+
+MISC FIXES (i.e. will never get done):
+	Retinal tracking.
+	Paintball socket.
+	Unit made so small, it is difficult to find, even when it's already in your hand.
+

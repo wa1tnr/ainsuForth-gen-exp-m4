@@ -1,0 +1,63 @@
+
+#  This document: 
+#  ~/.arduino15/packages/adafruit/hardware/samd/1.0.21/boards.txt
+
+adafruit_feather_m0.name=Adafruit Feather M0
+
+
+adafruit_feather_m0.build.board=SAMD_FEATHER_M0
+
+adafruit_feather_m0.build.extra_flags=-DARDUINO_SAMD_ZERO -D__SAMD21G18A__ {build.usb_flags}
+
+
+adafruit_feather_m0_express.name=Adafruit Feather M0 Express
+
+adafruit_feather_m0_express.build.board=SAMD_FEATHER_M0_EXPRESS
+
+adafruit_feather_m0_express.build.extra_flags=-DARDUINO_SAMD_ZERO -DARDUINO_SAMD_FEATHER_M0 -DADAFRUIT_FEATHER_M0_EXPRESS -D__SAMD21G18A__ {build.usb_flags}
+
+
+
+#adafruit_radio_m0.name=Adafruit M0 Radio (Native USB Port)
+
+#adafruit_radio_m0.build.board=SAMD_ZERO
+
+#adafruit_radio_m0.build.extra_flags=-D__SAMR21G18A__ {build.usb_flags}
+
+
+adafruit_metro_m0.name=Adafruit Metro M0 Express
+
+adafruit_metro_m0.build.board=SAMD_ZERO
+
+adafruit_metro_m0.build.extra_flags=-D__SAMD21G18A__  -DARDUINO_SAMD_ZERO -DADAFRUIT_METRO_M0_EXPRESS {build.usb_flags}
+
+
+adafruit_circuitplayground_m0.name=Adafruit Circuit Playground Express
+
+adafruit_circuitplayground_m0.build.board=SAMD_CIRCUITPLAYGROUND_EXPRESS
+
+
+adafruit_circuitplayground_m0.build.extra_flags=-DCRYSTALLESS -DARDUINO_SAMD_ZERO -D__SAMD21G18A__ -DADAFRUIT_CIRCUITPLAYGROUND_M0 {build.usb_flags}
+
+
+adafruit_gemma_m0.name=Adafruit Gemma M0
+
+adafruit_gemma_m0.build.board=GEMMA_M0
+
+adafruit_gemma_m0.build.extra_flags=-DCRYSTALLESS -DADAFRUIT_GEMMA_M0 -D__SAMD21E18A__ {build.usb_flags}
+
+
+adafruit_trinket_m0.name=Adafruit Trinket M0
+
+adafruit_trinket_m0.build.board=TRINKET_M0
+
+adafruit_trinket_m0.build.extra_flags=-DCRYSTALLESS -DADAFRUIT_TRINKET_M0 -D__SAMD21E18A__ {build.usb_flags}
+
+
+#adafruit_itsybitsy_m0.name=Adafruit Itsybitsy M0
+
+#adafruit_itsybitsy_m0.build.board=ITSYBITSY_M0
+
+#adafruit_itsybitsy_m0.build.extra_flags=-DCRYSTALLESS -DADAFRUIT_ITSYBITSY_M0 -D__SAMD21G18A__ {build.usb_flags}
+
+#adafruit_itsybitsy_m0.bootloader.file=itsybitsy/samd21_sam_ba.bin

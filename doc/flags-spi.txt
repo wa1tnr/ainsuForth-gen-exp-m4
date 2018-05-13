@@ -1,0 +1,22 @@
+
+detect presence of SPI flashROM only with product knowledge:
+
+// with SPI flashROM:
+
+adafruit_feather_m0_express.name=Adafruit Feather M0 Express
+flags=-DADAFRUIT_FEATHER_M0_EXPRESS
+
+adafruit_metro_m0.name=Adafruit Metro M0 Express
+flags=-DADAFRUIT_METRO_M0_EXPRESS
+
+adafruit_circuitplayground_m0.name=Adafruit Circuit Playground Express
+flags=-DADAFRUIT_CIRCUITPLAYGROUND_M0
+
+// without SPI flashROM:
+
+adafruit_gemma_m0.name=Adafruit Gemma M0
+flags=-DCRYSTALLESS -DADAFRUIT_GEMMA_M0
+
+adafruit_trinket_m0.name=Adafruit Trinket M0
+flags=-DADAFRUIT_TRINKET_M0
+

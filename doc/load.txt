@@ -1,0 +1,42 @@
+24 Nov 2017
+
+Primitive mass storage of forth code stored as ascii plaintext
+on the Adafruit SPI flashROM (found on the Express series, such
+as the Circuit Playground Express).
+
+new vocabulary:
+ load echo! download
+
+The 'load' word enables reading in of a stored program from 
+the SPI flashROM.
+
+
+The 'echo!' word decides if to echo the forth source to the
+terminal, during the 'load' word. 
+
+
+The 'download' word reads from the serial terminal, and
+stores whatever it sees to flashROM.  It appends to a single
+file.  No method is provided to reset the file to zero-length;
+it just keeps growing the more it is used for storage.
+
+Addressing that is potentially a TODO item, though this is
+an experiment (November 24 2017, and since August 2017).
+
+Use the delimiter '\end.' (without enclosing apostrophes)
+to end the download and append the download'ed source
+to SPI flashROM.  Do this on a new input line, at the
+very left margin.
+
+Note: colon definitions are optional inside the download.
+The entire mechanism is just a player-piano and is a
+direct substitute for typing during a session with the
+machine, via USB serial.  It follows the same heuristics
+(rules of thumb) as a standard, interactive session with
+the machine via USB serial.
+
+There may be errors in this document as it was written
+long after the code was written, with a long haitus in
+between these two events.
+
+END.

@@ -1,0 +1,140 @@
+// Sun Jun 18 02:05:55 UTC 2017
+// 4735-a0k
+
+
+  18 June 02:05z:
+
+  Pushed one out -- a primitive Forth now exists.  Program is
+  no longer marked as broken; program is no longer broken.
+
+  It does something.  Interactively.  Sign on and see, after
+  uploading to the Arduino M0+ family (M0 Pro, Adafruit Feather M0
+  series, and so on).
+
+
+
+  17 June 19:32z:
+
+  Created src/kernel/interpreter.cpp (and accompanying .h file).
+
+  Will work on stacks.cpp next (has dStack_push() and friends).
+
+  11 June 21:36z:
+
+  Copied the entire src/kernel tree from ainsuForthTest into
+  ainsuForth and satisfied anything the compiler wanted.  The
+  source compiles in both trees.
+
+  Test version: Sketch uses 27496 bytes (10%) of program storage space.
+  This version: Sketch uses 9552 bytes (3%) of program storage space.
+
+  The difference: this version is deliberately made smaller; the
+  test version is the full program source (basically the new src/kernel
+  tree is there, compiled against the YAFFA author's source, with
+  appropriate #include #ifdef #ifndef directives to the C preprocessor,
+  to avoid multiple definitions, since src/kernel is the same source
+  that is found in the base directory of YAFFA (as distributed).
+
+  The whole point of this is to reduce the dictionary (and therefore,
+  program) size significantly, for lighter programs that will not
+  leverage the (rather complete) Forth from the YAFFA author.
+
+  The approach is to use #include and #define and #ifdef #ifndef and
+  so on, to exclude unwanted code (hopefully in a single compiler
+  directive, per unwanted Forth word).
+
+
+  Earlier:
+
+  The warm word is present now.  Allows a warm boot from
+  the command line.
+
+  Words with individual source files, now in
+  src/kernel include:
+
+      do_sys.cpp do_sys.h dot_quote.cpp dot_quote.h
+      drop.cpp drop.h eq.cpp eq.h exit.cpp exit.h
+      jump.cpp jump.h leave_sys.cpp leave_sys.h
+      literal.cpp literal.h loop_sys.cpp loop_sys.h
+      over.cpp over.h plus_loop_sys.cpp plus_loop_sys.h
+      quit.cpp quit.h s_quote.cpp s_quote.h
+      subroutine.cpp subroutine.h throw.cpp throw.h
+      type.cpp type.h variable.cpp variable.h warm.cpp
+      warm.h zjump.cpp zjump.h
+
+  This was a difficult programming day -- lost the forest
+  for the trees.  Settled for a program that compiles and
+  seems to function (at least basically).
+
+  No obvious errors seen.
+
+  Cannot remember how this development started in Test instead
+  of regular -- the Test environment is easier to (yes ..) test
+  the effects of further coding.  The sense of it was, the
+  other day, once the Test suite was in place -- that it was in
+  its own way almost more to the point than the regular tree was.
+
+  On the other hand, the Test suite is kept more adherent to
+  YAFFA (uses multiple .ino files, for example):
+
+        0-Distribution.d      ainsuForthTest.ino      Dictionary.h
+        Dictionary.ino        doc                     Error_Codes.h
+        LICENSE               README.md               src
+        yaffa.h
+
+
+Thu Jun  8 04:03:40 UTC 2017
+
+ainsuForthTest/src/kernel/
+  do_sys.cpp
+  do_sys.h
+  dot_quote.cpp
+  dot_quote.h
+  quit.cpp
+  quit.h
+
+All appear to compile and play their roles in a working
+Forth (essentially, this is an unmodified YAFFA-ARM Forth
+at this juncture).
+
+The purpose of the test version is to compile the src
+directory into the Forth, replacing every function that
+is commented-out of the original file with the same code
+in a separate file (under src/kernel).
+
+In this way, not too much effort is made to port the code
+from the base directory into the src/kernel directory,
+in an unverified state.
+
+The ideas seem to be producing expected results.
+
+The Adafruit Feather M0 Express is the hardware tested.
+An Arduino M0 Pro is also available.
+
+Wanted: the Metro version of the M0 Express.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+NOTE: The obvious difference between the test directory
+and the regular one is that the regular one does no
+work -- most of the code in it is commented out.  In
+the test directory, that is not the case -- all the
+code is present -- it is a working Forth.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+                                                  wa1tnr
+                                            08 June 2017.
+
+
+
+// Wed Jun  7 01:22:45 UTC 2017
+// was:4735-a0a
+
+Had some progress shuffling code around.  A bit too confused
+to document what occured, but look near the time of this timestamp
+(01:21z as this is written) for the changes (diff from the previous
+revisions, which were pushed more than one hour prior).
+
+One thing new: src/kernel/quit.cpp and  src/kernel/quit.h added to
+the tree.
+
+EOF

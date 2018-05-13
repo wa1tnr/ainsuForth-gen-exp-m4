@@ -1,0 +1,12 @@
+This file is meant to summarize the ainsuForth development policies.
+
+
+Clean commits
+=============
+
+Commits/patches should be as fine-grained as possible (and no finer). Every
+distinct change should be in its own commit and every commit should be a
+meaningful change on its own.
+
+ -- from the Viking source tree, possibly Evan Battaglia <gtoevan@gmx.net>
+
