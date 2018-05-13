@@ -55,9 +55,9 @@ tested on a (somewhat) rotating basis:
   * Adafruit Circuit Playground Express (which is also an M0 board)
   * Adafruit Gemma M0
 
-Mon Jan 15 18:14:33 UTC 2018
+Sun 13 May 00:34:29 UTC 2018
 
-64a656eae2
+6xaxbxcxd2
 
 old:
 
