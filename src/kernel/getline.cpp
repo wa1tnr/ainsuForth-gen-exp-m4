@@ -1,3 +1,9 @@
+// Sun 13 May 03:29:16 UTC 2018
+// 4737-a3a-03c-
+
+// Sun 13 May 02:27:45 UTC 2018
+// 4737-a3a-03a-
+
 // Sun 13 May 01:18:47 UTC 2018
 // 4737-a3a-01a-
 
@@ -61,6 +67,11 @@
 
   #define FLASH_TYPE     SPIFLASHTYPE_W25Q16BV  // Flash chip type.
 
+
+#ifdef __SAMD51J19A__
+  #define FLASH_SS       SS1    // Flash chip SS pin.
+#endif
+
 #ifdef ADAFRUIT_METRO_M0_EXPRESS
   #define FLASH_SS       SS1    // Flash chip SS pin.
 #endif
@@ -80,6 +91,11 @@
 
 
 // ------------------------ this was SPI   not    SPI1   ------ when did this change?
+
+// comment: QSPI see variant.h  -- many more wires used in this interface?
+#ifdef __SAMD51J19A__
+  #define FLASH_SPI_PORT      SPI       // What SPI port is Flash on?
+#endif
 
 #ifdef ADAFRUIT_METRO_M0_EXPRESS
   #define FLASH_SPI_PORT      SPI1      // What SPI port is Flash on?

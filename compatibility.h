@@ -1,3 +1,6 @@
+// Sun 13 May 03:29:16 UTC 2018
+// 4737-a3a-03c-
+
 // Sun 13 May 01:18:47 UTC 2018
 // 4737-a3a-01a-
 
@@ -70,5 +73,6 @@
 
 // global override - debug
 #define HAS_SPI_FLASH_DEMO
+#undef HAS_SPI_FLASH_DEMO // kludge.  QSPI flash may be a game-changer.  wait.
 // load echo! remove download are relevant only to presence of SPI flashROM.
 
