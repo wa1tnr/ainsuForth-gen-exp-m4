@@ -1,18 +1,12 @@
-// Sun 13 May 03:29:16 UTC 2018
-// 4737-a3a-03c-
-
-// Sun 13 May 01:18:47 UTC 2018
-// 4737-a3a-01a-
+// Mon 14 May 18:47:28 UTC 2018
+// 4737-a3a-05a-
 
 // previous timestamps:
+// Sun 13 May 06:53:54 UTC 2018
+// 4737-a3a-03f-
+
 // Tue Jan 16 02:30:09 UTC 2018
 // 4737-a0d-05j-
-
-// Tue Jan 16 01:14:29 UTC 2018
-// 4737-a0d-05f-
-
-// Mon Jan 15 19:19:47 UTC 2018
-// 4737-a0d-05d-
 
 // Sat Dec 16 01:24:37 UTC 2017
 // 4737-a0a-00a-
@@ -45,10 +39,16 @@
 // + npx x1  + SPI flash 2MB
 // __SAMD21G18A__  ARDUINO_SAMD_ZERO ADAFRUIT_METRO_M0_EXPRESS 
 
-
 // CPX - Circuit Playground M0 (Circuit Playground Express)
 // + npx x10  + SPI flash 2MB
 // CRYSTALLESS ARDUINO_SAMD_ZERO __SAMD21G18A__ ADAFRUIT_CIRCUITPLAYGROUND_M0
+
+// METRO M4 (Metro M4 Express Beta)
+// + QSPI flash 2MB - incompatible with SPI flashROM routines for the M0 series
+// __SAMD51J19A__ __SAMD51__ __FPU_PRESENT ARM_MATH_CM4
+
+#undef QSPI_FLASHROM_PRESENT // re-enable only for some SAMD51 target boards
+
 
 // reverse these two lines to enable SPI flashROM support:
 #define HAS_SPI_FLASH_DEMO
@@ -68,7 +68,8 @@
 
 // M4 target offers an impoverished test - redefine later, tracking upstream refinements.
 #ifdef __SAMD51J19A__
-  #define HAS_SPI_FLASH_DEMO
+  #undef HAS_SPI_FLASH_DEMO
+  #define QSPI_FLASHROM_PRESENT // assume Metro M4 Express Beta - for now (May 2018)
 #endif // #ifdef __SAMD51J19A__
 
 // global override - debug

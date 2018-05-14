@@ -1,3 +1,9 @@
+// Mon 14 May 18:47:28 UTC 2018
+// 4737-a3a-05a-
+
+// Sun 13 May 06:53:54 UTC 2018
+// 4737-a3a-03f-
+
 // Mon Jan 15 18:14:33 UTC 2018
 // 4737-a0d-05c-
 
@@ -317,6 +323,14 @@ const flashEntry_t flashDict[] = {
   { download_str,       _download,        NORMAL },
 #endif // #ifdef HAS_SPI_FLASH_DEMO
 #endif // #ifdef SPI_FLASH_SRC
+
+#ifdef QSPI_FLASHROM
+#ifdef HAS_QSPI_FLASHROM_LIB
+
+  { ffmt_str,           _ffmt,            NORMAL }, // flash format
+
+#endif // HAS_QSPI_FLASHROM_LIB
+#endif // QSPI_FLASHROM
 
 
   { NULL,           NULL,    NORMAL }

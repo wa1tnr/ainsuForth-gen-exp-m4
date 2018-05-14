@@ -1,9 +1,15 @@
-// Mon Jan 15 18:14:33 UTC 2018
-// 4737-a0d-05c-
+// Mon 14 May 18:47:28 UTC 2018
+// 4737-a3a-05a-
 
 // version bump
 
 // previous timestamp:
+// Sun 13 May 06:53:54 UTC 2018
+// 4737-a3a-03f-
+
+// Mon Jan 15 18:14:33 UTC 2018
+// 4737-a0d-05c-
+
 // Sat Nov 25 19:03:16 UTC 2017
 // 4735-b0c-09d-   the -09x- is new Nov 24, 2017.
 
@@ -26,6 +32,10 @@
 #include "src/dict/dump.h"
 
 #include "src/dict/cblink.h"
+
+#ifdef HAS_QSPI_FLASHROM_LIB
+#include "src/periph/qspi/flashrom.h"
+#endif
 
 #ifdef HAS_NEO_PIXEL_LIB
 #include "src/periph/neo_pixel.h"

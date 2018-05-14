@@ -1,7 +1,10 @@
-// Sun 13 May 01:18:47 UTC 2018
-// 4737-a3a-01a-
+// Mon 14 May 18:47:28 UTC 2018
+// 4737-a3a-05a-
 
 // version bump
+
+// Sun 13 May 06:53:54 UTC 2018
+// 4737-a3a-03f-
 
 // Mon Jan 15 18:14:33 UTC 2018
 // 4737-a0d-05c-
@@ -16,7 +19,7 @@
 
 // 29 July -- not proofread very well.  Needs testing.  See diff.
 
-#include "compatibility.h" # ainsuForth selection of target board
+#include "compatibility.h" // ainsuForth selection of target board
 
 #define AINSU_ON_ADAFRUIT_GEMMA
 
@@ -29,6 +32,33 @@
 #ifndef __YAFFA_H__
 #define __YAFFA_H__
 
+
+
+// QSPI_FLASHROM
+#ifdef QSPI_FLASHROM_PRESENT // switched in compatibility.h
+// -------  use this to switch between them   ---------
+  #undef QSPI_FLASHROM_LIB_ENABLED  // swap these two
+  #define QSPI_FLASHROM_LIB_ENABLED // swap these two
+// -------  use this to switch between them   ---------
+#endif // #ifdef QSPI_FLASHROM_PRESENT
+
+// default -- it is defined and will be used.
+
+#ifdef QSPI_FLASHROM_LIB_ENABLED
+  #ifndef HAS_QSPI_FLASHROM_LIB
+    #define HAS_QSPI_FLASHROM_LIB
+  #endif
+#endif
+
+#ifndef QSPI_FLASHROM_LIB_ENABLED
+  #ifdef HAS_QSPI_FLASHROM_LIB
+    #undef HAS_QSPI_FLASHROM_LIB
+  #endif
+#endif
+
+
+
+// NEO_PIXEL
 // -------  use this to switch between them   ---------
 
 #undef NEO_PIXEL_LIB_ENABLED  // swap these two
@@ -48,6 +78,10 @@
     #undef HAS_NEO_PIXEL_LIB
   #endif
 #endif
+
+
+
+
 
 
 

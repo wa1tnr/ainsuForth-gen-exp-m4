@@ -1,8 +1,9 @@
-// Sun 13 May 03:29:16 UTC 2018
-// 4737-a3a-03c-
+// Mon 14 May 18:47:28 UTC 2018
+// 4737-a3a-05a-
 
-// Sun 13 May 01:18:47 UTC 2018
-// 4737-a3a-01a-
+// previous timestamps:
+// Sun 13 May 06:53:54 UTC 2018
+// 4737-a3a-03f-
 
 // Wed Jan 31 00:27:18 UTC 2018
 // 4737-a0e-01a-
@@ -10,30 +11,14 @@
 // Tue Jan 16 02:30:09 UTC 2018
 // 4737-a0d-05j-
 
-// Tue Jan 16 02:20:48 UTC 2018
-// 4737-a0d-05g-
-
-// Tue Jan 16 01:14:29 UTC 2018
-// 4737-a0d-05f-
-
 // Mon Jan 15 19:19:47 UTC 2018
 // 4737-a0d-05d-
 
-// Mon Jan 15 18:14:33 UTC 2018
-// 4737-a0d-05c-
-
 // Large reorg of conditional compilation.  No comment is reliable at the moment. - 15 Jan 2018
-
-
-
-
-
-
 
 // SPI_FLASH_DEMO defines verified.  Can run the program with uninitialized SPI flashROM.
 // _count() fix  (was earlier: _dot_paren() fix that wasn't broken, after all).
 
-// previous timestamps:
 // Sat Dec 16 01:24:37 UTC 2017
 // 4737-a0a-00a-
 
@@ -42,7 +27,7 @@
 
 // Fri Nov 24 04:49:08 UTC 2017
 // 4735-b0c-07z-   the -07x- is new Nov 19, 2017.
-// Fri Nov 24 02:42:54 UTC 2017
+
 // Sun Aug  6 20:09:53 UTC 2017
 // 4735-b0f-03-
 
@@ -53,9 +38,14 @@
 #undef HAS_DOTSTAR_LIB
 #endif
 
+
+// 2017 FAT filesystem for M0 Express series boards.
+// Found commented-out in May 2018.
 // FAT fileystem:
 // #include "src/periph/fatfs.h"
 // #include "src/kernel/getkey.h"
+
+
 #include "src/kernel/getline.h"
 
 
@@ -72,6 +62,7 @@
 
 /******************************************************************************/
 /**  The Arduino M0 pro has 0x4000 as bootloader offset                      **/
+/**  seen or misremembered: M4 also at 0x4000                                **/
 /******************************************************************************/
 
 /******************************************************************************/
@@ -275,9 +266,9 @@ void setup(void) {
   pOldHere = pHere;
   
   // Serial.print("\n warm boot message - early bird.  //  Gemma M0 29 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n warm boot message - early bird.  \r\n KANWULF uj DEV - gen-exp-m4  13 May 2018\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n Sun 13 May 03:29:16 UTC 2018");
-     Serial.print("\n 4737-a3a-03c-");
+     Serial.print("\n warm boot message - early bird.  \r\n KELPVULE rp DEV - gen-exp-m4  14 May 2018\r\n          type 'warm' to reboot"); // instant confirmation
+     Serial.print("\n Mon 14 May 18:47:28 UTC 2018");
+     Serial.print("\n 4737-a3a-05a-");
 
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Metro M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Feather M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
