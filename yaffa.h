@@ -1,3 +1,6 @@
+// Mon 14 May 22:46:36 UTC 2018
+// 4737-a3a-05e-
+
 // Mon 14 May 18:47:28 UTC 2018
 // 4737-a3a-05a-
 
@@ -35,6 +38,7 @@
 
 
 // QSPI_FLASHROM
+// #ifdef QSPI_FLASHROM_PRESENT // switched in compatibility.h
 #ifdef QSPI_FLASHROM_PRESENT // switched in compatibility.h
 // -------  use this to switch between them   ---------
   #undef QSPI_FLASHROM_LIB_ENABLED  // swap these two

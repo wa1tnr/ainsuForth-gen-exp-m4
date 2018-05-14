@@ -1,3 +1,9 @@
+// Mon 14 May 22:46:36 UTC 2018
+// 4737-a3a-05e-
+
+// Mon 14 May 20:26:35 UTC 2018
+// 4737-a3a-05c-
+
 // Mon 14 May 18:47:28 UTC 2018
 // 4737-a3a-05a-
 
@@ -59,6 +65,11 @@
 #include "src/periph/neo_pixel.h"
 #include "src/dict/cblink.h"
 #include "Error_Codes.h"
+
+// #ifdef HAS_FOUR_H
+#ifdef HAS_QSPI_FLASHROM_LIB
+  #include "src/periph/qspi/flashrom.h"
+#endif // #ifdef HAS_QSPI_FLASHROM_LIB
 
 /******************************************************************************/
 /**  The Arduino M0 pro has 0x4000 as bootloader offset                      **/
@@ -223,6 +234,7 @@ void blink_m(void) {
 /******************************************************************************/
 void setup(void) {                
   uint16_t mem;
+
 #ifdef HAS_NEO_PIXEL_LIB
   setup_neoPixel();
 #endif
@@ -235,6 +247,11 @@ void setup(void) {
   while (!Serial) {
     blink_m();
   }
+
+#ifdef HAS_QSPI_FLASHROM_LIB // see yaffa.h for setting this toggle
+  setup_qspiFlashROM(); // for Metro M4 Express Beta w/QSPI flashROM, only.
+  Serial.println("Seen: Line 250 sketch");
+#endif
 
 
 #ifdef HAS_SPI_FLASH_DEMO
@@ -267,8 +284,8 @@ void setup(void) {
   
   // Serial.print("\n warm boot message - early bird.  //  Gemma M0 29 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
      Serial.print("\n warm boot message - early bird.  \r\n KELPVULE rp DEV - gen-exp-m4  14 May 2018\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n Mon 14 May 18:47:28 UTC 2018");
-     Serial.print("\n 4737-a3a-05a-");
+     Serial.print("\n Mon 14 May 22:46:36 UTC 2018");
+     Serial.print("\n 4737-a3a-05e-");
 
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Metro M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Feather M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation

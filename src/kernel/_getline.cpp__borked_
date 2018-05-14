@@ -1,6 +1,15 @@
 // Mon 14 May 22:46:36 UTC 2018
 // 4737-a3a-05e-
 
+// Sun 13 May 03:29:16 UTC 2018
+// 4737-a3a-03c-
+
+// Sun 13 May 02:27:45 UTC 2018
+// 4737-a3a-03a-
+
+// Sun 13 May 01:18:47 UTC 2018
+// 4737-a3a-01a-
+
 // Tue Jan 16 02:30:09 UTC 2018
 // 4737-a0d-05j-
 
@@ -61,6 +70,11 @@
 
   #define FLASH_TYPE     SPIFLASHTYPE_W25Q16BV  // Flash chip type.
 
+
+#ifdef __SAMD51J19A__
+  #define FLASH_SS       SS1    // Flash chip SS pin.
+#endif
+
 #ifdef ADAFRUIT_METRO_M0_EXPRESS
   #define FLASH_SS       SS1    // Flash chip SS pin.
 #endif
@@ -80,6 +94,11 @@
 
 
 // ------------------------ this was SPI   not    SPI1   ------ when did this change?
+
+// comment: QSPI see variant.h  -- many more wires used in this interface?
+#ifdef __SAMD51J19A__
+  #define FLASH_SPI_PORT      SPI       // What SPI port is Flash on?
+#endif
 
 #ifdef ADAFRUIT_METRO_M0_EXPRESS
   #define FLASH_SPI_PORT      SPI1      // What SPI port is Flash on?
@@ -128,15 +147,17 @@ void setup_spi_flash(void) {
   // Serial.print("Flash chip JEDEC ID: 0x"); Serial.println(flash.GetJEDECID(), HEX);
   Serial.print("Flash chip JEDEC ID: 0x");
   Serial.println(flash.GetJEDECID(), HEX);
-  // Serial.println("Line 095 seen.");
-  // Serial.println(" want to see a message that says: Flash chip JEDEC ID: 0x1401501\r\n");
+  Serial.println("Line 128 seen."); // debug may 2018
+  Serial.println(" want to see a message that says: Flash chip JEDEC ID: 0x1401501\r\n"); // debug may 2018
 
   if (!fatfs.begin()) {
     Serial.println("E: fatfs.begin() fault.  LINE 099");
     Serial.print("Can haz ");
     Serial.println(SPI_FlashROM_FILENAME);
     Serial.println("Was the flash chip formatted with the fatfs_format example?");
-    while(1);
+    Serial.println("\r\n\r\n");
+    Serial.println("WARNING: flash chip not identified!  Do not try to write.");
+    // while(1); // debug - want this hold as a trap for faults
   }
   // Serial.println("fatfs is mounted.");
 }

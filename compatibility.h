@@ -1,3 +1,9 @@
+// Mon 14 May 22:46:36 UTC 2018
+// 4737-a3a-05e-
+
+// Mon 14 May 20:26:35 UTC 2018
+// 4737-a3a-05c-
+
 // Mon 14 May 18:47:28 UTC 2018
 // 4737-a3a-05a-
 
@@ -46,6 +52,7 @@
 // METRO M4 (Metro M4 Express Beta)
 // + QSPI flash 2MB - incompatible with SPI flashROM routines for the M0 series
 // __SAMD51J19A__ __SAMD51__ __FPU_PRESENT ARM_MATH_CM4
+// ARDUINO_METRO_M4 -DARDUINO_ARCH_SAMD  -D__SAMD51J19A__
 
 #undef QSPI_FLASHROM_PRESENT // re-enable only for some SAMD51 target boards
 
@@ -67,13 +74,21 @@
 #endif // #ifdef ADAFRUIT_METRO_M0_EXPRESS
 
 // M4 target offers an impoverished test - redefine later, tracking upstream refinements.
-#ifdef __SAMD51J19A__
+// __SAMD51J19A__
+
+
+// #ifdef _SAMD51J19A_
+// #ifdef __SAMD51J19A__
+// #ifdef ARDUINO_METRO_M4
+#ifdef ARDUINO_METRO_M4
   #undef HAS_SPI_FLASH_DEMO
   #define QSPI_FLASHROM_PRESENT // assume Metro M4 Express Beta - for now (May 2018)
-#endif // #ifdef __SAMD51J19A__
+#endif // #ifdef ARDUINO_METRO_M4
+// #endif // #ifdef _SAMD51J19A_
+// #endif // #ifdef __SAMD51J19A__
 
 // global override - debug
-#define HAS_SPI_FLASH_DEMO
-#undef HAS_SPI_FLASH_DEMO // kludge.  QSPI flash may be a game-changer.  wait.
+// #define HAS_SPI_FLASH_DEMO
+// #undef HAS_SPI_FLASH_DEMO // kludge.  QSPI flash may be a game-changer.  wait.
 // load echo! remove download are relevant only to presence of SPI flashROM.
 
