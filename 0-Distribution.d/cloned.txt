@@ -1,0 +1,10 @@
+
+https://github.com/adafruit/Adafruit_QSPI.git
+
+https://github.com/gallegojm/Arduino-FatFs.git
+
+https://github.com/adafruit/Adafruit_SPIFlash.git
+
+// https://github.com/adafruit/Adafruit_NeoPixel.git
+
+// https://github.com/adafruit/ST7565-LCD.git  ppp  
