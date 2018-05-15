@@ -1,15 +1,17 @@
-// Mon 14 May 22:46:36 UTC 2018
-// 4737-a3a-05e-
+// Tue 15 May 01:57:23 UTC 2018
+// 4737-a3a-05f-
+
+// teleopopo  powatadru
 
 // casifras  handramit
 // trimpot feldspar potako
 // elinore sagritta
-// kara tphop inga soll
-
-// ispo factotum milagre
-// kandra helgar tronde
 
 // working on an M4 implementation/port.
+
+// previous timestamps:
+// Mon 14 May 22:46:36 UTC 2018
+// 4737-a3a-05e-
 
 // Mon 14 May 20:26:35 UTC 2018
 // 4737-a3a-05c-
@@ -26,17 +28,13 @@
 // .arduino15/packages/adafruit/hardware/samd/1.0.21/variants/feather_m0_express/variant.h
 // that's the location for feather M0 Express that gave D29 and D30 correctly.  15 Feb 2018d
 
-
 // feather M0 Expresss:
 //    SCK is on D30  -- ainsuForth can use pinMode and pinWrite on '30'.
 //    MOSI is on D29
 
-
 // confirmed: ST7565 can run on MOSI and SCK when referred to as 29 and 30 in the regular
 //                   adafruit  arduino  ST7565 driver.  15 Feb 2018 15:48 UTC
 //  using Feather M0 express
-
-
 
 // MALAMUTE   CHACHARRE   PELGRUUT   KUSKIP
 
@@ -45,16 +43,11 @@
 //   on 31 Jan 2018.  When incrementing ainsuForth-gen-exp shred
 //   in (immediate) future, please take this into account.
 
-
-
 // GOOD ON Metro M0 Express.  Most likely fine on Trinket M0,
 // Feather M0 Express as well as CPX.  Needs additional tests
 // to confirm all that.
 
 // Only Gemma M0 is unconfigured and untested, now, of the five platforms.
-
-
-// previous timestamps:
 
 // Tue Jan 16 02:30:09 UTC 2018
 // 4737-a0d-05j-
@@ -228,8 +221,11 @@
 // --------------------------------------------------
 // --------------------------------------------------
 // ---                                  -------------
-// ---   Thu Aug  3 21:42:35 UTC 2017   -------------
+// ---   Tue 15 May 01:57:23 UTC 2018   -------------
 // ---                                  -------------
+// --------------------------------------------------
+// --------------------------------------------------
+// SUCCESS.  Did something with QSPI on Metro M4 Express Beta.  Seems to auto-configure for Metro M0 Express - no intervention. -15 May 2018
 // --------------------------------------------------
 // --------------------------------------------------
 // SUCCESS.  Wrote a download file, then read it in, using the 'download' and then the 'load' words.  w00t.
@@ -240,12 +236,9 @@
 // BUG:  captures the '\end.' word to SPI flash file.  Omit in future revision.
 
 
-
 // MIPIXIC  CESSOME  RALDOXI  15:43z Thu 03 Aug 2017
 
 // parser looks (provisionally) functional for whole-line echo to capture file.
-
-
 
 
 // KELKANNE  GRIAMO  FISPARD 
@@ -254,7 +247,6 @@
 
 // partial: input line is echoed, and only once, in preparation for file capture to SPI flash as a file.fs or file.txt &c.
 
-
 // the 'see' word was reinstated.  Appears to function well.  2 July 22:44z
 
 // several words are now untested. 2 July 22:45z
@@ -262,9 +254,6 @@
 // ++store_fetch.cpp
 // ++dict_entries.cpp
 // major housekeeping: dict_entries.h
-
-
-
 
 
 // quite a bit of juggling.  Mistakes made?
@@ -379,5 +368,4 @@
 /**    Fix ENVIRONMENT? Query to take a string reference from the stack.     **/
 /**                                                                          **/
 /******************************************************************************/
-
 

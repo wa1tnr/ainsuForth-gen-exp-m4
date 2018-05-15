@@ -1,3 +1,6 @@
+// Tue 15 May 01:57:23 UTC 2018
+// 4737-a3a-05f-
+
 // Mon 14 May 22:46:36 UTC 2018
 // 4737-a3a-05e-
 
@@ -11,41 +14,70 @@
 #include "../../../yaffa.h"
 
 #ifdef HAS_QSPI_FLASHROM_LIB
-#include "flashrom.h"
-// close this at very end of this file.
+    #include "flashrom.h"
+    // close this at very end of this file.
 
-#define FLASH_DEVICE_GD25Q
-#ifdef FLASH_DEVICE_GD25Q
+    #define FLASH_DEVICE_GD25Q
+    #ifdef FLASH_DEVICE_GD25Q
 
-#include "Adafruit_QSPI_GD25Q.h"
-// #include "barbarian.h"
+        #include "Adafruit_QSPI_GD25Q.h"
+
 Adafruit_QSPI_GD25Q flash;
 
-#else
-#error "Flash Device not supported."
-#endif
+    #else
+        #error "Flash Device not supported."
+    #endif
 
-#define PROGSIZE 512
-
-int abc = 1;
+    #define PROGSIZE 512
 
 uint8_t progData[PROGSIZE];
 uint8_t readData[PROGSIZE];
 
-// void setup(){
 void setup_qspiFlashROM(void) {
+    Serial.println("Hello from setup_qspi stuff.");
+    if (!flash.begin()) {
+        Serial.println("Could not find flash on QSPI bus!");
+        while(1);
+    }
+    Serial.println("Found QSPI Flash"); 
 
-  Serial.println("Hello from setup_qspi stuff.");
+    // data fill
+    for (int i=0; i<PROGSIZE; i++) {
+        progData[i] = i;
+    }
 
-  if (!flash.begin()){ Serial.println("Could not find flash on QSPI bus!"); while(1); }
-  Serial.println("Found QSPI Flash"); 
-  /* for (int i=0; i<PROGSIZE; i++){ progData[i] = i; } 
-  Serial.print("Erasing..."); flash.chipErase(); Serial.println("done!"); 
-  Serial.print("Writing..."); flash.writeMemory(0, progData, sizeof(progData)); Serial.println("done!"); 
-  Serial.print("Reading..."); flash.readMemory(0, readData, sizeof(readData)); Serial.println("done!"); 
-  for (int i=0; i<PROGSIZE; i++){ if(readData[i] != progData[i]){ Serial.print("ERROR: mismatch found at index "); Serial.println(i); while(1); } }
-  */
-  Serial.println("Verify tentative - possibly successful.");
+    // erase
+    Serial.print("Erasing...");
+    flash.chipErase();
+    Serial.println("done!"); 
+
+    // write out memory image to QSPI flashROM
+    Serial.print("Writing...");
+
+    // in one statement, 512 bytes are written:
+    flash.writeMemory(0, progData, sizeof(progData));
+
+    Serial.println("done!"); 
+
+    // read the memory image stored in QSPI flashROM
+    Serial.print("Reading...");
+
+    flash.readMemory(0, readData, sizeof(readData));
+
+    // the buffer readData should now hold, in RAM,
+    // the memory image retrieved from flashROM
+
+    Serial.println("done!"); 
+
+    for (int i=0; i<PROGSIZE; i++) {
+        if(readData[i] != progData[i]) {
+            Serial.print("ERROR: mismatch found at index ");
+            Serial.println(i);
+            while(1); // wait forever - trapped.  Use a throw here.
+        }
+    }
+    Serial.println("Flash was populated, read back into RAM, then compared.");
+    Serial.println("SUCCESS.  Basic QSPI flashROM use is confirmed.");
 }
 
 
