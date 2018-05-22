@@ -1,17 +1,18 @@
-// Tue 22 May 23:16:53 UTC 2018
-// 4737-a3a-05k-
-
-// This version modified to allow onboard NPX on Pin 40 as
-// well as a strip of 8x NeoPixels on Pin 12. --22 May 2018
-
 // Sun 13 May 01:18:47 UTC 2018
 // 4737-a3a-01a-
 
 // Tue Jan 16 02:30:09 UTC 2018
 // 4737-a0d-05j-
 
+// Tue Jan 16 01:14:29 UTC 2018
+// 4737-a0d-05f-
+
 // Mon Jan 15 19:19:47 UTC 2018
 // 4737-a0d-05d-
+
+// Mon Jan 15 18:14:33 UTC 2018
+// 4737-a0d-05c-
+
 
 // Tue Jul 25 07:27:48 UTC 2017
 // 4735-b0a-09-
@@ -80,8 +81,6 @@
   #endif
 #endif // 15 Jan 2018
 
-#undef PIN     // override 22 May 2018
-#define PIN 12 // override 22 May 2018 - M4X arbitrarily assigned.
 
 // How many NeoPixels are attached to the Arduino?
 // #define NUMPIXELS        10 // circuit playground Express
@@ -113,31 +112,18 @@
     #endif                     // Not zero - some other define can remove this code entirely
 #endif // 15 Jan 2018
 
-#undef NUMPIXELS    // 22 may override
-#define NUMPIXELS 8 // 22 may override
-
 // When we setup the NeoPixel library, we tell it how many pixels,
 // and which pin to use to send signals.
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
-
-// might be a memory hog; this is for the legacy onboard NeoPixel, only:
-Adafruit_NeoPixel pix40 =  Adafruit_NeoPixel(1, 40, NEO_GRB + NEO_KHZ800);
 
 int delayval = 300;
 int delaySval = 110;
 
 int neoPixelNumber = 0; // zero is a legal value and names the first pixel in the string
 
-void setup_neoPix40(void) { // for the legacy onboard NeoPixel only
-  pix40.begin();
-  // the whole purpose of providing for the onboard NPX  is to recolor it:
-  pix40.setPixelColor(0, 0, 1, 1); pix40.show();
-}
-
 void setup_neoPixel(void) {
   pixels.begin(); // This initializes the NeoPixel library.
-  setup_neoPix40();
 }
 
 
@@ -195,9 +181,7 @@ void _rgb(void) { // ( red green blue -- )
 
     _npx_fetch();
 
-    // 22 may // pixels.setPixelColor(dStack_pop(), pixels.Color(dStack_pop(), dStack_pop(), dStack_pop()));
     pixels.setPixelColor(dStack_pop(), pixels.Color(dStack_pop(), dStack_pop(), dStack_pop()));
-    // 22 may // int ji = dStack_pop(); pixels.setPixelColor(3, pixels.Color(dStack_pop(), dStack_pop(), dStack_pop()));
     pixels.show();
 }
 

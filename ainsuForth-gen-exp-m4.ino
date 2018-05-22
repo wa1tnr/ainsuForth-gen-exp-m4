@@ -1,5 +1,8 @@
-// Tue 15 May 01:57:23 UTC 2018
-// 4737-a3a-05f-
+// Tue 22 May 23:16:53 UTC 2018
+// 4737-a3a-05k-
+
+// keevado nfelgik
+// carwlik  nefguh
 
 // teleopopo  powatadru
 
@@ -10,6 +13,9 @@
 // working on an M4 implementation/port.
 
 // previous timestamps:
+// Tue 15 May 01:57:23 UTC 2018
+// 4737-a3a-05f-
+
 // Mon 14 May 22:46:36 UTC 2018
 // 4737-a3a-05e-
 
