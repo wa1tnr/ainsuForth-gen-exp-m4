@@ -1,3 +1,8 @@
+// Wed 23 May 03:16:05 UTC 2018
+// 4737-a3a-05p-
+
+// source word reinstated 23 May 2018.
+
 // Fri Nov 24 04:49:08 UTC 2017
 // 4735-b0c-07z-   the -07x- is new Nov 19, 2017.
 
@@ -1236,7 +1241,7 @@ void _tick(void) {
 // }
 
 
-
+// 2018 May 23rd 03:12z uncommented.
 // const char source_str[] = "source";
 // ( -- c-addr u )
 // c-addr is the address of, and u is the number of characters in, the input buffer.
@@ -1245,6 +1250,14 @@ void _tick(void) {
 //   dStack_push(strlen(cInputBuffer));
 // }
 
+
+// 2018 May 23rd 03:12z uncommented.
+const char source_str[] = "source"; // ( -- c-addr u )
+// c-addr is the address of, and u is the number of characters in, the input buffer.
+void _source(void) {
+  dStack_push((size_t)&cInputBuffer);
+  dStack_push(strlen(cInputBuffer));
+}
 
 
 // const char state_str[] = "state";

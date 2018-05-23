@@ -1,0 +1,272 @@
+
+here . $20000294  ok....
+.s <4> $6 $2000018B $20000185 $8  ok....
+.s <4> $6 $2000018B $20000185 $8  ok....
+43  ok.....
+dup emit dup negate swap drop 99 98 97 source cr .s cr C
+<10> $6 $2000018B $20000185 $8 $FFFFFFBD $99 $98 $97 $2000018B $36 
+ ok..........
+over over  ok............
+.s <12> $6 $2000018B $20000185 $8 $FFFFFFBD $99 $98 $97 $2000018B $36 $2000018B $36  ok............
+4 /  ok............
+.s <12> $6 $2000018B $20000185 $8 $FFFFFFBD $99 $98 $97 $2000018B $36 $2000018B $D  ok............
+dump 
+$20000180 00 00 00 00 00 00 00 00 00 00 00 64 75 6D 70 00       ...........dump.
+                                            d  u  m  p
+$20000190 6F 76 65 72 00 75 70 20 6E 65 67 61 74 65 20 73       over.up negate s
+           o  v  e  r     u  p     n  e  g  a  t  e     s
+$200001A0 77 61 70 20 64 72 6F 70 20 39 39 20 39 38 20 39       wap drop 99 98 9
+           w  a  p     d  r  o  p     9  9     9  8     9
+$200001B0 37 20 73 6F 75 72 63 65 20 63 72 20 2E 73 20 63       7 source cr .s c ok..........
+           7     s  o  u  r  c  e     c  r              c
+
+61 - a   64 - d   65 - e   67 - g   6d - m
+
+68 h 69 i 6a j 6b k 6c l 6d m 6e n 6f o
+70 p 71 q 72 r 7 73 s 74 t 75 u 76 v 77 w
+39 9 38 8 37 7 .. 31 1
+
+$36 is 54 decimal.
+
+hex here 2b
+cr .s cr dup emit swap dup negate swap drop 99 98 97 drop cr cr source .s --
+
+
+     ainsuForth - 2018 - wa1tnr    words: 87  
+         YAFFA - Yet Another Forth For Arduino, 
+         Copyright (C) 2012 Stuart Wood
+hex here 2b  ok..
+cr .s cr dup emit swap dup negate swap drop 99 98 97 drop cr cr source .s 
+<2> $20000294 $2B 
++
+
+<6> $2B $DFFFFD6C $99 $98 $2000018B $49  ok......
+
+hex here <1> $20000294
+2b <2> $20000294 $2B
+dup <3> $20000294 $2B $2B
+emit <2> $20000294 $2B
+swap <2> $2B $20000294
+dup  <3> $2B $20000294 $20000294
+negate <3> $2B $20000294 $DFFFFD6C
+swap <3> $2B $DFFFFD6C $20000294
+drop <2> $2B $DFFFFD6C
+99 98 97 <5> $2B $DFFFFD6C $99 $98 $97
+drop <4> $2B $DFFFFD6C $99 $98
+source <6> $2B $DFFFFD6C $99 $98 $2000018B $49
+
+
+
+hex here 2b cr .s cr emit negate .s cr
+cr 99 98 97 cr cr source 4 / 1 + over over .s cr dump --
+
+     ainsuForth - 2018 - wa1tnr    words: 87  
+         YAFFA - Yet Another Forth For Arduino, 
+         Copyright (C) 2012 Stuart Wood
+hex here 2b cr .s cr emit negate .s cr 
+<2> $20000294 $2B 
++<1> $DFFFFD6C 
+ ok.
+cr 99 98 97 cr cr source 4 / 1 + over over .s cr dump 
+
+
+<8> $DFFFFD6C $99 $98 $97 $2000018B $E $2000018B $E 
+
+$20000180 00 00 00 00 00 00 00 00 00 00 00 63 72 20 39 39       ...........cr 99
+$20000190 20 39 38 20 39 37 20 63 72 20 63 72 20 73 6F 75        98 97 cr cr sou
+$200001A0 72 63 65 20 34 20 2F 20 31 20 2B 20 6F 76 65 72       rce 4 / 1 + over
+$200001B0 20 6F 76 65 72 20 2E 73 20 63 72 20 64 75 6D 70        over .s cr dump
+$200001C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00       ................ ok......
+
+hex here 2b cr .s cr <2> $20000294 $2b
+emit negate .s cr +<1> $DFFFFD6C 
+cr 99 98 97 cr cr <4> $DFFFFD6C $99 $98 $97
+source <6> $DFFFFD6C $99 $98 $97 $2000018B $E 
+
+
+
+hex here 2b cr .s cr emit negate .s cr cr 99 98 97 cr cr source
+dup cr . cr 4 / .s 1 + over over .s cr dump --
+
+hex here 2b cr .s cr <2> $20000294 $2b
+emit negate .s cr cr +<1> $DFFFFD6C
+99 98 97 cr cr <4> $DFFFFD6C $99 $98 $97
+source <6> $DFFFFD6C $99 $98 $97 $2000018B $3F
+dup cr . cr 4 / 1 + <n> $DFFFFD6C $99 $98 $97 $2000018B $3F $4
+
+
+over over .s cr dump --
+
+     ainsuForth - 2018 - wa1tnr    words: 87  
+         YAFFA - Yet Another Forth For Arduino, 
+         Copyright (C) 2012 Stuart Wood
+hex here 2b cr .s cr emit negate .s cr cr 99 98 97 cr cr source 
+<2> $20000294 $2B 
++<1> $DFFFFD6C 
+
+
+
+ ok......
+dup cr . cr 4 / 1 + over over .s cr dump 
+$3F 
+<8> $DFFFFD6C $99 $98 $97 $2000018B $10 $2000018B $10 
+
+$20000180 00 00 00 00 00 00 00 00 00 00 00 64 75 70 20 63       ...........dup c
+$20000190 72 20 2E 20 63 72 20 34 20 2F 20 31 20 2B 20 6F       r . cr 4 / 1 + o
+$200001A0 76 65 72 20 6F 76 65 72 20 2E 73 20 63 72 20 64       ver over .s cr d
+$200001B0 75 6D 70 00 20 39 39 20 39 38 20 39 37 20 63 72       ump. 99 98 97 cr
+$200001C0 20 63 72 20 73 6F 75 72 63 65 00 00 00 00 00 00        cr source...... ok......
+
+
+
+
+
+
+hex here 2b cr .s cr emit negate .s cr cr 99 98 97 cr cr source
+dup cr . cr 4 / .s cr 1 + over over .s cr dump --
+
+hex here 2b cr .s cr <2> $20000294 $2b
+emit negate .s cr cr +<1> $DFFFFD6C
+99 98 97 cr cr <4> $DFFFFD6C $99 $98 $97
+source <6> $DFFFFD6C $99 $98 $97 $2000018B $3F
+dup cr . cr 4 / .s <6> $DFFFFD6C $99 $98 $97 $2000018B $F
+1 + over over .s cr <8> $DFFFFD6C $99 $98 $97 $2000018B $10 $2000018B $10
+dump 
+
+ 4737-a3a-05e-
+
+     ainsuForth - 2018 - wa1tnr    words: 87  
+         YAFFA - Yet Another Forth For Arduino, 
+         Copyright (C) 2012 Stuart Wood
+.s <0>  ok
+hex here 2b cr .s cr emit negate .s cr cr 99 98 97 cr cr source 
+<2> $20000294 $2B 
++<1> $DFFFFD6C 
+
+
+ ok......
+dup cr . cr 4 / .s 1 + over over .s cr dump 
+$3F 
+<6> $DFFFFD6C $99 $98 $97 $2000018B $F <8> $DFFFFD6C $99 $98 $97 $2000018B $10 $2000018B $10 
+
+$20000180 00 00 00 00 00 00 00 00 00 00 00 64 75 70 20 63       ...........dup c
+$20000190 72 20 2E 20 63 72 20 34 20 2F 20 2E 73 20 31 20       r . cr 4 / .s 1 
+$200001A0 2B 20 6F 76 65 72 20 6F 76 65 72 20 2E 73 20 63       + over over .s c
+$200001B0 72 20 64 75 6D 70 00 20 39 38 20 39 37 20 63 72       r dump. 98 97 cr
+$200001C0 20 63 72 20 73 6F 75 72 63 65 00 00 00 00 00 00        cr source...... ok......
+
+
+NEW:
+
+
+hex here 2b cr .s cr emit negate .s cr cr 99 98 97 cr cr source
+dup cr . cr 4 / .s cr 1 + over over .s cr dump --
+
+ Mon 14 May 22:46:36 UTC 2018
+ 4737-a3a-05e-
+
+     ainsuForth - 2018 - wa1tnr    words: 87  
+         YAFFA - Yet Another Forth For Arduino, 
+         Copyright (C) 2012 Stuart Wood
+hex here 2b cr .s cr emit negate .s cr cr 99 98 97 cr cr source 
+<2> $20000294 $2B 
++<1> $DFFFFD6C 
+
+
+
+ ok......
+dup cr . cr 4 / .s cr 1 + over over .s cr dump 
+$3F 
+<6> $DFFFFD6C $99 $98 $97 $2000018B $F 
+<8> $DFFFFD6C $99 $98 $97 $2000018B $10 $2000018B $10 
+
+$20000180 00 00 00 00 00 00 00 00 00 00 00 64 75 70 20 63       ...........dup c
+$20000190 72 20 2E 20 63 72 20 34 20 2F 20 2E 73 20 63 72       r . cr 4 / .s cr
+$200001A0 20 31 20 2B 20 6F 76 65 72 20 6F 76 65 72 20 2E        1 + over over .
+$200001B0 73 20 63 72 20 64 75 6D 70 00 20 39 37 20 63 72       s cr dump. 97 cr
+$200001C0 20 63 72 20 73 6F 75 72 63 65 00 00 00 00 00 00        cr source...... ok......
+
+
+
+
+
+NEW:
+
+hex cr 33 spaces cr 22 spaces cr 11 spaces 99 dup drop 98 over over + drop swap source
+dup cr . cr 4 / .s cr 1 + over over .s cr dump 
+
+RESULTS:
+
+ 4737-a3a-05e-
+
+     ainsuForth - 2018 - wa1tnr    words: 87  
+         YAFFA - Yet Another Forth For Arduino, 
+         Copyright (C) 2012 Stuart Wood
+hex cr 33 spaces cr 22 spaces cr 11 spaces 99 dup drop 98 over over + drop swap source 
+                                                   
+                                  
+                  ok....
+                                                   
+dup cr . cr 4 / .s cr 1 + over over .s cr dump 
+$56  == 86 decimal
+<4> $98 $99 $2000018B $15 
+<6> $98 $99 $2000018B $16 $2000018B $16 
+
+$20000180 00 00 00 00 00 00 00 00 00 00 00 64 75 70 20 63       ...........dup c
+$20000190 72 20 2E 20 63 72 20 34 20 2F 20 2E 73 20 63 72       r . cr 4 / .s cr
+$200001A0 20 31 20 2B 20 6F 76 65 72 20 6F 76 65 72 20 2E        1 + over over .
+$200001B0 73 20 63 72 20 64 75 6D 70 00 75 70 20 64 72 6F       s cr dump.up dro
+$200001C0 70 20 39 38 20 6F 76 65 72 20 6F 76 65 72 20 2B       p 98 over over +
+$200001D0 20 64 72 6F 70 20 73 77 61 70 20 73 6F 75 72 63        drop swap sourc
+$200001E0 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00       e............... ok....
+
+
+
+NEW:
+
+hex cr 33 spaces cr 22 spaces cr 11 spaces 99 dup drop 98 over over + drop swap source dup cr . cr 4 / 1 + dump
+
+RESULTS:
+
+
+ 4737-a3a-05e-
+
+     ainsuForth - 2018 - wa1tnr    words: 87  
+         YAFFA - Yet Another Forth For Arduino, 
+         Copyright (C) 2012 Stuart Wood
+hex cr 33 spaces cr 22 spaces cr 11 spaces \
+   99 dup drop 98 over over + drop swap source dup cr . cr 4 / 1 + dump 
+                                                   
+                                  
+                 
+$6F  ( == 111 in decimal)
+
+$20000180 00 00 00 00 00 00 00 00 00 00 00 68 65 78 20 63       ...........hex c
+$20000190 72 20 33 33 20 73 70 61 63 65 73 20 63 72 20 32       r 33 spaces cr 2
+$200001A0 32 20 73 70 61 63 65 73 20 63 72 20 31 31 20 73       2 spaces cr 11 s
+$200001B0 70 61 63 65 73 20 39 39 20 64 75 70 20 64 72 6F       paces 99 dup dro
+$200001C0 70 20 39 38 20 6F 76 65 72 20 6F 76 65 72 20 2B       p 98 over over +
+$200001D0 20 64 72 6F 70 20 73 77 61 70 20 73 6F 75 72 63        drop swap sourc
+$200001E0 65 20 64 75 70 20 63 72 20 2E 20 63 72 20 34 20       e dup cr . cr 4 
+$200001F0 2F 20 31 20 2B 20 64 75 6D 70 00 00 00 00 00 00       / 1 + dump...... ok..
+
+
+afaict, the entire source line is reflected in the dump, there, including
+the source following the use of the 'source' word.
+
+So it isn't evaluated until CR/LF is typed, which gives the entire line,
+right to and including the 'dump' word (in terms of the buffer that was
+used to input this line of source).
+
+What is here is a complete way to capture one line of input typed at
+the console, in the form of a dump (which should be the last word on
+the line, if capture is wanted).
+
+Unsure if there's a way to capture the line beyond that; suggest the
+inputs to 'dump' be used with some other word (as the 'dump' word did
+not clobber the buffer -- since in effect the dump word happens
+-- in some sense -- 'off screen' (not in the terminal and not by
+using its buffer(s)).  Maybe. ;)
+
+
+Wed 23 May 05:37:05 UTC 2018

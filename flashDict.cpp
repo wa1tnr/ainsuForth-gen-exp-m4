@@ -1,3 +1,9 @@
+// Wed 23 May 03:16:05 UTC 2018
+// 4737-a3a-05p-
+
+// source word uncommented.
+
+
 // Mon 14 May 18:47:28 UTC 2018
 // 4737-a3a-05a-
 
@@ -221,7 +227,7 @@ const flashEntry_t flashDict[] = {
 //   { s_to_d_str,         _s_to_d,          NORMAL },
 //   { sign_str,           _sign,            NORMAL },
 //   { sm_slash_rem_str,   _sm_slash_rem,    NORMAL },
-//   { source_str,         _source,          NORMAL },
+  { source_str,         _source,          NORMAL }, // uncommented 2018 23 May
   { space_str,          _space,           NORMAL },
   { spaces_str,         _spaces,          NORMAL },
 //   { state_str,          _state,           NORMAL },
