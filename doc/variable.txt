@@ -1,0 +1,82 @@
+
+ Mon 14 May 22:46:36 UTC 2018
+ 4737-a3a-05e-
+
+     ainsuForth - 2018 - wa1tnr    words: 86  
+         YAFFA - Yet Another Forth For Arduino, 
+         Copyright (C) 2012 Stuart Wood
+variable tefla  ok
+tefla  ok.
+44 swap !  ok
+tefla  ok.
+.s <1> 536871592  ok.
+@  ok.
+.s <1> 44  ok.
+
+ - - -
+
+The utterance 'variable tefla' creates a new variable named tefla
+at a location very close to 'here'.  So in this manner, the name
+of the variable is specified similarly to what comes after s" or ." --
+the 'variable' word sets up conditions to receive a short string
+of text.  There is no ending delimiter, just type the name of
+the variable to end that conversation with the forth interpreter.
+
+Typing 'tefla' places the address of tefla on TOS.
+
+
+ Mon 14 May 22:46:36 UTC 2018
+ 4737-a3a-05e-
+
+     ainsuForth - 2018 - wa1tnr    words: 86  
+         YAFFA - Yet Another Forth For Arduino, 
+         Copyright (C) 2012 Stuart Wood
+
+# populate TOS with $here:
+
+hex here .s <1> $20000294  ok.
+
+# dump length is to be 4.  Establish, make a copy of both:
+
+4 over over .s <4> $20000294 $4 $20000294 $4  ok....
+
+# dump
+
+dump 
+$20000290 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00       ................
+$200002A0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00       ................ ok..
+
+# create a new variable named tefla:
+
+variable tefla .s <2> $20000294 $4  ok..
+
+# calling the (new) tefla variable places its address on TOS:
+
+tefla .s <3> $20000294 $4 $200002A8  ok...
+
+# establish some data on TOS -- a hex number $c0ffee:
+
+c0ffee .s <4> $20000294 $4 $200002A8 $C0FFEE  ok....
+
+# store that data .. in $tefla:
+
+swap ! .s <2> $20000294 $4  ok..
+
+# again, make a duplicate of the address of $here and the dump length of 4:
+
+over over .s <4> $20000294 $4 $20000294 $4  ok....
+
+# and dump (again) from $here (which will overlap onto $tefla's storage):
+
+dump 
+$20000290 94 02 00 20 00 00 00 00 A4 02 00 20 00 74 65 66       ... ....... .tef
+$200002A0 6C 61 00 00 0F 00 00 00 EE FF C0 00 01 00 00 00       la.............. ok..
+           0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+
+# $c0ffee was stored in $tefla at $200002A8 or near there.
+Not certain what order each byte is displayed in, with the
+dump word.
+
+
+
+
