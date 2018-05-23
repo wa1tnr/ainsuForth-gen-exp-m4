@@ -1,13 +1,10 @@
+// Wed 23 May 19:37:12 UTC 2018
+// 4737-a3a-05s-
+
+// previous timestamps:
 // Mon 14 May 22:46:36 UTC 2018
 // 4737-a3a-05e-
 
-// Mon 14 May 20:26:35 UTC 2018
-// 4737-a3a-05c-
-
-// Mon 14 May 18:47:28 UTC 2018
-// 4737-a3a-05a-
-
-// previous timestamps:
 // Sun 13 May 06:53:54 UTC 2018
 // 4737-a3a-03f-
 
@@ -250,7 +247,7 @@ void setup(void) {
 
 #ifdef HAS_QSPI_FLASHROM_LIB // see yaffa.h for setting this toggle
   setup_qspiFlashROM(); // for Metro M4 Express Beta w/QSPI flashROM, only.
-  Serial.println("Seen: Line 250 sketch");
+  // Serial.println("Seen: Line 250 sketch");
 #endif
 
 
@@ -283,9 +280,9 @@ void setup(void) {
   pOldHere = pHere;
   
   // Serial.print("\n warm boot message - early bird.  //  Gemma M0 29 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n warm boot message - early bird.  \r\n KELPVULE rp DEV - gen-exp-m4  14 May 2018\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n Mon 14 May 22:46:36 UTC 2018");
-     Serial.print("\n 4737-a3a-05e-");
+     Serial.print("\n warm boot message - early bird.  \r\n CANNADALE rc DEV - gen-exp-m4  23 May 2018\r\n          type 'warm' to reboot"); // instant confirmation
+     Serial.print("\n Wed 23 May 19:37:12 UTC 2018");
+     Serial.print("\n 4737-a3a-05s-");
 
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Metro M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Feather M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation

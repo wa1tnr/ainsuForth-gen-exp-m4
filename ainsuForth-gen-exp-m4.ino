@@ -1,19 +1,17 @@
-// Wed 23 May 03:16:05 UTC 2018
-// 4737-a3a-05p-
+// Wed 23 May 19:37:12 UTC 2018
+// 4737-a3a-05s-
 
+// fibebbl
+// kronstan  telvugulo
 // pebliak  nevado  tesfu
 // keevado nfelgik
-// carwlik  nefguh
-
-// teleopopo  powatadru
-
-// casifras  handramit
-// trimpot feldspar potako
-// elinore sagritta
 
 // working on an M4 implementation/port.
 
 // previous timestamps:
+// Wed 23 May 03:16:05 UTC 2018
+// 4737-a3a-05p-
+
 // Tue 22 May 23:16:53 UTC 2018
 // 4737-a3a-05k-
 
