@@ -1,11 +1,16 @@
 # ainsuForth-gen-exp-m4
 ainsuForth - generalized - all targets including SAMD51 M4 - experimental
 
++Metro M4 Express     - SAMD51J19A
++ItsyBitsy M4 Express - SAMD51G19A
 
 previously ainsuForth-gen-exp
 
-Nothing else in this README.md is reliable, as it is a copy-over
-from an earlier project.
+12 June 2018: Nothing said below this line is reliable, as it is
+a copy-over from an earlier project and hasn't been looked at,
+recently.  Ignore (or interpret from past events).
+
+ - - - - - - - -
 
 Suggest: diff against ainsuForth-gen-exp -- which was the best
          SAMD21 M0 effort, to date.
