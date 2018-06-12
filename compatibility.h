@@ -1,3 +1,10 @@
+// Tue 12 Jun 20:55:50 UTC 2018
+// 4737-a3a-09a-
+
+// previous timestamps:
+// Wed 30 May 17:49:01 UTC 2018
+// 4737-a3a-07a-
+
 // Mon 14 May 22:46:36 UTC 2018
 // 4737-a3a-05e-
 
@@ -7,7 +14,6 @@
 // Mon 14 May 18:47:28 UTC 2018
 // 4737-a3a-05a-
 
-// previous timestamps:
 // Sun 13 May 06:53:54 UTC 2018
 // 4737-a3a-03f-
 
@@ -80,7 +86,8 @@
 // #ifdef _SAMD51J19A_
 // #ifdef __SAMD51J19A__
 // #ifdef ARDUINO_METRO_M4
-#ifdef ARDUINO_METRO_M4
+// #ifdef ADAFRUIT_METRO_M4_EXPRESS
+#ifdef ADAFRUIT_METRO_M4_EXPRESS
   #undef HAS_SPI_FLASH_DEMO
   #define QSPI_FLASHROM_PRESENT // assume Metro M4 Express Beta - for now (May 2018)
 #endif // #ifdef ARDUINO_METRO_M4
@@ -92,3 +99,10 @@
 // #undef HAS_SPI_FLASH_DEMO // kludge.  QSPI flash may be a game-changer.  wait.
 // load echo! remove download are relevant only to presence of SPI flashROM.
 
+
+// adafruit_itsybitsy_m4.build.extra_flags=-D__SAMD51G19A__ -DADAFRUIT_ITSYBITSY_M4_EXPRESS -D__SAMD51__ {build.usb_flags} -D__FPU_PRESENT -DARM_MATH_CM4 -DCRYSTALLESS -mfloat-abi=hard -mfpu=fpv4-sp-d16
+#ifdef ADAFRUIT_ITSYBITSY_M4_EXPRESS
+  #undef HAS_SPI_FLASH_DEMO
+  #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
+  #undef QSPI_FLASHROM_PRESENT
+#endif

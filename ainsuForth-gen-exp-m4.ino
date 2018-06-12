@@ -1,3 +1,12 @@
+// Tue 12 Jun 20:55:50 UTC 2018
+// 4737-a3a-09a-  // see the crkt (SAMD21) variant of this code for history of this shred
+
+// calcifoss
+
+// attempt to include ItsyBitsyM4 in this general/generic M4 version of the code base.
+
+
+// previous timestamps:
 // Sat 26 May 03:36:19 UTC 2018
 // 4737-a3a-05t-
 
@@ -14,7 +23,6 @@
 
 // working on an M4 implementation/port.
 
-// previous timestamps:
 // Wed 23 May 03:16:05 UTC 2018
 // 4737-a3a-05p-
 
