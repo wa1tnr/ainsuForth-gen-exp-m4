@@ -1,3 +1,6 @@
+// Tue 12 Jun 23:47:23 UTC 2018
+// 4737-a3a-09b-
+
 // Tue 12 Jun 20:55:50 UTC 2018
 // 4737-a3a-09a-
 
@@ -37,12 +40,13 @@
 // Sun Aug  6 20:09:53 UTC 2017
 // 4735-b0f-03-
 
+// compatibility.h now controls this toggle for HAS_DOTSTAR_LIB:
 // poor practice -- hard coded the answer:
-#ifdef HAS_DOTSTAR_LIB
-// d#ifndef HAS_DOTSTAR_LIB
+// #ifdef HAS_DOTSTAR_LIB
+// #ifndef HAS_DOTSTAR_LIB
 // #define HAS_DOTSTAR_LIB
-#undef HAS_DOTSTAR_LIB
-#endif
+// #undef HAS_DOTSTAR_LIB
+// #endif
 
 
 // 2017 FAT filesystem for M0 Express series boards.
@@ -209,21 +213,18 @@ void blink(void) {
 
 
 
+//  NEEDS REVIEW with other than the current ItsyBitsyM4 target - 13 June 2018
 void blink_m(void) {
 #ifdef HAS_DOTSTAR_LIB
     loop_dotstar();
-#endif
-
-
-#ifdef HAS_NEO_PIXEL_LIB
+#elif defined HAS_NEO_PIXEL_LIB
     delay(1200);
     _mblink(); // magenta 100 ms blip on neoPixel
     delay(1100);
-#else
+#endif // #ifdef HAS_DOTSTAR_LIB
     delay(1200);
     blink();
     delay(1100);
-#endif
     delay(100);
     // 2500 ms is 24 pulses per minute
 }

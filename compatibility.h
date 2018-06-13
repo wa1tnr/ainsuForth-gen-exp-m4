@@ -1,3 +1,6 @@
+// Tue 12 Jun 23:47:23 UTC 2018
+// 4737-a3a-09b-
+
 // Tue 12 Jun 20:55:50 UTC 2018
 // 4737-a3a-09a-
 
@@ -105,4 +108,27 @@
   #undef HAS_SPI_FLASH_DEMO
   #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
   #undef QSPI_FLASHROM_PRESENT
+
+
+// DOTSTAR
+// -------  use this to switch between them   ---------
+
+#undef DOTSTAR_LIB_ENABLED  // swap these two
+#define DOTSTAR_LIB_ENABLED // swap these two
+
+// -------  use this to switch between them   ---------
+
+
+#ifdef DOTSTAR_LIB_ENABLED
+  #ifndef HAS_DOTSTAR_LIB
+    #define HAS_DOTSTAR_LIB
+  #endif
 #endif
+
+#ifndef DOTSTAR_LIB_ENABLED
+  #ifdef HAS_DOTSTAR_LIB
+    #undef HAS_DOTSTAR_LIB
+  #endif
+#endif
+
+#endif // #ifdef ADAFRUIT_ITSYBITSY_M4_EXPRESS
