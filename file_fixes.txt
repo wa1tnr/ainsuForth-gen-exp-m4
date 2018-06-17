@@ -1,0 +1,16 @@
+// Sun 17 Jun 05:21:05 UTC 2018
+// 4737-a3a-0cf-
+
+This is what's wrong with JEDEC:
+
+Somehow (I use CircuitPython, personally) the directory, /forth must
+exist.  A file, ascii_xfer_a001.txt must exist.
+
+Have not settled on how to automate this (existing example code
+for Arduino and SPI flashROM is sufficient, here .. hasn't been
+implemented for ainsuForth).
+
+$ ag 001.txt
+src/kernel/getline.cpp
+35:#define SPI_FlashROM_FILENAME "/forth/ascii_xfer_a001.txt"
+
