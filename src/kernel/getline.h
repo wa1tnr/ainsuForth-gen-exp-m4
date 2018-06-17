@@ -1,3 +1,8 @@
+// Sun 17 Jun 22:09:15 UTC 2018
+// 4737-a3a-0e0-
+
+// efl - external flash mods
+
 // Fri Nov 24 23:31:39 UTC 2017
 // 4735-b0c-09b-   the -09x- is new Nov 24, 2017.
 
@@ -37,7 +42,12 @@ extern void setup_spi_flash(void);
 
 // SHOULD NOT BE NEEDED 06 Aug: extern void ascii_xfer_setup_spi_flash(void);
 
-extern void create_test_directory(void);
+
+
+
+// prototypes
+extern const char eflmkdir_str[]; // = "eflmkdir"; // forth vocabulary external flash mkdir
+extern void _eflmkdir(void); // OLD NAME WAS: extern void create_test_directory(void);
 
 extern void remove_a_file(void); // new 24 Nov 2017
 extern void write_a_test_file(void);

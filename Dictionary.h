@@ -1,3 +1,8 @@
+// Sun 17 Jun 22:09:15 UTC 2018
+// 4737-a3a-0e0-
+
+// eflmkdir word needs getline.h included
+
 // Mon 14 May 22:46:36 UTC 2018
 // 4737-a3a-05e-
 
@@ -30,7 +35,7 @@
 #include "src/kernel/load.h"
 
 // #include "src/kernel/getkey.h"
-// #include "src/kernel/getline.h"
+#include "src/kernel/getline.h" // uncommented 17 June 2018 23:04z for efl* words
 // #include "src/kernel/stacks.h"
 
 // #include "src/dict/commas.cpp"

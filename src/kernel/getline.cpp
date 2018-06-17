@@ -1,3 +1,11 @@
+// Sun 17 Jun 22:09:15 UTC 2018
+// 4737-a3a-0e0-
+
+// TODO: move some of this stuff elsewhere - way beyond the scope of the getline word.
+
+// development of directory and file creation, so
+// that the system may operate in a self-contained way.
+
 // Mon 14 May 22:46:36 UTC 2018
 // 4737-a3a-05e-
 
@@ -33,6 +41,7 @@
 // macro to name the file read or written to SPI flashROM.
 // #ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
 #define SPI_FlashROM_FILENAME "/forth/ascii_xfer_a001.txt"
+#define SPI_FlashROM_TOPDIR   "/forth"
 // #endif
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -436,33 +445,47 @@ char getKey(void) {
 // Adafruit_W25Q16BV_FatFs ascii_xfer_fatfs(ascii_xfer_flash);
 
 
-void create_test_directory(void) {
+const char eflmkdir_str[] = "eflmkdir"; // forth vocabulary external flash mkdir
+// void create_test_directory(void) {
+void _eflmkdir(void) {
   // Check if a directory called 'test' exists and create it if not there.
   // Note you should _not_ add a trailing slash (like '/test/') to directory names!
   // You can use the same exists function to check for the existance of a file too.
 
-#ifdef HAS_STANDARD_BUILD_HERE
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
+// #ifdef HAS_STANDARD_BUILD_HERE
 
-  if (!fatfs.exists("/test")) {
-    Serial.println("Test directory not found, creating...");
+// #define SPI_FlashROM_TOPDIR   "/forth"
+// if (!fatfs.exists("/test")) {
+  if (!fatfs.exists(SPI_FlashROM_TOPDIR)) {
+    Serial.println("/forth directory not found, creating...");
     // Use mkdir to create directory (note you should _not_ have a trailing slash).
-    if (!fatfs.mkdir("/test")) {
+  // if (!fatfs.mkdir("/test")) {
+    if (!fatfs.mkdir(SPI_FlashROM_TOPDIR)) {
       Serial.println("Error, failed to create test directory!");
       while(1);
     }
-    Serial.println("Created test directory!");
+    Serial.println("Created /forth directory!");
   }
 #endif
 
+
+
+
+#ifdef NEVER_DEFINED_TEN_THREE // nonsense tag to prevent compile
 #ifndef HAS_STANDARD_BUILD_HERE
 
 #ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
-  if (!fatfs.exists("/test")) { Serial.println("BAD ROBOT - fatfs.exists fails on line 97.");
+// #define SPI_FlashROM_TOPDIR   "/forth"
+// if (!fatfs.exists("/test")) { Serial.println("BAD ROBOT - fatfs.exists fails on line 97.");
+  if (!fatfs.exists(SPI_FlashROM_TOPDIR)) {
+    Serial.println("BAD ROBOT - fatfs.exists fails on line 473 June 17, 2018.");
   } else {
-    Serial.println("local: assuming test directory already exists.");
+    Serial.println("local: assuming /forth directory already exists.");
   }
 #endif // 15 Jan 2018
 
+#endif
 #endif
 }
 
@@ -867,7 +890,7 @@ void tail_code_bb(void) {
 
 void ascii_xfer_spi_flash_main(void) {
   // SHOULD NOT BE NEEDED 06 AUG: ascii_xfer_setup_spi_flash();
-  create_test_directory();
+  // _eflmkdir(); // OLD NAME WAS: create_test_directory();
   // write_a_test_file();
   // read_a_test_file();
   read_from_code_py_file(); 
