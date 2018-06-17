@@ -1,9 +1,17 @@
+// Sun 17 Jun 05:21:05 UTC 2018
+// 4737-a3a-0ce-
+
 // Sun 17 Jun 04:01:59 UTC 2018
 // 4737-a3a-0cc-
 
-// utantun   swanton  telgar fisuva
+// celepatter  utantun   swanton  telgar fisuva
 
 // 17 June 2018:
+//   Second Test Run:
+//   * Metro M0 Express tested against.  JEDEC good and the load and download words work fine, as does the remove word.
+//   * as expected NeoPixel support wasn't there.  Easy fix, just put in the effort.
+
+//   First Test Run:
 //   * tested against Feather M0 Express.  Working NeoPixel.
 //   * JEDEC good; did not instantiate file to test load and download words.
 //   *  in forth, type:
