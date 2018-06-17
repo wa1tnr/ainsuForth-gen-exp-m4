@@ -1,3 +1,6 @@
+// Sun 17 Jun 04:01:59 UTC 2018
+// 4737-a3a-0cc-
+
 // Tue 12 Jun 20:55:50 UTC 2018
 // 4737-a3a-09a-
 // CONFIDENCE is limited -- too much ifdef stuff crufted on without a rethink.
@@ -65,8 +68,9 @@
   #endif
 #endif
 
+// TODO: mass comment-out all these lines, 70-92:
 
-
+#ifdef NEVER_DEF_JUNE_2018
 // NEO_PIXEL
 // -------  use this to switch between them   ---------
 
@@ -88,6 +92,7 @@
   #endif
 #endif
 
+#endif // #ifdef NEVER_DEF_JUNE_2018
 
 
 

@@ -1,3 +1,17 @@
+// Sun 17 Jun 04:01:59 UTC 2018
+// 4737-a3a-0cc-
+
+// utantun   swanton  telgar fisuva
+
+// 17 June 2018:
+//   * tested against Feather M0 Express.  Working NeoPixel.
+//   * JEDEC good; did not instantiate file to test load and download words.
+//   *  in forth, type:
+//      1 13 pinMode 1 13 pinWrite (human delay) 0 13 pinWrite  // test D13 LED
+//   * modded to more automatically operate with NeoPixel on D8 - not working.
+//   * tested (late, just before commit) against ItsyBitsy M4 and seems fine (dotstar prelude is operational)
+
+
 // Tue 12 Jun 23:47:23 UTC 2018
 // 4737-a3a-09b-
 

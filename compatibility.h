@@ -1,21 +1,15 @@
+// Sun 17 Jun 04:01:59 UTC 2018
+// 4737-a3a-0cc-
+
+// previous timestamps:
 // Tue 12 Jun 23:47:23 UTC 2018
 // 4737-a3a-09b-
 
-// Tue 12 Jun 20:55:50 UTC 2018
-// 4737-a3a-09a-
-
-// previous timestamps:
 // Wed 30 May 17:49:01 UTC 2018
 // 4737-a3a-07a-
 
 // Mon 14 May 22:46:36 UTC 2018
 // 4737-a3a-05e-
-
-// Mon 14 May 20:26:35 UTC 2018
-// 4737-a3a-05c-
-
-// Mon 14 May 18:47:28 UTC 2018
-// 4737-a3a-05a-
 
 // Sun 13 May 06:53:54 UTC 2018
 // 4737-a3a-03f-
@@ -132,3 +126,30 @@
 #endif
 
 #endif // #ifdef ADAFRUIT_ITSYBITSY_M4_EXPRESS
+
+
+#ifdef ADAFRUIT_FEATHER_M0_EXPRESS
+
+#define COMMUTED_PIN_NPX 8 // unused - future dev or delme
+
+// NEO_PIXEL
+// -------  use this to switch between them   ---------
+
+#undef NEO_PIXEL_LIB_ENABLED  // swap these two
+#define NEO_PIXEL_LIB_ENABLED // swap these two
+
+// -------  use this to switch between them   ---------
+
+
+#ifdef NEO_PIXEL_LIB_ENABLED
+  #ifndef HAS_NEO_PIXEL_LIB
+    #define HAS_NEO_PIXEL_LIB
+  #endif
+#endif
+
+#ifndef NEO_PIXEL_LIB_ENABLED
+  #ifdef HAS_NEO_PIXEL_LIB
+    #undef HAS_NEO_PIXEL_LIB
+  #endif
+#endif
+#endif // #ifdef ADAFRUIT_FEATHER_M0_EXPRESS

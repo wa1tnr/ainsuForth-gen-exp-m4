@@ -1,3 +1,10 @@
+// Sun 17 Jun 04:01:59 UTC 2018
+// 4737-a3a-0cc-
+
+// removal or mod of PIN 12 for MM4X
+// removal of assumption of 8x strip
+// this one commit represents Feather M0 Express with working NPX but no external array of NPX.
+
 // Tue 22 May 23:16:53 UTC 2018
 // 4737-a3a-05k-
 
@@ -83,6 +90,9 @@
 #undef PIN     // override 22 May 2018
 #define PIN 12 // override 22 May 2018 - M4X arbitrarily assigned.
 
+#undef PIN     // override 22 May 2018
+#define PIN COMMUTED_PIN_NPX // how about them apples
+
 // How many NeoPixels are attached to the Arduino?
 // #define NUMPIXELS        10 // circuit playground Express
 
@@ -113,8 +123,8 @@
     #endif                     // Not zero - some other define can remove this code entirely
 #endif // 15 Jan 2018
 
-#undef NUMPIXELS    // 22 may override
-#define NUMPIXELS 8 // 22 may override
+// #undef NUMPIXELS    // 22 may override
+// #define NUMPIXELS 8 // 22 may override
 
 // When we setup the NeoPixel library, we tell it how many pixels,
 // and which pin to use to send signals.
