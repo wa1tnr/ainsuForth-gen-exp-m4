@@ -1,3 +1,11 @@
+// Mon 18 Jun 21:39:23 UTC 2018
+// 4737-a3a-0f5-
+
+// +crickit_cpx_as_itsy_m0
+
+// crickit CPX supported when compiled as ItsyBitsy M0.
+//    Has working NeoPixel (D39) and internal LED (on D37)
+
 // Mon 18 Jun 06:10:28 UTC 2018
 // 4737-a3a-0f2-
 

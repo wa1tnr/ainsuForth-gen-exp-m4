@@ -1,3 +1,6 @@
+// Mon 18 Jun 21:39:23 UTC 2018
+// 4737-a3a-0f5-
+
 // Mon 18 Jun 06:10:28 UTC 2018
 // 4737-a3a-0f2-
 
@@ -200,19 +203,24 @@ uint8_t base;  // stores the number conversion radix
 
 // gemma M0 has dotstar:  D3 is data   D4 is clock
 
+#ifndef LEDX
+  #define LED 13
+#else // one edge-case: ADAFRUIT_ITSYBITSY_M0
+  #define LED 37
+#endif
 
 void blink(void) {
-  dStack_push(1); dStack_push(13);
+  dStack_push(1); dStack_push(LED);
 
   pinMode(     dStack_pop(), dStack_pop());
 
-  dStack_push(1); dStack_push(13);
+  dStack_push(1); dStack_push(LED);
 
   digitalWrite(dStack_pop(), dStack_pop());
 
   delay(11); // bad technique
 
-  dStack_push(0); dStack_push(13);
+  dStack_push(0); dStack_push(LED);
   digitalWrite(dStack_pop(), dStack_pop());
 
   delay(3); // bad technique

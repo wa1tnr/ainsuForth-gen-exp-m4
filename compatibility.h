@@ -1,3 +1,6 @@
+// Mon 18 Jun 21:39:23 UTC 2018
+// 4737-a3a-0f5-
+
 // Mon 18 Jun 05:32:01 UTC 2018
 // 4737-a3a-0e7-
 
@@ -327,6 +330,40 @@
   #endif
 #endif
 #endif // #ifdef ADAFRUIT_GEMMA_M0
+
+
+
+#ifdef ADAFRUIT_ITSYBITSY_M0 // kludge! This is for crickit CPX as work-around
+
+#define LEDX 37
+
+#define COMMUTED_PIN_NPX 39 // guess is PA27 here - aka SPI SS
+// tried: A2.  Based on '37' working for internal LED it seems it
+// is possible the schematic pin number (physical) may possibly be
+// a correct reference.  Weird.  WORKED!  So that is odd, or perhaps
+// it's not at all odd.
+
+// NEO_PIXEL
+// -------  use this to switch between them   ---------
+
+#undef NEO_PIXEL_LIB_ENABLED  // swap these two
+#define NEO_PIXEL_LIB_ENABLED // swap these two
+
+// -------  use this to switch between them   ---------
+
+
+#ifdef NEO_PIXEL_LIB_ENABLED
+  #ifndef HAS_NEO_PIXEL_LIB
+    #define HAS_NEO_PIXEL_LIB
+  #endif
+#endif
+
+#ifndef NEO_PIXEL_LIB_ENABLED
+  #ifdef HAS_NEO_PIXEL_LIB
+    #undef HAS_NEO_PIXEL_LIB
+  #endif
+#endif
+#endif // #ifdef ADAFRUIT_ITSYBITSY_M0 // kludge!
 
 
 // END.
