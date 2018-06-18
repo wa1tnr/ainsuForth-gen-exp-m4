@@ -1,3 +1,6 @@
+// Mon 18 Jun 05:32:01 UTC 2018
+// 4737-a3a-0e7-
+
 // Sun 17 Jun 04:01:59 UTC 2018
 // 4737-a3a-0cc-
 
@@ -67,10 +70,6 @@
   #define PIN               40 // peculiar to Metro M4 Express.
 #endif
 
-#ifdef ADAFRUIT_METRO_M0_EXPRESS
-  #define PIN               40 // peculiar to Metro M0 Express.
-#endif
-
 #ifdef ADAFRUIT_CIRCUITPLAYGROUND_M0
   #define PIN                8 // peculiar to Circuit Playground Express and Feather M0 Express
 #endif
@@ -81,14 +80,14 @@
 
 #ifdef ADAFRUIT_TRINKET_M0
   #define PIN                1 // arbitrary assignment? Trinket M0
-#else
-  #ifndef PIN // sieve fall-through clause
-    #define PIN              2 // arbitrary assignment to non-specific board
-  #endif
-#endif // 15 Jan 2018
+#endif
 
-#undef PIN     // override 22 May 2018
-#define PIN 12 // override 22 May 2018 - M4X arbitrarily assigned.
+#ifndef PIN // sieve fall-through clause
+  #define PIN              2 // arbitrary assignment to non-specific board
+#endif
+
+// #undef PIN     // override 22 May 2018
+// #define PIN 12 // override 22 May 2018 - M4X arbitrarily assigned.
 
 #undef PIN     // override 22 May 2018
 #define PIN COMMUTED_PIN_NPX // how about them apples
@@ -117,11 +116,12 @@
 // local condition: NeoPixel 8 strip connected to Trinket M0:
 #ifdef ADAFRUIT_TRINKET_M0
   #define NUMPIXELS          8 // NeoPixel strip 8x
-#else
-    #ifndef NUMPIXELS          // sieve fall-through clause
-       #define NUMPIXELS     1 // other Adafruit SAMD21 boards
-    #endif                     // Not zero - some other define can remove this code entirely
-#endif // 15 Jan 2018
+#endif
+
+
+#ifndef NUMPIXELS          // sieve fall-through clause
+  #define NUMPIXELS     1 // other Adafruit SAMD21 boards
+#endif                     // Not zero - some other define can remove this code entirely
 
 // #undef NUMPIXELS    // 22 may override
 // #define NUMPIXELS 8 // 22 may override
@@ -129,25 +129,32 @@
 // When we setup the NeoPixel library, we tell it how many pixels,
 // and which pin to use to send signals.
 
+// #undef PIN
+// #undef NUMPIXELS
+
+// #define PIN 8 // desperate override Mon 18 June 04:06z
+// #define NUMPIXELS     1 // other Adafruit SAMD21 boards
+
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 // might be a memory hog; this is for the legacy onboard NeoPixel, only:
-Adafruit_NeoPixel pix40 =  Adafruit_NeoPixel(1, 40, NEO_GRB + NEO_KHZ800);
+// Adafruit_NeoPixel pix40 =  Adafruit_NeoPixel(1, 40, NEO_GRB + NEO_KHZ800);
 
 int delayval = 300;
 int delaySval = 110;
 
 int neoPixelNumber = 0; // zero is a legal value and names the first pixel in the string
 
-void setup_neoPix40(void) { // for the legacy onboard NeoPixel only
-  pix40.begin();
+// void setup_neoPix40(void) { // for the legacy onboard NeoPixel only
+  // pix40.begin();
   // the whole purpose of providing for the onboard NPX  is to recolor it:
-  pix40.setPixelColor(0, 0, 1, 1); pix40.show();
-}
+  // pix40.setPixelColor(0, 0, 1, 1); pix40.show();
+// }
 
 void setup_neoPixel(void) {
+  // DEBUG 04:08z 18 June - comment out two lines:
   pixels.begin(); // This initializes the NeoPixel library.
-  setup_neoPix40();
+  // setup_neoPix40();
 }
 
 

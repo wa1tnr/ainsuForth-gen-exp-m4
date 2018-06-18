@@ -1,3 +1,6 @@
+// Mon 18 Jun 05:32:01 UTC 2018
+// 4737-a3a-0e7-
+
 // Tue 12 Jun 23:47:23 UTC 2018
 // 4737-a3a-09b-
 
@@ -9,22 +12,64 @@
 // Sat Jul 29 18:14:02 UTC 2017
 // 4735-b0b-01-
 
+
+// very experimental - 18 June:
+#include <Arduino.h>
+#include "../../yaffa.h"
+
+#ifdef HAS_DOTSTAR_LIB
+#include "dotstar.h"
+// #include "../../Error_Codes.h"
+
 #include <Adafruit_DotStar.h>
 
 #define NUMPIXELS 1 // Number of LEDs in strip
 
-#define DATAPIN    3
-#define CLOCKPIN   4
+
+
+#ifdef ADAFRUIT_GEMMA_M0
+
+  #undef DATAPIN
+  #undef CLOCKPIN
+
+  #define DATAPIN    3
+  #define CLOCKPIN   4
+
+#endif // #ifdef ADAFRUIT_GEMMA_M0
+
+
+
+#ifdef ADAFRUIT_TRINKET_M0
+
+  #undef DATAPIN
+  #undef CLOCKPIN
+
+  #define DATAPIN  7
+  #define CLOCKPIN 8
+
+#endif // #ifdef ADAFRUIT_TRINKET_M0
+
+
+#ifdef ADAFRUIT_METRO_M4_EXPRESS // ignore -- we are NeoPixel on Metro M4 Express
+
+  // #undef DATAPIN
+  // #undef CLOCKPIN
+
+  // #define DATAPIN    8
+  // #define CLOCKPIN   6
+
+#endif // #ifdef ADAFRUIT_METRO_M4_EXPRESS
 
 
 // ItsyBitsyM4: clock D6 data D8 per variant.cpp
 #ifdef ADAFRUIT_ITSYBITSY_M4_EXPRESS
 
-#undef DATAPIN
-#undef CLOCKPIN
+  #undef DATAPIN
+  #undef CLOCKPIN
 
-#define DATAPIN    8
-#define CLOCKPIN   6
+  #define DATAPIN    8
+  #define CLOCKPIN   6
+
 #endif // big kludge 13 June 2018 - compatibility.h should signal for this toggle
 
 
@@ -69,5 +114,7 @@ void loop_dotstar() {
 Serial.println("\r\nWent off tail.  Bye from dotstar.");
 
 }
+
+#endif
 
 // END

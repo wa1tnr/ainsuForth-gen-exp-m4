@@ -1,3 +1,33 @@
+// Mon 18 Jun 06:10:28 UTC 2018
+// 4737-a3a-0f2-
+
+// good clean sweep - all tested good on RGB and available filesystem support.
+// this is the best of ainsuForth as of 18 June 2018 - in any branch or repository.
+
+// Mon 18 Jun 05:32:01 UTC 2018
+// 4737-a3a-0e7-
+
+// Mon 18 Jun 03:50:24 UTC 2018
+// 4737-a3a-0e5-
+
+// second attempt to modify testing-aa after a good merge.
+
+// CPX is now okay with NeoPixels.  The pix40 business was bad for CPX - enough to hang it.
+
+// TODO: verify ItsyM4, Feather M0 Express, Metro M0 Express and Metro M4 Express each at least functions (with or without onboard RGB led support).
+
+// Metro M0 Express is now okay with NeoPixel.
+// ItsyBitsy M4 is now okay with its dotstar (3-color strobe, once, prior to USB serial connection, only).
+// Feather M0 Express is now okay with its singleton onboard NeoPixel.
+
+// Metro M4 needed an adjustment  -- may warrant a recheck of the other boards.
+// Trinket M0 also needed an adjustment - it is dotstar.
+// Gemma M0 as well needed adjustment.  compatibility.h got a workout today.
+
+// Finally - dotstar.cpp had a big leak that is now plugged (hopefully).
+// Unlike neo_pixel.cpp it never had a conditional to bring in all the code in the file.
+// Now, it does.  CPX seemed to need it (something escaped the logic net and the CPX build unmasked this.  No idea just what that was.
+
 // Sun 17 Jun 22:09:15 UTC 2018
 // 4737-a3a-0e0-
 

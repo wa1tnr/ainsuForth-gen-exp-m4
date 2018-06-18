@@ -1,3 +1,6 @@
+// Mon 18 Jun 05:32:01 UTC 2018
+// 4737-a3a-0e7-
+
 // Sun 17 Jun 04:01:59 UTC 2018
 // 4737-a3a-0cc-
 
@@ -97,6 +100,49 @@
 // load echo! remove download are relevant only to presence of SPI flashROM.
 
 
+
+
+
+
+
+
+
+
+
+
+#ifdef ADAFRUIT_METRO_M4_EXPRESS
+  #undef HAS_SPI_FLASH_DEMO
+  #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
+  #undef QSPI_FLASHROM_PRESENT
+
+
+#define COMMUTED_PIN_NPX 40 // unused - future dev or delme
+
+// NEO_PIXEL
+// -------  use this to switch between them   ---------
+
+#undef NEO_PIXEL_LIB_ENABLED  // swap these two
+#define NEO_PIXEL_LIB_ENABLED // swap these two
+
+// -------  use this to switch between them   ---------
+
+
+#ifdef NEO_PIXEL_LIB_ENABLED
+  #ifndef HAS_NEO_PIXEL_LIB
+    #define HAS_NEO_PIXEL_LIB
+  #endif
+#endif
+
+#ifndef NEO_PIXEL_LIB_ENABLED
+  #ifdef HAS_NEO_PIXEL_LIB
+    #undef HAS_NEO_PIXEL_LIB
+  #endif
+#endif
+#endif // #ifdef ADAFRUIT_METRO_M4_EXPRESS
+
+
+
+
 // adafruit_itsybitsy_m4.build.extra_flags=-D__SAMD51G19A__ -DADAFRUIT_ITSYBITSY_M4_EXPRESS -D__SAMD51__ {build.usb_flags} -D__FPU_PRESENT -DARM_MATH_CM4 -DCRYSTALLESS -mfloat-abi=hard -mfpu=fpv4-sp-d16
 #ifdef ADAFRUIT_ITSYBITSY_M4_EXPRESS
   #undef HAS_SPI_FLASH_DEMO
@@ -128,7 +174,16 @@
 #endif // #ifdef ADAFRUIT_ITSYBITSY_M4_EXPRESS
 
 
+
+
+
+
+
+
+
+
 #ifdef ADAFRUIT_FEATHER_M0_EXPRESS
+
 
 #define COMMUTED_PIN_NPX 8 // unused - future dev or delme
 
@@ -153,3 +208,125 @@
   #endif
 #endif
 #endif // #ifdef ADAFRUIT_FEATHER_M0_EXPRESS
+
+
+#ifdef ADAFRUIT_CIRCUITPLAYGROUND_M0
+
+
+#define COMMUTED_PIN_NPX 8 // unused - future dev or delme
+
+// NEO_PIXEL
+// -------  use this to switch between them   ---------
+
+#undef NEO_PIXEL_LIB_ENABLED  // swap these two
+#define NEO_PIXEL_LIB_ENABLED // swap these two
+
+// -------  use this to switch between them   ---------
+
+
+#ifdef NEO_PIXEL_LIB_ENABLED
+  #ifndef HAS_NEO_PIXEL_LIB
+    #define HAS_NEO_PIXEL_LIB
+  #endif
+#endif
+
+#ifndef NEO_PIXEL_LIB_ENABLED
+  #ifdef HAS_NEO_PIXEL_LIB
+    #undef HAS_NEO_PIXEL_LIB
+  #endif
+#endif
+#endif // #ifdef ADAFRUIT_FEATHER_M0_EXPRESS
+
+
+
+
+
+
+
+
+#ifdef ADAFRUIT_METRO_M0_EXPRESS 
+
+#define COMMUTED_PIN_NPX 40 // unused - future dev or delme
+
+// NEO_PIXEL
+// -------  use this to switch between them   ---------
+
+#undef NEO_PIXEL_LIB_ENABLED  // swap these two
+#define NEO_PIXEL_LIB_ENABLED // swap these two
+
+// -------  use this to switch between them   ---------
+
+
+#ifdef NEO_PIXEL_LIB_ENABLED
+  #ifndef HAS_NEO_PIXEL_LIB
+    #define HAS_NEO_PIXEL_LIB
+  #endif
+#endif
+
+#ifndef NEO_PIXEL_LIB_ENABLED
+  #ifdef HAS_NEO_PIXEL_LIB
+    #undef HAS_NEO_PIXEL_LIB
+  #endif
+#endif
+#endif // #ifdef ADAFRUIT_METRO_M0_EXPRESS 
+
+
+
+#ifdef ADAFRUIT_TRINKET_M0
+
+// DOTSTAR
+// -------  use this to switch between them   ---------
+
+#undef DOTSTAR_LIB_ENABLED  // swap these two
+#define DOTSTAR_LIB_ENABLED // swap these two
+
+// -------  use this to switch between them   ---------
+
+
+#ifdef DOTSTAR_LIB_ENABLED
+  #ifndef HAS_DOTSTAR_LIB
+    #define HAS_DOTSTAR_LIB
+  #endif
+#endif
+
+#ifndef DOTSTAR_LIB_ENABLED
+  #ifdef HAS_DOTSTAR_LIB
+    #undef HAS_DOTSTAR_LIB
+  #endif
+#endif
+
+
+
+#endif // #ifdef ADAFRUIT_TRINKET_M0
+
+
+
+
+
+
+
+#ifdef ADAFRUIT_GEMMA_M0
+
+// DOTSTAR
+// -------  use this to switch between them   ---------
+
+#undef DOTSTAR_LIB_ENABLED  // swap these two
+#define DOTSTAR_LIB_ENABLED // swap these two
+
+// -------  use this to switch between them   ---------
+
+#ifdef DOTSTAR_LIB_ENABLED
+  #ifndef HAS_DOTSTAR_LIB
+    #define HAS_DOTSTAR_LIB
+  #endif
+#endif
+
+#ifndef DOTSTAR_LIB_ENABLED
+  #ifdef HAS_DOTSTAR_LIB
+    #undef HAS_DOTSTAR_LIB
+  #endif
+#endif
+#endif // #ifdef ADAFRUIT_GEMMA_M0
+
+
+// END.
