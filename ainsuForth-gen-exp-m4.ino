@@ -1,3 +1,9 @@
+// Mon 18 Jun 06:10:28 UTC 2018
+// 4737-a3a-0f2-
+
+// good clean sweep - all tested good on RGB and available filesystem support.
+// this is the best of ainsuForth as of 18 June 2018 - in any branch or repository.
+
 // Mon 18 Jun 05:32:01 UTC 2018
 // 4737-a3a-0e7-
 
