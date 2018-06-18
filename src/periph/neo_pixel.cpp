@@ -1,3 +1,6 @@
+// Mon 18 Jun 21:39:23 UTC 2018
+// 4737-a3a-0f5-
+
 // Mon 18 Jun 05:32:01 UTC 2018
 // 4737-a3a-0e7-
 
@@ -99,6 +102,10 @@
 
 #ifdef __SAMD51J19A__
   #define NUMPIXELS          1 // Metro M4 Express
+#endif
+
+#ifdef ADAFRUIT_ITSYBITSY_M0
+  #define NUMPIXELS          1 // Crickit CPX - pretend itsybitsym0
 #endif
 
 #ifdef ADAFRUIT_METRO_M0_EXPRESS

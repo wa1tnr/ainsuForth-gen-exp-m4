@@ -1,3 +1,42 @@
+// Mon 18 Jun 21:39:23 UTC 2018
+// 4737-a3a-0f5-
+
+// +crickit_cpx_as_itsy_m0
+
+// crickit CPX supported when compiled as ItsyBitsy M0.
+//    Has working NeoPixel (D39) and internal LED (on D37)
+
+//    Tested good:
+
+//    * cpx
+//    * itsy m4
+//    * gemma m0
+//    * trinket m0
+//    * crickit cpx
+//    * metro m0 expr
+//    * metro m4 expr
+//    * feather m0 expr
+
+
+//    Note - the 'pixel' word is more interesting on the CPX target board.
+
+/*
+
+1 13 pinMode
+: pon 1 13 pinWrite ;
+: poff 0 13 pinWrite ;
+pon
+poff
+: blinks 0 do
+pon 300 delay
+poff 400 delay
+loop ;
+3 blinks
+5 blinks
+17 blinks
+
+*/
+
 // Mon 18 Jun 06:10:28 UTC 2018
 // 4737-a3a-0f2-
 

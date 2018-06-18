@@ -1,3 +1,6 @@
+// Mon 18 Jun 21:39:23 UTC 2018
+// 4737-a3a-0f5-
+
 // Mon 18 Jun 06:10:28 UTC 2018
 // 4737-a3a-0f2-
 
@@ -200,19 +203,24 @@ uint8_t base;  // stores the number conversion radix
 
 // gemma M0 has dotstar:  D3 is data   D4 is clock
 
+#ifndef LEDX
+  #define LED 13
+#else // one edge-case: ADAFRUIT_ITSYBITSY_M0
+  #define LED 37
+#endif
 
 void blink(void) {
-  dStack_push(1); dStack_push(13);
+  dStack_push(1); dStack_push(LED);
 
   pinMode(     dStack_pop(), dStack_pop());
 
-  dStack_push(1); dStack_push(13);
+  dStack_push(1); dStack_push(LED);
 
   digitalWrite(dStack_pop(), dStack_pop());
 
   delay(11); // bad technique
 
-  dStack_push(0); dStack_push(13);
+  dStack_push(0); dStack_push(LED);
   digitalWrite(dStack_pop(), dStack_pop());
 
   delay(3); // bad technique
@@ -292,9 +300,9 @@ void setup(void) {
   pOldHere = pHere;
   
   // Serial.print("\n warm boot message - early bird.  //  Gemma M0 29 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n warm boot message - early bird.  \r\n SIWNA +eflmkdir cb DEV - gen-exp-m4  18 June 2018\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n Mon 18 Jun 06:10:28 UTC 2018");
-     Serial.print("\n 4737-a3a-0f2- ItsyBitsyM4 sand birds");
+     Serial.print("\n warm boot message - early bird.  \r\n SIWNA +crickitCPX +eflmkdir b07 DEV - gen-exp-m4  18 June 2018\r\n          type 'warm' to reboot"); // instant confirmation
+     Serial.print("\n Mon 18 Jun 21:39:23 UTC 2018");
+     Serial.print("\n 4737-a3a-0f5- ItsyBitsyM4 sand birds");
 
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Metro M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Feather M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
