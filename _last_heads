@@ -1,19 +1,29 @@
-==> ainsuForth-gen-exp-m4.ino <==
-// Sun 17 Jun 04:01:59 UTC 2018
-// 4737-a3a-0cc-
+==> ./Dictionary.h <==
+// Sun 17 Jun 22:09:15 UTC 2018
+// 4737-a3a-0e0-
 
 
-==> compatibility.h <==
-// Sun 17 Jun 04:01:59 UTC 2018
-// 4737-a3a-0cc-
+==> ./flashDict.cpp <==
+// Sun 17 Jun 22:09:15 UTC 2018
+// 4737-a3a-0e0-
 
 
-==> yaffa.h <==
-// Sun 17 Jun 04:01:59 UTC 2018
-// 4737-a3a-0cc-
+==> ./src/kernel/getline.cpp <==
+// Sun 17 Jun 22:09:15 UTC 2018
+// 4737-a3a-0e0-
 
 
-==> src/periph/neo_pixel.cpp <==
-// Sun 17 Jun 04:01:59 UTC 2018
-// 4737-a3a-0cc-
+==> ./src/kernel/getline.h <==
+// Sun 17 Jun 22:09:15 UTC 2018
+// 4737-a3a-0e0-
+
+
+==> ./ainsuForth-gen-exp-m4.ino <==
+// Sun 17 Jun 22:09:15 UTC 2018
+// 4737-a3a-0e0-
+
+
+==> ainsuForthsketch.cpp <==
+// Sun 17 Jun 22:09:15 UTC 2018
+// 4737-a3a-0e0-
 

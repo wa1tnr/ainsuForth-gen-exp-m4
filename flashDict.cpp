@@ -1,3 +1,24 @@
+// Sun 17 Jun 22:09:15 UTC 2018
+// 4737-a3a-0e0-
+
+// eflmkdir - external flashROM mod - create new directory 17 June 2018.
+// NOTE: you must compile this 'eflmkdir' word.  The very
+// act of compilation also executes it
+// (both IMMEDIATE and COMP_ONLY flags are set for it).
+
+// Go ahead and compile it into a word and execute that
+// new word (held as bytecode in RAM) as many times as
+// you like.  It'll just give an ok prompt, as this word
+// checks to see if the directory '/forth' exists or not,
+// and only tries to mkdir if it does not.
+
+// So it is harmless to do it a second, third, fourth .. time.
+
+// { eflmkdir_str,       _eflmkdir,        IMMEDIATE + COMP_ONLY },
+
+// Like that.
+
+
 // Wed 23 May 03:16:05 UTC 2018
 // 4737-a3a-05p-
 
@@ -323,6 +344,8 @@ const flashEntry_t flashDict[] = {
 #define SPI_FLASH_SRC
 #ifdef SPI_FLASH_SRC
 #ifdef HAS_SPI_FLASH_DEMO
+
+  { eflmkdir_str,       _eflmkdir,        IMMEDIATE + COMP_ONLY },
   { load_str,           _load,            NORMAL },
   { echo_bang_str,      _echo_bang,       NORMAL }, 
   { remove_str,         _remove,          NORMAL },

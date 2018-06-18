@@ -1,7 +1,43 @@
+// Sun 17 Jun 22:09:15 UTC 2018
+// 4737-a3a-0e0-
+
+// +eflmkdir word - external flash mkdir '/forth' (the path, '/forth' is hard-coded).
+
+// caspitana   asa   selkitte 
+
+// On branch 'testing-aa'
+// Current Target: Feather M0 Express 17 June 2018 22:09z
+
+
+// Towards Feather M0 Express JEDEC newfile instantiation (and its containing directory).
+
+
+// New Word in Forth Dictionary:
+
+//     see ag, the silver searcher entry, below - good example of all requirements to add a new word to the forth dictionary, from scratch.
+
+//      it's near line 68.
+
+
+
+
+// - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// TESTBED: Adafruit Feather M0 Express only.  17 June 2018 22:09 UTC
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - -
+
 // Sun 17 Jun 21:28:37 UTC 2018
 // 4737-a3a-0cf-
 
 // Prep for 'git branch testing-aa'
+// commit in new branch.
+
+// This message only in branch testing-aa at this time (21:53z 17 June 2018).
 
 // this is master branch again.
 
@@ -28,6 +64,45 @@
 //   * modded to more automatically operate with NeoPixel on D8 - not working.
 //   * tested (late, just before commit) against ItsyBitsy M4 and seems fine (dotstar prelude is operational)
 
+
+
+
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - -
+// - - - -
+// - - - -                ag, the silver searcher -- eflmkdir 
+// - - - -
+// - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// 17 June 2018, 23:23z - ag output (brief, edited):
+
+//  rvim ard $ ag eflmkdir
+// Dictionary.h
+// 4:// eflmkdir word needs getline.h included
+
+// flashDict.cpp
+// 4:// eflmkdir - external flashROM mod - create new directory 17 June 2018.
+// 5:// NOTE: you must compile this 'eflmkdir' word.  The very
+// 17:// { eflmkdir_str,       _eflmkdir,        IMMEDIATE + COMP_ONLY },
+// 348:  { eflmkdir_str,       _eflmkdir,        IMMEDIATE + COMP_ONLY },
+
+// src/kernel/getline.h
+// 49:extern const char eflmkdir_str[]; // = "eflmkdir"; // forth vocabulary external flash mkdir
+// 50:extern void _eflmkdir(void); // OLD NAME WAS: extern void create_test_directory(void);
+
+// src/kernel/getline.cpp
+// 448:const char eflmkdir_str[] = "eflmkdir"; // forth vocabulary external flash mkdir
+// 450:void _eflmkdir(void) {
+// 893:  // _eflmkdir(); // OLD NAME WAS: create_test_directory();
+
+// ainsuForth-gen-exp-m4.ino
+// 4:// +eflmkdir word - external flash mkdir '/forth' (the path, '/forth' is hard-coded).
+//  rvim ard $ 
 
 // Tue 12 Jun 23:47:23 UTC 2018
 // 4737-a3a-09b-
