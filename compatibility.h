@@ -85,17 +85,12 @@
 // M4 target offers an impoverished test - redefine later, tracking upstream refinements.
 // __SAMD51J19A__
 
+// commented out 20 June 2018 18:43z -- redundant:
 
-// #ifdef _SAMD51J19A_
-// #ifdef __SAMD51J19A__
-// #ifdef ARDUINO_METRO_M4
 // #ifdef ADAFRUIT_METRO_M4_EXPRESS
-#ifdef ADAFRUIT_METRO_M4_EXPRESS
-  #undef HAS_SPI_FLASH_DEMO
-  #define QSPI_FLASHROM_PRESENT // assume Metro M4 Express Beta - for now (May 2018)
-#endif // #ifdef ARDUINO_METRO_M4
-// #endif // #ifdef _SAMD51J19A_
-// #endif // #ifdef __SAMD51J19A__
+  // #undef HAS_SPI_FLASH_DEMO
+  // #define QSPI_FLASHROM_PRESENT // assume Metro M4 Express Beta - for now (May 2018)
+// #endif // ADAFRUIT_METRO_M4_EXPRESS
 
 // global override - debug
 // #define HAS_SPI_FLASH_DEMO
@@ -103,45 +98,41 @@
 // load echo! remove download are relevant only to presence of SPI flashROM.
 
 
-
-
-
-
-
-
-
-
-
-
 #ifdef ADAFRUIT_METRO_M4_EXPRESS
   #undef HAS_SPI_FLASH_DEMO
   #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
   #undef QSPI_FLASHROM_PRESENT
+  #define COMMUTED_PIN_NPX 40 // unused - future dev or delme
 
+  // NEO_PIXEL - Metro M4 Express - ENABLED 20 June 2018 18:49z
+  // -------  use this to switch between them   ---------
+  #undef NEO_PIXEL_LIB_ENABLED  // swap these two
+  #define NEO_PIXEL_LIB_ENABLED // swap these two
+  // -------  use this to switch between them   ---------
+  #ifdef NEO_PIXEL_LIB_ENABLED
+    #ifndef HAS_NEO_PIXEL_LIB
+      #define HAS_NEO_PIXEL_LIB
+    #endif // #ifndef HAS_NEO_PIXEL_LIB
+  #endif // #ifdef NEO_PIXEL_LIB_ENABLED
 
-#define COMMUTED_PIN_NPX 40 // unused - future dev or delme
-
-// NEO_PIXEL
-// -------  use this to switch between them   ---------
-
-#undef NEO_PIXEL_LIB_ENABLED  // swap these two
-#define NEO_PIXEL_LIB_ENABLED // swap these two
-
-// -------  use this to switch between them   ---------
-
-
-#ifdef NEO_PIXEL_LIB_ENABLED
-  #ifndef HAS_NEO_PIXEL_LIB
-    #define HAS_NEO_PIXEL_LIB
-  #endif
-#endif
-
-#ifndef NEO_PIXEL_LIB_ENABLED
-  #ifdef HAS_NEO_PIXEL_LIB
-    #undef HAS_NEO_PIXEL_LIB
-  #endif
-#endif
+  #ifndef NEO_PIXEL_LIB_ENABLED
+    #ifdef HAS_NEO_PIXEL_LIB
+      #undef HAS_NEO_PIXEL_LIB
+    #endif
+  #endif // #ifndef NEO_PIXEL_LIB_ENABLED
 #endif // #ifdef ADAFRUIT_METRO_M4_EXPRESS
+
+// 20 June 2018 18:48z:
+// above stanza carefully indented for
+//   human parsing of its structure.
+
+
+
+
+
+
+
+
 
 
 
