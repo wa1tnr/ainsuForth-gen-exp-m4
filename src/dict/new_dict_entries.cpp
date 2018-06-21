@@ -1,273 +1,205 @@
 // Thu 21 Jun 22:17:21 UTC 2018
-// 4737-a3b-001-
+// 4737-a3b-001-  +dict_comments_only.cpp file
 
-// Wed 23 May 03:16:05 UTC 2018
-// 4737-a3a-05p-
+// Thu 21 Jun 17:57:32 UTC 2018
+// 4737-a3a-0fe-
 
-// source word reinstated 23 May 2018.
+// new_word.cpp - unknown content until it's been edited some more. 21 June 2018.  // source: dict_entries.cpp
 
-// Fri Nov 24 04:49:08 UTC 2017
-// 4735-b0c-07z-   the -07x- is new Nov 19, 2017.
+// nice nop:
+// 
+// : it's some kind of boundary condition, and your code is 
+//   somehow an exactly wrong number of bytes long. I added
+//   this junk code
+//   (volatile is necessary so that the loop doesn't get optimized away),
+//   and it also compiles:
+// 
+//  [7:36 PM] Dan Halbert: 
+//      for (volatile int i = 1; i < 2; i++) {
+//          // nothing
+//      }
+//      Serial.println(red);
+
+void nop(void) {
+    for (volatile int i = 1; i < 2; i++) {
+        // nothing
+    }
+}
+
+// SPELLING
+
+// STYLE GUIDE
+
+#ifdef NEVER_DEFINED_ANY_WHERE
+void myword_underscore_seps(void) {
+    if (w > 255) {
+        rStack_push((cell_t) ip);
+        ip = (cell_t *)w;
+
+    } else { // sometimes there is no whitespace above the 'else' and other times, there is!
+        function = flashDict[w - 1].function;
+    }
+}
+#endif
+
+// PURPOSE
+
+// The purpose of this file (whatever it is named -- the name
+// has not been chosen, yet, as of 18:17z 21 June 2018) ..
+
+// ----------------------------------------------------------
+// ----------------------------------------------------------
+// .. its purpose is to remove comments and just show code,
+// where comments became unweildy.
+// ----------------------------------------------------------
+// ----------------------------------------------------------
+
+// In particular, to remove all word definitions for this forth,
+// from this file, that are suppressed by comments at the beginning
+// of each line of code so commented-out (the double-forward slash
+// comment notation).
+
+// To do this is tricky, as those definitions, as of yet unfulfilled,
+// must be preserved somewhere.
+
+// That somewhere is to be where they are, already -- in 'dict_entries.cpp'.
+
+
+// Thus, this new file (whatever it is named) will be active code,
+// whereas dict_entries.cpp should ideally be all dead code, or
+// almost all dead code.  (In this instance, 'to be later revived').
+
 
 
 // previous timestamps:
-// Fri Nov 24 02:42:54 UTC 2017
-// Thu Nov 23 02:01:47 UTC 2017
-// Thu Nov 23 00:45:23 UTC 2017
-// Sat Jul 29 18:14:02 UTC 2017
-// 4735-b0b-01-
+// Wed 20 Jun 22:29:00 UTC 2018 // entire project.
+// 4737-a3a-0fb-
 
-// #include <Arduino.h>
-// #include "../../yaffa.h"
-// #include "../../flashDict.h"
-// #include "../../Dictionary.h"
-// #include "../../Error_Codes.h"
+// Wed 23 May 03:16:05 UTC 2018 // dict_entries.cpp
+// 4737-a3a-05p-
 
-// const char not_done_str[] = " NOT Implemented Yet \n\r";
+#include <Arduino.h>
+#include "../../yaffa.h"
+#include "../../flashDict.h"
+#include "../../Dictionary.h"
 
-
-// const char tab_str[] = "\t"; // does not belong here
-
-
-
-
-// aha. this also must live in flashDict.cpp because of 'static void':
-// static void _two_drop(void) { }
-
-// Forth words currently present (29 Jun 2017):
-// 
-//   exit literal type throw evaluate s" ." variable over =
-//   drop warm . - + * 0= ! , / 2drop : ; @ abs allot and c!
-//   char constant count cr decimal do dup emit fill here
-//   loop negate or quit rot space spaces swap u. word xor
-//   [char] .( hex help .s dump words delay
-// 
-//   neo_pixel: rgb pixel cblink 
-
+const char not_done_str[] = " NOT Implemented Yet \n\r";
+const char sp_str[] = " "; // does not belong here
+const char tab_str[] = "\t"; // does not belong here
+stack_t dStack;
+stack_t rStack;
 
 /*******************************************************************************/
 /**                          Core Forth Words                                 **/
 /*******************************************************************************/
 
+const char here_str[] = "here";
+// ( -- addr )
+// addr is the data-space pointer.
+void _here(void) {
+    dStack_push((size_t)pHere);
+}
 
-// ==>> hard to believe these haven't been instantiated yet:
+const char count_str[] = "count";
+// ( c-addr1 -- c-addr2 u )
+// Return the character string specification for the counted string stored a
+// c-addr1. c-addr2 is the address of the first character after c-addr1. u is the 
+// contents of the charater at c-addr1, which is the length in characters of the
+// string at c-addr2.
+void _count(void) {
+    uint8_t* addr = (uint8_t*)dStack_pop();
+    cell_t value = *addr++;
+    dStack_push((size_t)addr);
+    dStack_push(value);
 
-// When fill_str was being pruned, it turned up: c@ and company
-// were transferred to store_fetch.cpp  but are commented out
-// with cpp directives.
+    _swap();
+    addr = (uint8_t*)dStack_pop();
+    // *addr++;  *addr++;  *addr++;
+    addr = addr + 3;
+    dStack_push((size_t)addr);
+    _swap();
+}
 
+const char evaluate_str[] = "evaluate";
+// ( i*x c-addr u  -- j*x )
+// Save the current input source specification. Store minus-one (-1) in SOURCE-ID
+// if it is present. Make the string described by c-addr and u both the input
+// source and input buffer, set >IN to zero, and interpret. When the parse area
+// is empty, restore the prior source specification. Other stack effects are due
+// to the words EVALUATEd.
+void _evaluate(void) {
+    char* tempSource = cpSource;
+    char* tempSourceEnd = cpSourceEnd;
+    char* tempToIn = cpToIn;
 
+    uint8_t length = dStack_pop();
+    cpSource = (char*)dStack_pop();
+    cpSourceEnd = cpSource + length;
+    cpToIn = cpSource;
+    interpreter();
+    cpSource = tempSource;
+    cpSourceEnd = tempSourceEnd;
+    cpToIn = tempToIn;
+}
+
+// const char execute_str[] = "execute";
+// ( i*x xt -- j*x )
+// Remove xt from the stack and preform the semantics identified by it. Other
+// stack effects are due to the word EXECUTEd
+void _execute(void) {
+    func function;
+    w = dStack_pop();
+    if (w > 255) {
+        // comment: see original source for extra commented-out 1 line of code here
+        rStack_push((cell_t) ip);        // CAL - Push our return address
+        ip = (cell_t *)w;          // set the ip to the XT (memory location)
+        executeWord();
+    } else {
+        function = flashDict[w - 1].function;
+        function();
+        if (errorCode) return;
+    }
+}
+
+const char word_str[] = "word";
+// ( char "<chars>ccc<chars>" -- c-addr )
+// Skip leading delimiters. Parse characters ccc delimited by char. An ambiguous
+// condition exists if the length of the parsed string is greater than the
+// implementation-defined length of a counted string.
+//
+// c-addr is the address of a transient region containing the parsed word as a
+// counted string. If the parse area was empty or contained no characters other than
+// the delimiter, the resulting string has a zero length. A space, not included in
+// the length, follows the string. A program may replace characters within the
+// string.
+//
+// NOTE: The requirement to follow the string with a space is obsolescent and is
+// included as a concession to existing programs that use CONVERT. A program shall
+// not depend on the existence of the space.
+void _word(void) {
+    uint8_t *start, *ptr;
+
+    cDelimiter = (char)dStack_pop();
+    start = (uint8_t *)pHere++;
+    ptr = (uint8_t *)pHere;
+    while (cpToIn <= cpSourceEnd) {
+        if (*cpToIn == cDelimiter || *cpToIn == 0) {
+            *((cell_t *)start) = (ptr - start) - sizeof(cell_t); // write the length byte
+            pHere = (cell_t *)start;                     // reset pHere (transient memory)
+            dStack_push((size_t)start);                // push the c-addr onto the stack
+            cpToIn++;
+            break;
+        } else *ptr++ = *cpToIn++;
+    }
+    cDelimiter = ' ';
+}
 
 // const char c_comma_str[] = "c,";
-// ( char -- )
-// void _c_comma(void) {
-//   *(char*)pHere++ = (char)dStack_pop();
-// }
-
-
-
 // const char c_fetch_str[] = "c@";
-// ( c-addr -- char )
-// void _c_fetch(void) {
-//   uint8_t *addr = (uint8_t *) dStack_pop();
-//   dStack_push(*addr);
-// }
-
-
-// <<== end: hard to believe these haven't been instantiated yet.
-
-
-
-
-
-
-#ifdef STACK_OPS_NOT    //   marked for deletion
-                        //   see: stack_ops.cpp  for (identical) replacement code
-
 // const char words_str[] = "words"; // see: stack_ops.cpp
-// void _words(void) { } //  PROOFREAD NOW the words word.
-//                           DIFF  ALSO  REQUIRED HERE --  UNDONE.
-#endif
-
-
-// also marked for deletion: _store() and  _fetch()
-
-// 23 June: moved to bring attention to it temporarily: void _two_fetch(void);
-
 // const char two_fetch_str[] = "2@";  // \x40 == '@'
-// ( a-addr -- x1 x2 )
-// Fetch cell pair x1 x2 at a-addr. x2 is at a-addr, and x1 is at a-addr+1
-// void _two_fetch(void) {
-//   cell_t* address = (cell_t*)dStack_pop();
-//   cell_t value = *address++;
-//   dStack_push(value);
-//   value = *address;
-//   dStack_push(value);
-// }
-
-
-// 23 June: moved to bring attention to it temporarily: void _plus_store(void):
-
 // const char plus_store_str[] = "+!";
-// ( n|u a-addr -- )
-// add n|u to the single cell number at a-addr
-// void _plus_store(void) {
-//   cell_t* address = (cell_t*)dStack_pop();
-//   if (address >= &forthSpace[0] &&
-//       address < &forthSpace[FORTH_SIZE])
-//     *address += dStack_pop();
-//   else {
-//     dStack_push(-9);
-//     _throw();
-//   }
-// }
-
-
-// 23 June: moved to bring attention to it temporarily: void _two_store(void):
-
 // const char two_store_str[] = "2!";
-// ( x1 x2 a-addr --)
-// Store the cell pair x1 x2 at a-addr, with x2 at a-addr and x1 at a-addr+1
-// void _two_store(void) {
-//   cell_t* address = (cell_t*)dStack_pop();
-//   if (address >= &forthSpace[0] &&
-//       address < &forthSpace[FORTH_SIZE - 4]) {
-//     *address++ = dStack_pop();
-//     *address = dStack_pop();
-//   } else {
-//     dStack_push(-9);
-//     _throw();
-//   }
-// }
-
-
-
-
-
-// 22 June: moved to bring attention to it temporarily: void _here(void):
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // const char number_sign_str[] = "#";
 // ( ud1 -- ud2)
@@ -310,22 +242,21 @@
 //   dStack_push((ucell_t)(ud >> sizeof(ucell_t) * 8));
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const char tick_str[] = "'";
+// ( "<space>name" -- xt)
+// Skip leading space delimiters. Parse name delimited by a space. Find name and
+// return xt, the execution token for name. An ambiguous condition exists if 
+// name is not found. When interpreting "' xyz EXECUTE" is equivalent to xyz.
+void _tick(void) {
+    if (getToken()) {
+        if (isWord(cTokenBuffer)) {
+            dStack_push(w);
+            return; 
+        }
+    }
+    dStack_push(-13);
+    _throw();
+}
 
 // const char paren_str[] = "(";
 // ( "ccc<paren>" -- )
@@ -784,10 +715,10 @@
 
 
 
-
-
-
-
+#ifndef MARKED_FOR_DELETE
+// const char drop_str[] = "drop";   // moved to ../kernel/drop.cpp
+// void _drop(void) { }
+#endif
 
 
 
@@ -885,11 +816,11 @@
 // }
 
 
-
-
-
-
-
+#ifndef MARKED_FOR_DELETE
+// ###bookmark  Thu Jun 29 17:58:14 UTC 2017
+// const char fill_str[] = "fill"; // moved to: store_fetch.cpp
+// void _fill(void) { }
+#endif
 
 // const char find_str[] = "find";
 // ( c-addr -- c-addr 0 | xt 1 | xt -1)
@@ -1244,24 +1175,23 @@
 // }
 
 
+// 2018 May 23rd 03:12z uncommented.
+// const char source_str[] = "source";
+// ( -- c-addr u )
+// c-addr is the address of, and u is the number of characters in, the input buffer.
+// void _source(void) {
+//   dStack_push((size_t)&cInputBuffer);
+//   dStack_push(strlen(cInputBuffer));
+// }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// ###bookmark five-unsequenced
+// 2018 May 23rd 03:12z uncommented.
+const char source_str[] = "source"; // ( -- c-addr u )
+// c-addr is the address of, and u is the number of characters in, the input buffer.
+void _source(void) {
+    dStack_push((size_t)&cInputBuffer);
+    dStack_push(strlen(cInputBuffer));
+}
 
 // const char state_str[] = "state";
 // ( -- a-addr )
@@ -1348,8 +1278,8 @@
 // }
 
 
-
-
+// ###bookmark four   Thu Jun 29 18:37:12 UTC 2017
+#ifndef MARKED_FOR_DELETE
 // const char variable_str[] = "variable";
 // ( "<spaces>name" -- )
 // Parse name delimited by a space. Create a definition for name with the
@@ -1368,7 +1298,7 @@
 //     closeEntry();
 //   }
 // }
-
+#endif
 
 
 // const char while_str[] = "while";
@@ -1421,7 +1351,7 @@
 // }
 
 
-
+#ifndef MARKED_FOR_DELETE
 // const char bracket_char_str[] = "[char]";
 // Interpretation: Interpretation semantics for this word are undefined.
 // Compilation: ( "<space>name" -- )
@@ -1438,7 +1368,7 @@
 //     _throw();
 //   }
 // }
-
+#endif
 
 
 // const char right_bracket_str[] = "]";
@@ -1668,18 +1598,21 @@
 /**                             Facility Set                                  **/
 /*******************************************************************************/
 #ifdef FACILITY_SET
+/*
+ * Contributed by Andrew Holt
+ */
 
-
-
-
-
-
-
-
-
-
-
-
+// ###bookmark six-unseq
+// 2018 June 21: key? is not in the current forth vocabulary.
+const char key_question_str[] = "key?";
+void _key_question(void) {
+    
+//     if( Serial.available() > 0) {
+//         dStack_push(TRUE);
+//     } else {
+//         dStack_push(FALSE);
+//     }
+}
 #endif
 
 /*******************************************************************************/
@@ -1700,67 +1633,73 @@
 #ifdef TOOLS_SET
 
 
+// const char dump_str[] = "dump"; // see: dump.cpp // marked for deletion: _dump();
+// void _dump(void) { }
 
 
 
 
+const char see_str[] = "see";
+// ("<spaces>name" -- )
+// Display a human-readable representation of the named word's definition. The
+// source of the representation (object-code decompilation, source block, etc.)
+// and the particular form of the display in implementation defined.
+void _see(void) {
+    bool isLiteral, done;
+    _tick();
 
+    if (errorCode) return;
+    char flags = wordFlags;
 
+    if (flags && IMMEDIATE)
+        Serial.print("Immediate ");
+    cell_t xt = dStack_pop();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if (xt < 255) {
+        Serial.print("Primitive Word");
+    } else {
+        cell_t* addr = (cell_t*)xt;
+        Serial.print("\r\nCode Field Address: ");
+        Serial.print((size_t)addr, HEX);
+        Serial.print("\r\nAddr\tXT\tName");
+        do {
+            isLiteral = done = false;
+            Serial.print("\r\n$");
+            Serial.print((size_t)addr, HEX);
+            Serial.print(tab_str);
+            Serial.print(*addr, HEX);
+            Serial.print(tab_str);
+            xtToName(*addr);
+            switch (*addr) {
+                case 2:
+                    isLiteral = true;
+                case 4:
+                case 5:
+                    Serial.print("(");
+                    Serial.print(*++addr);
+                    Serial.print(")");
+                    break;
+                case 13:
+                case 14:
+                    Serial.print(sp_str);
+                    char *ptr = (char*)++addr;
+                    do {
+                        Serial.print(*ptr++);
+                    } while (*ptr != 0);
+                    Serial.print("\x22");
+                    addr = (cell_t *)ptr;
+                    ALIGN_P(addr);
+                    break;
+            } // switch
+            // We're done if exit code but not a literal with value of one
+            done = ((*addr++ == 1) && (! isLiteral));
+        } while (! done); // do
+    } // else
+    Serial.println();
+}
 
 #endif
+
 
 /*******************************************************************************/
 /**                               Search Set                                  **/
@@ -1797,77 +1736,77 @@
 /**                      Arduino Library Operations                            **/
 /********************************************************************************/
 #ifdef EN_ARDUINO_OPS
-
-
-
-
+const char freeMem_str[] = "freeMem";
+void _freeMem(void) { 
+//   dStack_push(freeMem());
+}
 #endif
 
 #define EN_PIN_WRITE_MODE_READ
 #ifdef  EN_PIN_WRITE_MODE_READ
+const char pinWrite_str[] = "pinWrite";
+// ( u1 u2 -- )
+// Write a high (1) or low (0) value to a digital pin
+// u1 is the pin and u2 is the value ( 1 or 0 ). To turn on the LED
+// attached to D13, first change its pinMode to OUTPUT.  Then,
+// type "1 13 pinWrite".  "0 13 pinWrite" will (correspondingly) turn off
+// the LED on D13.
 
+// Note: if you typed "hex" you must enter everything in hexadecimal
+// (there is no notation, just type the digits with no symbols to
+// mark the number base).
 
+// Thus,
 
+//     hex 1 d pinMode 1 d pinWrite 7d0 delay 0 d pinWrite
 
+// will set the PinMode to OUTPUT, and pulse the LED on for 2 seconds
+// (0x7d0 milliseconds).
 
+// Afterwards, try
 
+//    777 dup 10 dump
 
+// just to demonstrate that data entry is currently in hexadecimal.
 
+void _pinWrite(void) {
+    digitalWrite(dStack_pop(), dStack_pop());
+    // digitalWrite(13, HIGH);
+}
 
+const char pinMode_str[] = "pinMode";
+// ( u1 u2 -- )
+// Set the specified pin behavior to either an input (0) or output (1)
+// u1 is the pin and u2 is the mode ( 1 or 0 ).
+// The LED is attached to the GPIO pin assigned to D13, on most Arduino devices.
+// To set this port pin to an OUTPUT, type "1 13 pinMode".
+void _pinMode(void) {
+    pinMode(dStack_pop(), dStack_pop());
+    // pinMode(13, OUTPUT);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const char pinRead_str[] = "pinRead";
+void _pinRead(void) {
+    dStack_push(digitalRead(dStack_pop()));
+}
 #endif
 
 
 #ifdef EN_ARDUINO_OPS
+const char analogRead_str[] = "analogRead";
+void _analogRead(void) {
+    // dStack_push(analogRead(dStack_pop()));
+}
 
+const char analogWrite_str[] = "analogWrite";
+void _analogWrite(void) {
+    // analogWrite(dStack_pop(), dStack_pop());
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+const char to_name_str[] = ">name";
+void _toName(void) {
+    // xtToName(dStack_pop());
+}
 #endif
 
 

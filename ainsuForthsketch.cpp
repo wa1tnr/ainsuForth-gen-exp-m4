@@ -1,3 +1,6 @@
+// Thu 21 Jun 22:17:21 UTC 2018
+// 4737-a3b-001-  +dict_comments_only.cpp file
+
 // Mon 18 Jun 21:39:23 UTC 2018
 // 4737-a3a-0f5-
 
@@ -300,9 +303,9 @@ void setup(void) {
   pOldHere = pHere;
   
   // Serial.print("\n warm boot message - early bird.  //  Gemma M0 29 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n warm boot message - early bird.  \r\n SIWNA +crickitCPX +eflmkdir b07 DEV - gen-exp-m4  18 June 2018\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n Mon 18 Jun 21:39:23 UTC 2018");
-     Serial.print("\n 4737-a3a-0f5- ItsyBitsyM4 sand birds");
+     Serial.print("\n warm boot message - early bird.  \r\n SIWNA +crickitCPX +eflmkdir b22 DEV - gen-exp-m4  21 June 2018\r\n          type 'warm' to reboot"); // instant confirmation
+     Serial.print("\n Thu 21 Jun 22:17:21 UTC 2018");
+     Serial.print("\n 4737-a3b-001- ItsyBitsyM4 sand birds");
 
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Metro M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Feather M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation

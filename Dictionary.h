@@ -1,3 +1,6 @@
+// Thu 21 Jun 22:17:21 UTC 2018
+// 4737-a3b-001-  +dict_comments_only.cpp file
+
 // Sun 17 Jun 22:09:15 UTC 2018
 // 4737-a3a-0e0-
 
@@ -67,7 +70,7 @@
 // #include "src/dict/colon_semi.h"
 #include "src/dict/stack_ops.h"
 #include "src/dict/iasmd.h"
-#include "src/dict/dict_entries.h"
+#include "src/dict/new_dict_entries.h" // #include "src/dict/dict_entries.h" // 21 June 2018
 
 // #include "src/kernel/dl_interpreter.h"
 #include "src/kernel/interpreter.h"
