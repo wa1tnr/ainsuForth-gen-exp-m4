@@ -1,18 +1,14 @@
+// Fri 22 Jun 17:36:48 UTC 2018
+// 4737-a3b-003-
+
+// On testing-ee
+// elamoti   kavicabe   nifamatta   xpa   monsala  telagruda  pelkammic
+
 // Thu 21 Jun 22:17:21 UTC 2018
 // 4737-a3b-001-  +dict_comments_only.cpp file
 
-// Thu 21 Jun 17:57:32 UTC 2018
-// 4737-a3a-0fe-
-
-// On testing-ee
-
-// xx2   monsala  telagruda  pelkammic
-
-// Wed 20 Jun 22:29:00 UTC 2018
-// 4737-a3a-0fb-
-
-// elcune  futelik   xc
-
+// Thu 21 Jun 17:57:32 UTC 2018 // 4737-a3a-0fe-
+// Wed 20 Jun 22:29:00 UTC 2018 // 4737-a3a-0fb-
 // Wed 20 Jun 21:18:37 UTC 2018 // 4737-a3a-0f9-
 // Wed 20 Jun 18:54:05 UTC 2018 // 4737-a3a-0f7-
 // Mon 18 Jun 21:39:23 UTC 2018 // 4737-a3a-0f5-

@@ -1,3 +1,8 @@
+// Fri 22 Jun 17:36:48 UTC 2018
+// 4737-a3b-003-
+
+#include "config_dict.h"  // dictionary configuration
+
 // Mon 18 Jun 21:39:23 UTC 2018
 // 4737-a3a-0f5-
 
