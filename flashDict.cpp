@@ -1,8 +1,9 @@
+// Fri 22 Jun 18:03:52 UTC 2018
+// 4737-a3b-005-
+
+// previous timestamps:
 // Thu 21 Jun 22:17:21 UTC 2018
 // 4737-a3b-001-  +dict_comments_only.cpp file
-
-// Sun 17 Jun 22:09:15 UTC 2018
-// 4737-a3a-0e0-
 
 // eflmkdir - external flashROM mod - create new directory 17 June 2018.
 // NOTE: you must compile this 'eflmkdir' word.  The very
@@ -22,41 +23,26 @@
 // Like that.
 
 
-// Wed 23 May 03:16:05 UTC 2018
-// 4737-a3a-05p-
+// Sun 17 Jun 22:09:15 UTC 2018 // 4737-a3a-0e0-
+// Wed 23 May 03:16:05 UTC 2018 // 4737-a3a-05p-
 
 // source word uncommented.
 
-
-// Mon 14 May 18:47:28 UTC 2018
-// 4737-a3a-05a-
-
-// Sun 13 May 06:53:54 UTC 2018
-// 4737-a3a-03f-
-
-// Mon Jan 15 18:14:33 UTC 2018
-// 4737-a0d-05c-
-
-// version bump
+// Mon 14 May 18:47:28 UTC 2018 // 4737-a3a-05a-
+// Sun 13 May 06:53:54 UTC 2018 // 4737-a3a-03f-
+// Mon Jan 15 18:14:33 UTC 2018 // 4737-a0d-05c-
 
 // SPI flashROM stuff
+
 // look for #ifdef HAS_SPI_FLASH_DEMO   10 Dec 2017
 
 // the accept word
 
-
-// previous timestamps:
-
-// Sat Dec 16 01:24:37 UTC 2017
-// 4737-a0a-00a-
-// Sun Dec 10 22:48:03 UTC 2017
-// 4735-b0d-00b-   the -00x- is new Dec 10, 2017.
-// Sat Nov 25 19:03:16 UTC 2017
-// 4735-b0c-09d-   the -09x- is new Nov 24, 2017.
-// Fri Nov 24 23:31:39 UTC 2017
-// 4735-b0c-09b-   the -09x- is new Nov 24, 2017.
-// Thu Aug  3 01:46:56 UTC 2017
-// 4735-b0d-00-
+// Sat Dec 16 01:24:37 UTC 2017 // 4737-a0a-00a-
+// Sun Dec 10 22:48:03 UTC 2017 // 4735-b0d-00b-   the -00x- is new Dec 10, 2017.
+// Sat Nov 25 19:03:16 UTC 2017 // 4735-b0c-09d-   the -09x- is new Nov 24, 2017.
+// Fri Nov 24 23:31:39 UTC 2017 // 4735-b0c-09b-   the -09x- is new Nov 24, 2017.
+// Thu Aug  3 01:46:56 UTC 2017 // 4735-b0d-00-
 
 #include <Arduino.h>
 #include "yaffa.h"
@@ -65,13 +51,6 @@
 #include "Dictionary.h"
 #include "Error_Codes.h"
 
-// June 23 22:04z:  Three new words:   ,  2drop  c!
-
-// const char not_done_str[] = " NOT Implemented Yet \n\r";
-
-// const char sp_str[] = " "; // does not belong here
-// stack_t dStack; // no idea where this should go
-// stack_t rStack; // no idea where this should go
 
 /*********************************************************************************/
 /**   'static void _foo(void)'  -- conflicts with 'extern void'                 **/
@@ -97,14 +76,6 @@ static void _two_drop(void) {
 /*********************************************************************************/
 /**                         Dictionary Initialization                           **/
 /*********************************************************************************/
-
-
-// Tue Jun  6 20:42:31 UTC 2017
-// 4733-a9a
-// 
-// ainsuForth NOTE:
-//     flashDict[] assignment
-// belongs in flashDict.cpp for reorganization.
 
 const flashEntry_t DLflashDict[] = {
   { dl_ends_str,        _dl_ends,         NORMAL },  // IMMEDIATE
@@ -141,6 +112,9 @@ const flashEntry_t flashDict[] = {
   /* Order does not matter after here                  */
   /* Core Words                                        */
   /*****************************************************/
+#if defined(INCL_NOP_WORD) || defined(XDICT)
+  { nop_str,            _nop,             NORMAL }, // 22 June 2018
+#endif
   { warm_str,           _warm,            NORMAL },
   { dot_str,            _dot,             NORMAL },
   { minus_str,          _minus,           NORMAL },
@@ -186,7 +160,7 @@ const flashEntry_t flashDict[] = {
   { fetch_str,          _fetch,           NORMAL },
 //   { abort_quote_str,    _abort_quote,     IMMEDIATE + COMP_ONLY },
   { abs_str,            _abs,             NORMAL },
-#ifdef EXT_KERN_ACCEPT
+#ifdef EXT_KERN_ACCEPT // lets get rid of this test - legacy cruft - 22 June 2018
   { accept_str,         _accept,          NORMAL },
 #endif
 //   { align_str,          _align,           NORMAL },
@@ -323,7 +297,7 @@ const flashEntry_t flashDict[] = {
   { pinWrite_str,       _pinWrite,        NORMAL },
   { pinMode_str,        _pinMode,         NORMAL },
   { pinRead_str,        _pinRead,         NORMAL },
-//   { analogRead_str,     _analogRead,      NORMAL },
+//   { analogRead_str,     _analogRead,      NORMAL },  // ISTR this was defined
 //   { analogWrite_str,    _analogWrite,     NORMAL },
 //   { to_name_str,        _toName,          NORMAL },
 #endif
@@ -336,11 +310,12 @@ const flashEntry_t flashDict[] = {
 
 #ifdef NEO_PIXEL
 
-  { npx_str,            _npx,             NORMAL }, // NORMAL
-  { npx_fetch_str,      _npx_fetch,       NORMAL }, // NORMAL
-  { rgb_str,            _rgb,             NORMAL }, // NORMAL
-  { pixel_str,          _pixel,           NORMAL }, // NORMAL
-  { cblink_str,         _cblink,          NORMAL }, // NORMAL
+  { npx_str,            _npx,             NORMAL }, // NORMAL  // set npx array index (e.g. 0-9 on CPX)  '4 npx' sets the 5th npx for future write ops incl. 'rgb'
+  { npx_fetch_str,      _npx_fetch,       NORMAL }, // NORMAL  // fetch npx array index 'npx@ .' prints the current index without disturbing it
+  { rgb_str,            _rgb,             NORMAL }, // NORMAL  // '0 0 1 rgb' sets blue.  '0 0 0 rgb' makes current npx go dark
+  { pixel_str,          _pixel,           NORMAL }, // NORMAL  // 'pixel' runs a demo blinking pattern
+  { cblink_str,         _cblink,          NORMAL }, // NORMAL  // 'cblink' blinks current npx once .. in cyan
+                                                               // 3 npx 9 0 9 rgb -- this would select the 4th npx and color it in magenta
 
 #endif // #ifdef NEO_PIXEL
 

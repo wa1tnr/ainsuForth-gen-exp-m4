@@ -1,11 +1,13 @@
+// Fri 22 Jun 18:03:52 UTC 2018
+// 4737-a3b-005-
+
+// On testing-ee
+// fostaru   keppupp   framata   cantuu   elamoti   kavicabe   nifamatta   xpa   monsala  telagruda  pelkammic
+
 // Fri 22 Jun 17:36:48 UTC 2018
 // 4737-a3b-003-
 
-// On testing-ee
-// elamoti   kavicabe   nifamatta   xpa   monsala  telagruda  pelkammic
-
-// Thu 21 Jun 22:17:21 UTC 2018
-// 4737-a3b-001-  +dict_comments_only.cpp file
+// Thu 21 Jun 22:17:21 UTC 2018 // 4737-a3b-001-  +dict_comments_only.cpp file
 
 // Thu 21 Jun 17:57:32 UTC 2018 // 4737-a3a-0fe-
 // Wed 20 Jun 22:29:00 UTC 2018 // 4737-a3a-0fb-
@@ -29,7 +31,6 @@
 //    * metro m0 expr
 //    * metro m4 expr
 //    * feather m0 expr
-
 
 //    Note - the 'pixel' word is more interesting on the CPX target board.
 

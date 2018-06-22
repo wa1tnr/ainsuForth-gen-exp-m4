@@ -1,30 +1,26 @@
+// Fri 22 Jun 18:03:52 UTC 2018
+// 4737-a3b-005-
+
+// new_dict_entries.cpp   // source: dict_entries.cpp
+
+// previous timestamps:
 // Thu 21 Jun 22:17:21 UTC 2018
 // 4737-a3b-001-  +dict_comments_only.cpp file
 
-// Thu 21 Jun 17:57:32 UTC 2018
-// 4737-a3a-0fe-
+// Thu 21 Jun 17:57:32 UTC 2018 // 4737-a3a-0fe-
 
-// new_word.cpp - unknown content until it's been edited some more. 21 June 2018.  // source: dict_entries.cpp
 
-// nice nop:
-// 
-// : it's some kind of boundary condition, and your code is 
-//   somehow an exactly wrong number of bytes long. I added
-//   this junk code
-//   (volatile is necessary so that the loop doesn't get optimized away),
-//   and it also compiles:
-// 
-//  [7:36 PM] Dan Halbert: 
-//      for (volatile int i = 1; i < 2; i++) {
-//          // nothing
-//      }
-//      Serial.println(red);
+/* model - target code (in the dictionary files, elsewhere in the source tree):
 
-void nop(void) {
-    for (volatile int i = 1; i < 2; i++) {
-        // nothing
-    }
-}
+#if defined(INCL_THIS_WORD) || defined(XDICT)
+    .
+    .
+    code
+    .
+    .
+#endif
+
+*/
 
 // SPELLING
 
@@ -44,12 +40,11 @@ void myword_underscore_seps(void) {
 
 // PURPOSE
 
-// The purpose of this file (whatever it is named -- the name
-// has not been chosen, yet, as of 18:17z 21 June 2018) ..
+// The purpose of this file (new_dict_entries.cpp)
 
 // ----------------------------------------------------------
 // ----------------------------------------------------------
-// .. its purpose is to remove comments and just show code,
+// .. is to remove comments and just show code,
 // where comments became unweildy.
 // ----------------------------------------------------------
 // ----------------------------------------------------------
@@ -71,7 +66,6 @@ void myword_underscore_seps(void) {
 
 
 
-// previous timestamps:
 // Wed 20 Jun 22:29:00 UTC 2018 // entire project.
 // 4737-a3a-0fb-
 
@@ -83,7 +77,7 @@ void myword_underscore_seps(void) {
 #include "../../flashDict.h"
 #include "../../Dictionary.h"
 
-const char not_done_str[] = " NOT Implemented Yet \n\r";
+// const char not_done_str[] = " NOT Implemented Yet \n\r";
 const char sp_str[] = " "; // does not belong here
 const char tab_str[] = "\t"; // does not belong here
 stack_t dStack;
@@ -92,6 +86,29 @@ stack_t rStack;
 /*******************************************************************************/
 /**                          Core Forth Words                                 **/
 /*******************************************************************************/
+
+// nice nop:
+// 
+// Dan Halbert: it's some kind of boundary condition, and your code is 
+//   somehow an exactly wrong number of bytes long. I added
+//   this junk code
+//   (volatile is necessary so that the loop doesn't get optimized away),
+//   and it also compiles:
+// 
+//  [7:36 PM] Dan Halbert: 
+//      for (volatile int i = 1; i < 2; i++) {
+//          // nothing
+//      }
+//      Serial.println(red);
+
+#if defined(INCL_NOP_WORD) || defined(XDICT)
+const char nop_str[] = "nop";
+void _nop(void) {
+    for (volatile int i = 1; i < 2; i++) {
+        // nothing
+    }
+}
+#endif // #if defined(INCL_NOP_WORD) || defined(XDICT)
 
 const char here_str[] = "here";
 // ( -- addr )

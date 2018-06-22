@@ -1,3 +1,6 @@
+// Fri 22 Jun 18:03:52 UTC 2018
+// 4737-a3b-005-
+
 // Thu 21 Jun 22:17:21 UTC 2018
 // 4737-a3b-001-  +dict_comments_only.cpp file
 
@@ -8,6 +11,11 @@
 
 extern char cInputBuffer[BUFFER_SIZE]; // Input Buffer that gets parsed
 // extern char cTokenBuffer[WORD_SIZE];  // Stores Single Parsed token to be acted on
+
+#if defined(INCL_NOP_WORD) || defined(XDICT)
+extern const char nop_str[]; // = "nop";
+extern void _nop(void);
+#endif // #if defined(INCL_NOP_WORD) || defined(XDICT)
 
 extern const char here_str[]; // = "here";
 extern void _here(void);
