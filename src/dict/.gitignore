@@ -1,0 +1,5 @@
+.DS_Store
+d*.cpp__ORIG__
+n*.cpp__LATEST__
+n*.cpp__r0*
+n*.h____r0*
