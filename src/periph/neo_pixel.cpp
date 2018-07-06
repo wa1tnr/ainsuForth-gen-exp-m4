@@ -1,7 +1,7 @@
-// Fri  6 Jul 06:36:32 UTC 2018
-// 4737-a3b-015-
+// Fri  6 Jul 06:50:19 UTC 2018
+// 4737-a3b-017-
 
-// Update for ADAFRUIT_FEATHER_M0_EXPRESS
+// Update for ADAFRUIT_FEATHER_M4_EXPRESS
 
 // Mon 18 Jun 21:39:23 UTC 2018
 // 4737-a3a-0f5-
