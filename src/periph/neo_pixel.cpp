@@ -1,3 +1,8 @@
+// Fri  6 Jul 06:50:19 UTC 2018
+// 4737-a3b-017-
+
+// Update for ADAFRUIT_FEATHER_M4_EXPRESS
+
 // Mon 18 Jun 21:39:23 UTC 2018
 // 4737-a3a-0f5-
 
@@ -69,7 +74,7 @@
 
 #undef PIN
 
-#ifdef __SAMD51J19A__
+#ifdef ADAFRUIT_METRO_M4_EXPRESS // #ifdef __SAMD51J19A__
   #define PIN               40 // peculiar to Metro M4 Express.
 #endif
 
@@ -80,6 +85,10 @@
 #ifdef ADAFRUIT_FEATHER_M0_EXPRESS
   #define PIN                8 // peculiar to Feather M0 Express
 #endif // 15 Jan 2018
+
+#ifdef ADAFRUIT_FEATHER_M4_EXPRESS
+  #define PIN                8 // peculiar to Feather M4 Express
+#endif // 06 July 2018
 
 #ifdef ADAFRUIT_TRINKET_M0
   #define PIN                1 // arbitrary assignment? Trinket M0

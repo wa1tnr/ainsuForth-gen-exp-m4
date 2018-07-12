@@ -1,18 +1,18 @@
-// Fri 22 Jun 17:36:48 UTC 2018
-// 4737-a3b-003-
+// Thu 12 Jul 06:31:01 UTC 2018
+// 4737-a3b-019- // ainsuForth-gen-exp-m4
 
 #include "config_dict.h"  // dictionary configuration
+
+// previous timestamps:
+// Fri 22 Jun 17:36:48 UTC 2018
+// 4737-a3b-003-
 
 // Mon 18 Jun 21:39:23 UTC 2018
 // 4737-a3a-0f5-
 
-// Mon 18 Jun 05:32:01 UTC 2018
-// 4737-a3a-0e7-
-
 // Sun 17 Jun 04:01:59 UTC 2018
 // 4737-a3a-0cc-
 
-// previous timestamps:
 // Tue 12 Jun 23:47:23 UTC 2018
 // 4737-a3a-09b-
 
@@ -132,12 +132,37 @@
 //   human parsing of its structure.
 
 
+/* shipping:
+ * Adafruit CircuitPython 3.0.0-rc.0 on 2018-06-18; Adafruit Feather M4 Express with samd51j19
+ * >>>
+ */
+
+#ifdef ADAFRUIT_FEATHER_M4_EXPRESS // __SAMD51J19A__
+  #undef HAS_SPI_FLASH_DEMO
+  #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
+  #undef QSPI_FLASHROM_PRESENT
+  #define COMMUTED_PIN_NPX 8
+
+  // NEO_PIXEL - Feather M4 Express - ENABLED 12 July 2018 06:25z
+  // -------  use this to switch between them   ---------
+  #undef NEO_PIXEL_LIB_ENABLED  // swap these two
+  #define NEO_PIXEL_LIB_ENABLED // swap these two
+  // -------  use this to switch between them   ---------
+  #ifdef NEO_PIXEL_LIB_ENABLED
+    #ifndef HAS_NEO_PIXEL_LIB
+      #define HAS_NEO_PIXEL_LIB
+    #endif // #ifndef HAS_NEO_PIXEL_LIB
+  #endif // #ifdef NEO_PIXEL_LIB_ENABLED
 
 
 
 
-
-
+  #ifndef NEO_PIXEL_LIB_ENABLED
+    #ifdef HAS_NEO_PIXEL_LIB
+      #undef HAS_NEO_PIXEL_LIB
+    #endif
+  #endif // #ifndef NEO_PIXEL_LIB_ENABLED
+#endif // #ifdef ADAFRUIT_FEATHER_M4_EXPRESS // __SAMD51J19A__
 
 
 
