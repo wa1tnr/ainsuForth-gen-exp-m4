@@ -1,14 +1,15 @@
+// Thu 12 Jul 14:20:50 UTC 2018
+// 4737-a3b-01b- // ainsuForth-gen-exp-m4
+
+// On branch testing-ee
+
+// tornaque    pivakia     kivandidu   mittaxl     elmatraffi
+// fostaru     keppupp     framata     cantuu      elamoti
+
 // Thu 12 Jul 06:31:01 UTC 2018
 // 4737-a3b-019- // ainsuForth-gen-exp-m4
 
-// On branch master
-
-// pivakia     kivandidu   mittaxl   elmatraffi   fostaru
-// keppupp     framata   cantuu       elamoti
-
-// Fri  6 Jul 06:50:19 UTC 2018
-// 4737-a3b-017- // ainsuForth-gen-exp-m4
-
+// Fri  6 Jul 06:50:19 UTC 2018 // 4737-a3b-017-
 // Sat 23 Jun 02:43:45 UTC 2018 // 4737-a3b-00b-
 // Fri 22 Jun 21:37:41 UTC 2018 // 4737-a3b-009-
 // Fri 22 Jun 17:36:48 UTC 2018 // 4737-a3b-003-
