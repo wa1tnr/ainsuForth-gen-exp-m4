@@ -1,0 +1,44 @@
+
+from Julian Ilett
+
+First Look: APA102 RGB Pixel Addressable LED #1
+
+  [ https://www.youtube.com/watch?v=UYvC-hukz-0 ]
+
+time index 5:51:
+
+   4 bytes of 0's to start (start byte)
+
+   then:
+
+   111rrrrr  bbbbbbbb gggggggg rrrrrrrr
+   bright    blue     green    red    
+
+   then (optional!)
+   4 bytes of 1's to end frame.
+
+
+   0000 0000   0000 0000   0000 0000   0000 0000   32 bits of 0's - start
+   1111 1111   1111 1111   1111 1111   1111 1111   32 bits of 0's - stop
+
+   111n nnnn   
+   brightness
+
+Multiples
+
+time index ... 10:26 ending
+
+   START 32-led-a 32-led-b 32-led-c
+
+   You just keep sending 32-bit sequences to the strip;
+   when an indvidual APA102 is fully defined (in just 32 bits)
+   the very next sequence of 32-bits acts on the next APA102
+   on the strip!
+
+   "It has built a sort of bypass around itself" after
+   receiving its 32-bit instruction (8 brightness bits,
+   8 blue bits, 8 green bits and 8 red bits for 32 bits
+   in total -- a complete instruction to any APA102,
+   so long as the 32-bit value of 0 is sent as the 'start'
+   byte -- once -- for an entire string of APA102's).
+
