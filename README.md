@@ -15,7 +15,7 @@ place to look for porting issues, across targets).
 This forth is compiled regularly (as targets are reused
 to test other code).  It is usually operational. ;)
 
-flashROM support is limited to the JEDEC stuff for samd51
+flashROM support is limited to the JEDEC stuff for samd21
 (SPI rather than QSPI).  It occurs in the form of an ability
 to capture text to disk and replay that text to program
 the forth compiler/interpreter.
