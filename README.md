@@ -3,14 +3,37 @@ ainsuForth - generalized - all targets including SAMD51 M4 - experimental
 
 +Metro M4 Express     - SAMD51J19A
 +ItsyBitsy M4 Express - SAMD51G19A
++Feather M4 Express   - SAMD51J19A
 
-previously ainsuForth-gen-exp
+(previously ainsuForth-gen-exp)
+
+gen-exp means generalized and experimental; generalized
+to all the available target boards (trying to move as
+much of that into compatibility.h as a single-source
+place to look for porting issues, across targets).
+
+This forth is compiled regularly (as targets are reused
+to test other code).  It is usually operational. ;)
+
+flashROM support is limited to the JEDEC stuff for samd51
+(SPI rather than QSPI).  It occurs in the form of an ability
+to capture text to disk and replay that text to program
+the forth compiler/interpreter.
+
+It works well enough to be useful on a dumb serial terminal
+(with USB interface).  Tested during a power outage when
+the usual resources weren't available.  Still primitive,
+but a useful asset.
+
+No effort was made at file management, so it's just the
+one file on SPI flashROM at present (which can be reset
+to zero length, from inside the forth interpreter).
 
 22 August 2018:
 
 Development for a bare-metal Forth in
 
-   https://github.com/wa1tnr/ainsuMtxd21.git
+   https://github.com/wa1tnr/ainsuMtxd21.git (samd21)
 
 The most recent branch incorporating what is achieved is found
 
@@ -18,13 +41,25 @@ The most recent branch incorporating what is achieved is found
 
 of that repository.
 
+Earlier work was done on samd51 (clocks look good;
+bidirectional USART looks good):
+
+   https://github.com/wa1tnr/samd51_USART_basic.git  (samd51)
+
+The most recent (non-clock) work was carried over (back to)
+samd51 in the ainsuMtxd21 repo, currently branch KM_converser_aa-
+(just menttioned).
+
+
 There is also a UART-based version of ainsuForth-gen-exp-m4,
-though it hasn't been published.  All that was required was
-a global search and replace for 'Serial.' with 'Serial1.' to
-get that to work quite well (using CP2104 USART-USB bridge
-chip; reference implementation was for Adafruit PiUART - a
-nice way to leverage this, quickly, with just two wires (plus
-ground, for three wires, total).
+(written in Arduino IDE c++ code) though it hasn't been published.
+
+All that was required was a global search and replace for
+'Serial.' with 'Serial1.' to get that to work quite well
+(using CP2104 USART-USB bridge chip; reference implementation
+was for Adafruit PiUART - a nice way to leverage this,
+quickly, with just two wires (plus ground, for three
+wires, total).
 
 12 June 2018: Nothing said below this line is reliable, as it is
 a copy-over from an earlier project and hasn't been looked at,
