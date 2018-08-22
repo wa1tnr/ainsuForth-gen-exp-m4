@@ -1,3 +1,6 @@
+// Wed Aug 22 03:12:41 UTC 2018
+// 4737-a3c-00a- // ainsuForth-gen-exp-m4
+
 // Thu 12 Jul 06:31:01 UTC 2018
 // 4737-a3b-019- // ainsuForth-gen-exp-m4
 
@@ -312,9 +315,9 @@ void setup(void) {
   pOldHere = pHere;
   
   // Serial.print("\n warm boot message - early bird.  //  Gemma M0 29 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n warm boot message - early bird.  \r\n SIWNA +fm4x +crickitCPX  c4b DEVPR - gen-exp-m4  22 Aug 2018\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n Wed Aug 22 02:31:57 UTC 2018");
-     Serial.print("\n 4737-a3b-019- Feather M4 Express sand birds");
+     Serial.print("\n warm boot message - early bird.  \r\n SIWNA +fm4x +crickitCPX  c4e DEVPR - gen-exp-m4  22 Aug 2018\r\n          type 'warm' to reboot"); // instant confirmation
+     Serial.print("\r\n Wed Aug 22 03:12:41 UTC 2018");
+     Serial.print("\r\n 4737-a3c-00a- Feather M4 Express sand birds");
 
   // 22 august: cosmetic update.  No code changes.
 
