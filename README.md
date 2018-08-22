@@ -6,9 +6,35 @@ ainsuForth - generalized - all targets including SAMD51 M4 - experimental
 
 previously ainsuForth-gen-exp
 
+22 August 2018:
+
+Development for a bare-metal Forth in
+
+   https://github.com/wa1tnr/ainsuMtxd21.git
+
+The most recent branch incorporating what is achieved is found
+
+   On branch KM_converser_aa-
+
+of that repository.
+
+There is also a UART-based version of ainsuForth-gen-exp-m4,
+though it hasn't been published.  All that was required was
+a global search and replace for 'Serial.' with 'Serial1.' to
+get that to work quite well (using CP2104 USART-USB bridge
+chip; reference implementation was for Adafruit PiUART - a
+nice way to leverage this, quickly, with just two wires (plus
+ground, for three wires, total).
+
 12 June 2018: Nothing said below this line is reliable, as it is
 a copy-over from an earlier project and hasn't been looked at,
 recently.  Ignore (or interpret from past events).
+
+August 2018 update:  Haven't removed what's below, nor reviewed it.
+
+It's so much easier to just be diligent with 'git diff' and
+to use 'gitk' to step through the changes (though that is the
+developer's point of view; for the end-user, hard to say).
 
  - - - - - - - -
 
