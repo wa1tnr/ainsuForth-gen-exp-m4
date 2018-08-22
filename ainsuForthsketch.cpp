@@ -312,9 +312,11 @@ void setup(void) {
   pOldHere = pHere;
   
   // Serial.print("\n warm boot message - early bird.  //  Gemma M0 29 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n warm boot message - early bird.  \r\n SIWNA +fm4x +noppy +crickitCPX  a9f DEVPR - gen-exp-m4  12 July 2018\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n Thu 12 Jul 06:31:01 UTC 2018");
+     Serial.print("\n warm boot message - early bird.  \r\n SIWNA +fm4x +crickitCPX  c4b DEVPR - gen-exp-m4  22 Aug 2018\r\n          type 'warm' to reboot"); // instant confirmation
+     Serial.print("\n Wed Aug 22 02:31:57 UTC 2018");
      Serial.print("\n 4737-a3b-019- Feather M4 Express sand birds");
+
+  // 22 august: cosmetic update.  No code changes.
 
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Metro M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Feather M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
