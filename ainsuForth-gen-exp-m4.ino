@@ -1,3 +1,6 @@
+// Wed Aug 22 02:31:57 UTC 2018
+// Compiles and operational Metro M4 Express (samd51)
+
 // Thu 12 Jul 14:20:50 UTC 2018
 // 4737-a3b-01b- // ainsuForth-gen-exp-m4
 
