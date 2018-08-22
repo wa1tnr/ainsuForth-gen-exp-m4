@@ -1,16 +1,18 @@
-// Wed Aug 22 02:31:57 UTC 2018
-// Compiles and operational Metro M4 Express (samd51)
+// Wed Aug 22 03:12:41 UTC 2018
+// 4737-a3c-00a- // ainsuForth-gen-exp-m4
 
-// Thu 12 Jul 14:20:50 UTC 2018
-// 4737-a3b-01b- // ainsuForth-gen-exp-m4
+// Compiles and operational Metro M4 Express (samd51)
 
 // On branch testing-ee
 
-// tornaque    pivakia     kivandidu   mittaxl     elmatraffi
-// fostaru     keppupp     framata     cantuu      elamoti
+// Wed Aug 22 02:31:57 UTC 2018
+// Thu 12 Jul 14:20:50 UTC 2018
+// 4737-a3b-01b- // ainsuForth-gen-exp-m4
 
-// Thu 12 Jul 06:31:01 UTC 2018
-// 4737-a3b-019- // ainsuForth-gen-exp-m4
+// sifto       tuzzah      tornaque    pivakia     kivandidu
+// mittaxl     elmatraffi  fostaru     keppupp     framata 
+
+// Thu 12 Jul 06:31:01 UTC 2018 // 4737-a3b-019-
 
 // Fri  6 Jul 06:50:19 UTC 2018 // 4737-a3b-017-
 // Sat 23 Jun 02:43:45 UTC 2018 // 4737-a3b-00b-
