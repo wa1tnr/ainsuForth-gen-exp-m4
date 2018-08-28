@@ -1,0 +1,6 @@
+Tue Aug 28 18:09:20 UTC 2018
+
+To https://github.com/wa1tnr/ainsuForth-gen-exp-m4.git
+   8aa87fb..dad2096  testing-ee -> testing-ee
+ $ git checkout -b testing-ff-
+Switched to a new branch 'testing-ff-'
