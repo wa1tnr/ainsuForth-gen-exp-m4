@@ -1,0 +1,24 @@
+ mc $ microcom -s 38400 -p /dev/ttyACM0 
+connected to /dev/ttyACM0
+
+Went off tail.  Bye from dotstar. // not unusual.  maybe not each and every time?
+
+ warm boot message - early bird.  
+ SIWNA +fm4x +crickitCPX  c4e DEVPR - gen-exp-m4  22 Aug 2018
+          type 'warm' to reboot
+ Wed Aug 22 03:12:41 UTC 2018 // now 28 August
+ 4737-a3c-00a- Feather M4 Express sand birds // on itsyBitsyM4_Express today
+
+     ainsuForth - 2018 - wa1tnr    words: 81  
+         YAFFA - Yet Another Forth For Arduino, 
+         Copyright (C) 2012 Stuart Wood
+
+words exit literal type throw evaluate s" ." variable over = drop warm . - + 
+* 0= ! +! , / 2! 2@ 2drop : ; >r @ abs accept allot and c! c, c@ char constant 
+count cr decimal do dup emit fill here loop max min negate or quit r> r@ 
+rot source space spaces swap u. word xor [char] .( hex help who .s dump 
+see words delay pinWrite pinMode pinRead 
+ ok
+
+// all was wanted was the wordlist.
+END.
