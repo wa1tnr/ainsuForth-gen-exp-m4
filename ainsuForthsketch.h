@@ -11,10 +11,10 @@
 #define shredStamp(s)    "4737-a3c-00c-"
 #define progNameStamp(p) "ainsuForth-gen-exp-m4"
 #define targetStamp(t)   "ItsyBitsy M4 Express"
-#define branchStamp(b)   "testing-ff-"
+#define branchStamp(b)   "master     "
 #define featureList(f)   "+fm4x +crickitCPX"
 #define dateStamp(e)     "28 Aug 2018" // infrequently maintained, in the past
-#define gitShowStamp(g)  "4c47e5506e9" // arbitrary length to fit aesthetics
+#define gitShowStamp(g)  "134166be3a9" // arbitrary length to fit aesthetics
 
 #include "src/kernel/signon.h"
 #include "src/kernel/getline.h"
