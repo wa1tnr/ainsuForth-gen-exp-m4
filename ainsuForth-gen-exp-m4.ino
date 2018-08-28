@@ -1,12 +1,18 @@
-// Tue Aug 28 14:27:24 UTC 2018
-// 4737-a3c-00b- // ainsuForth-gen-exp-m4
-// On branch testing-ee
+// Tue Aug 28 18:10:58 UTC 2018
+// 4737-a3c-00c- // ainsuForth-gen-exp-m4
+// On branch testing-ff-
 
 // itsybitsy m4 basic checkout seems fine.
 
+// kelnarg      tifkarsi     sifto        tuzzah       tornaque
+// pivakia      kivandidu    mittaxl      elmatraffi   fostaru
+// keppupp      framata 
+
 // title sequence for itsym4 is
 
-// three colors in sequence followed by a monopong on D13 until someone connects.
+//     three colors in sequence
+//     followed by a monopong on D13
+//     until someone connects.
 
 // this is to exercise the dotstar a little.  older code for gemma m0 and trinket m0
 // should have a similar idea going.
@@ -17,17 +23,64 @@
 // all the above from (human) memory - details may be off.
 
 // previous:
+// Tue Aug 28 17:11:45 UTC 2018
+// 4737-a3c-00b- // ainsuForth-gen-exp-m4
+// On branch testing-ee
+
 // Wed Aug 22 03:12:41 UTC 2018
 // 4737-a3c-00a- // ainsuForth-gen-exp-m4
 
 // Compiles and operational Metro M4 Express (samd51)
 
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+//                  s t r u c t u r e
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// August, 2018:
+
+// This file, ainsuForth-gen-exp-m4.ino, serves as
+// a Changelog pretty much.
+
+// There is NO CODE at all in this file.  It is a placeholder
+// to satisfy the requirement of a correctly named *.ino file
+// to head the project, in the Arduino IDE.
+
+// See various internet references as to how this works,
+// exactly.  Everything but this file is a .cpp file, and
+// that's permitted.
+
+// ainsuForthsketch.cpp  is the expected top level file, and
+// serves the same purpose as the primary (the .ino) file does.
+
+// It has setup() and loop() defined, for example.
+
+// Each (and every) .cpp needs to include Arduino.h, to
+// bring in the basics (such as typedef statements) that are
+//  not in the compiler itself:
+
+// #include <Arduino.h>
+
+// like that.
+
+// the ./src directory is the only allowed directory name for
+// the first-level source tree, found to function correctly.
+
+// Other directory names at the same level (as ./src) appear to
+// be ignored by the Arduino IDE (and so are a great place to
+// hide good information the compiler should not try to parse).
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+// more previous:
 // Wed Aug 22 02:31:57 UTC 2018
 // Thu 12 Jul 14:20:50 UTC 2018
 // 4737-a3b-01b- // ainsuForth-gen-exp-m4
-
-// sifto       tuzzah      tornaque    pivakia     kivandidu
-// mittaxl     elmatraffi  fostaru     keppupp     framata 
 
 // Thu 12 Jul 06:31:01 UTC 2018 // 4737-a3b-019-
 
@@ -518,6 +571,9 @@ loop ;
 // , 2drop c! - three words added to dictionary.
 
 // PRIMITIVE FORTH - working 18 June  -  HABILLEAUX   CHOGUFE   STELDONE   PARKEFF
+
+
+// monopong   wa1tnr  28 August 2018
 
 /******************************************************************************/
 /**  YAFFA - Yet Another Forth for Arduino                                   **/
