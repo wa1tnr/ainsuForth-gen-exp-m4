@@ -1,9 +1,26 @@
+// Tue Aug 28 14:27:24 UTC 2018
+// 4737-a3c-00b- // ainsuForth-gen-exp-m4
+// On branch testing-ee
+
+// itsybitsy m4 basic checkout seems fine.
+
+// title sequence for itsym4 is
+
+// three colors in sequence followed by a monopong on D13 until someone connects.
+
+// this is to exercise the dotstar a little.  older code for gemma m0 and trinket m0
+// should have a similar idea going.
+
+// the others are probably sequenced with just a magenta NeoPixel quick blink
+// ping-ponged against the red LED until connection.
+
+// all the above from (human) memory - details may be off.
+
+// previous:
 // Wed Aug 22 03:12:41 UTC 2018
 // 4737-a3c-00a- // ainsuForth-gen-exp-m4
 
 // Compiles and operational Metro M4 Express (samd51)
-
-// On branch testing-ee
 
 // Wed Aug 22 02:31:57 UTC 2018
 // Thu 12 Jul 14:20:50 UTC 2018
