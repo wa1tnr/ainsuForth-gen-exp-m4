@@ -72,6 +72,17 @@
 
 #endif // big kludge 13 June 2018 - compatibility.h should signal for this toggle
 
+// Trellis M4: clock D11 data D12 per variant.cpp .. sort of
+#ifdef ADAFRUIT_TRELLIS_M4_EXPRESS
+
+  #undef DATAPIN
+  #undef CLOCKPIN
+
+  #define DATAPIN    12
+  #define CLOCKPIN   11
+
+#endif
+
 
 Adafruit_DotStar strip = Adafruit_DotStar(
   NUMPIXELS, DATAPIN, CLOCKPIN, DOTSTAR_BRG);
