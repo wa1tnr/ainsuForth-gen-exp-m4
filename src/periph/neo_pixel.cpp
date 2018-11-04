@@ -109,9 +109,17 @@
 
 #undef NUMPIXELS
 
-#ifdef __SAMD51J19A__
-  #define NUMPIXELS          1 // Metro M4 Express
+#ifdef ADAFRUIT_TRELLIS_M4_EXPRESS
+  #define NUMPIXELS         32
 #endif
+
+#ifdef ADAFRUIT_METRO_M4_EXPRESS
+  #define NUMPIXELS          1
+#endif
+
+// #ifdef __SAMD51J19A__
+//  #define NUMPIXELS          1 // Metro M4 Express
+// #endif
 
 #ifdef ADAFRUIT_ITSYBITSY_M0
   #define NUMPIXELS          1 // Crickit CPX - pretend itsybitsym0
