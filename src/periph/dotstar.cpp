@@ -78,8 +78,24 @@
   #undef DATAPIN
   #undef CLOCKPIN
 
-  #define DATAPIN    12
+/* works on 04 November on a Trellis M4 shipped on 01 Nov 2018 */
+  #define CLOCKPIN   37
+  #define DATAPIN    38
+
+/*
   #define CLOCKPIN   11
+  #define DATAPIN    12
+
+PB02 is D37 and is the dotstar clock   PB03 is its data
+
+ 91   // 36 - SWDIO
+ 92   { PORTA, 31, PIO_SERCOM_ALT, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT
+ 93
+ 94   // Unused
+ 95   { PORTB,  2, PIO_ANALOG, PIN_ATTR_ANALOG, ADC_Channel14, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2
+ 96   { PORTB,  3, PIO_ANALOG, PIN_ATTR_ANALOG, ADC_Channel15, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3
+*/
+
 
 #endif
 
@@ -114,6 +130,9 @@ void loop_dotstar() {
 
 // DEBUG 13 June 2018: we are M4 and are much faster!  Must extend our timeout:
   delay(900);                        // Pause 20 milliseconds (~50 FPS)
+
+// DEBUG 04 Nov  2018: Trellis M4 (still no help - pin assignments probably wrong)
+// delay(900);                        // Pause 20 milliseconds (~50 FPS)
 
   if(++head >= NUMPIXELS) {         // Increment head index.  Off end of strip?
     head = 0;                       //  Yes, reset head index to start

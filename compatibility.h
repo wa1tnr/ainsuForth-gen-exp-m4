@@ -218,6 +218,8 @@
     #endif
   #endif
 
+  // force define:
+  #define HAS_DOTSTAR_LIB
 #endif // #ifdef ADAFRUIT_TRELLIS_M4_EXPRESS
 
 
