@@ -1,12 +1,14 @@
-// Tue Aug 28 18:10:58 UTC 2018
-// 4737-a3c-00c- // ainsuForth-gen-exp-m4
-// On branch master
+// Sun Nov  4 01:50:28 UTC 2018
+// 4737-a3c-00d- // ainsuForth-gen-exp-m4
+// On branch testing-gg-
+
+// stefafo      pibmarute    kelnarg      tifkarsi     sifto
+// tuzzah       tornaque     pivakia      kivandidu    mittaxl
+// elmatraffi   fostaru      keppupp      framata 
+
+// August 28 2018 (or earlier) notes, follow.
 
 // itsybitsy m4 basic checkout seems fine.
-
-// kelnarg      tifkarsi     sifto        tuzzah       tornaque
-// pivakia      kivandidu    mittaxl      elmatraffi   fostaru
-// keppupp      framata 
 
 // title sequence for itsym4 is
 
@@ -23,6 +25,12 @@
 // all the above from (human) memory - details may be off.
 
 // previous:
+// Tue Aug 28 18:10:58 UTC 2018
+// 4737-a3c-00c- // ainsuForth-gen-exp-m4
+// On branch master
+
+
+
 // Tue Aug 28 17:11:45 UTC 2018
 // 4737-a3c-00b- // ainsuForth-gen-exp-m4
 // On branch testing-ee
