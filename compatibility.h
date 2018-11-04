@@ -68,6 +68,11 @@
 // __SAMD51J19A__ __SAMD51__ __FPU_PRESENT ARM_MATH_CM4
 // ARDUINO_METRO_M4 -DARDUINO_ARCH_SAMD  -D__SAMD51J19A__
 
+
+// __SAMD51G19A__ ADAFRUIT_TRELLIS_M4_EXPRESS __SAMD51__ __FPU_PRESENT ARM_MATH_CM4 CRYSTALLESS
+
+
+
 #undef QSPI_FLASHROM_PRESENT // re-enable only for some SAMD51 target boards
 
 
@@ -164,6 +169,56 @@
   #endif // #ifndef NEO_PIXEL_LIB_ENABLED
 #endif // #ifdef ADAFRUIT_FEATHER_M4_EXPRESS // __SAMD51J19A__
 
+
+
+#ifdef ADAFRUIT_TRELLIS_M4_EXPRESS
+  #undef HAS_SPI_FLASH_DEMO
+  #define QSPI_FLASHROM_PRESENT
+  #undef QSPI_FLASHROM_PRESENT
+
+
+  #define COMMUTED_PIN_NPX 10 // unused - future dev or delme
+
+  // NEO_PIXEL - Trellis M4 Express
+  // -------  use this to switch between them   ---------
+  #undef NEO_PIXEL_LIB_ENABLED  // swap these two
+  #define NEO_PIXEL_LIB_ENABLED // swap these two
+  // -------  use this to switch between them   ---------
+  #ifdef NEO_PIXEL_LIB_ENABLED
+    #ifndef HAS_NEO_PIXEL_LIB
+      #define HAS_NEO_PIXEL_LIB
+    #endif // #ifndef HAS_NEO_PIXEL_LIB
+  #endif // #ifdef NEO_PIXEL_LIB_ENABLED
+
+  #ifndef NEO_PIXEL_LIB_ENABLED
+    #ifdef HAS_NEO_PIXEL_LIB
+      #undef HAS_NEO_PIXEL_LIB
+    #endif
+  #endif // #ifndef NEO_PIXEL_LIB_ENABLED
+
+
+  // DOTSTAR
+  // -------  use this to switch between them   ---------
+
+  #undef DOTSTAR_LIB_ENABLED  // swap these two
+  #define DOTSTAR_LIB_ENABLED // swap these two
+
+  // -------  use this to switch between them   ---------
+
+
+  #ifdef DOTSTAR_LIB_ENABLED
+    #ifndef HAS_DOTSTAR_LIB
+      #define HAS_DOTSTAR_LIB
+    #endif
+  #endif
+
+  #ifndef DOTSTAR_LIB_ENABLED
+    #ifdef HAS_DOTSTAR_LIB
+      #undef HAS_DOTSTAR_LIB
+    #endif
+  #endif
+
+#endif // #ifdef ADAFRUIT_TRELLIS_M4_EXPRESS
 
 
 
