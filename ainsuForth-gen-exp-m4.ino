@@ -1,8 +1,8 @@
-// Sun Nov  4 01:50:28 UTC 2018
-// 4737-a3c-00d- // ainsuForth-gen-exp-m4
+// Sun Nov  4 02:32:24 UTC 2018
+// 4737-a3c-00e- // ainsuForth-gen-exp-m4
 // On branch testing-gg-
 
-// stefafo      pibmarute    kelnarg      tifkarsi     sifto
+// mezveraki    stefafo      pibmarute    kelnarg      tifkarsi     sifto
 // tuzzah       tornaque     pivakia      kivandidu    mittaxl
 // elmatraffi   fostaru      keppupp      framata 
 
@@ -25,11 +25,14 @@
 // all the above from (human) memory - details may be off.
 
 // previous:
+
+// Sun Nov  4 01:50:28 UTC 2018
+// 4737-a3c-00d- // ainsuForth-gen-exp-m4
+// On branch testing-gg-
+
 // Tue Aug 28 18:10:58 UTC 2018
 // 4737-a3c-00c- // ainsuForth-gen-exp-m4
 // On branch master
-
-
 
 // Tue Aug 28 17:11:45 UTC 2018
 // 4737-a3c-00b- // ainsuForth-gen-exp-m4
