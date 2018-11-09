@@ -1,6 +1,6 @@
-// Sun Nov  4 02:32:24 UTC 2018
-// 4737-a3c-00e- // ainsuForth-gen-exp-m4
-// On branch testing-gg-
+// Fri Nov  9 03:44:59 UTC 2018
+// 4737-a3c-00f- // ainsuForth-gen-exp-m4
+// On branch testing-hh-
 
 // mezveraki    stefafo      pibmarute    kelnarg      tifkarsi     sifto
 // tuzzah       tornaque     pivakia      kivandidu    mittaxl
@@ -25,6 +25,10 @@
 // all the above from (human) memory - details may be off.
 
 // previous:
+
+// Sun Nov  4 02:32:24 UTC 2018
+// 4737-a3c-00e- // ainsuForth-gen-exp-m4
+// On branch testing-gg-
 
 // Sun Nov  4 01:50:28 UTC 2018
 // 4737-a3c-00d- // ainsuForth-gen-exp-m4
