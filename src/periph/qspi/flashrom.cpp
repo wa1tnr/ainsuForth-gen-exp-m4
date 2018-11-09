@@ -25,7 +25,14 @@
 
     #define FLASH_DEVICE_GD25Q
     #ifdef FLASH_DEVICE_GD25Q
-
+        /*
+         26 #include <SPI.h>
+         27 #include <Adafruit_SPIFlash.h>
+        */
+        #include <Adafruit_SPIFlash_FatFs.h>
+        /*
+         29 #include "Adafruit_QSPI_GD25Q.h"
+        */
         #include "Adafruit_QSPI_GD25Q.h"
 
 Adafruit_QSPI_GD25Q flash;
@@ -62,7 +69,7 @@ void readqflash(void) { // read the memory image stored in QSPI flashROM
     // the buffer readData should now hold, in RAM,
     // the memory image retrieved from flashROM
 
-    Serial.print("done!"); 
+    Serial.print("done!");
 }
 
 void compare_flash2src_bufr(void) {
