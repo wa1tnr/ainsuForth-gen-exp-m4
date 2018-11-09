@@ -110,8 +110,8 @@
 
 #ifdef ADAFRUIT_METRO_M4_EXPRESS
   #undef HAS_SPI_FLASH_DEMO
-  #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
   #undef QSPI_FLASHROM_PRESENT
+  #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
   #define COMMUTED_PIN_NPX 40 // unused - future dev or delme
 
   // NEO_PIXEL - Metro M4 Express - ENABLED 20 June 2018 18:49z
