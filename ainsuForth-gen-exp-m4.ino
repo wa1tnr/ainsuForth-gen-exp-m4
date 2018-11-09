@@ -2,6 +2,8 @@
 // 4737-a3c-00f- // ainsuForth-gen-exp-m4
 // On branch testing-hh-
 
+//   edits as of: Fri Nov  9 06:28:18 UTC 2018
+
 // mezveraki    stefafo      pibmarute    kelnarg      tifkarsi     sifto
 // tuzzah       tornaque     pivakia      kivandidu    mittaxl
 // elmatraffi   fostaru      keppupp      framata 
