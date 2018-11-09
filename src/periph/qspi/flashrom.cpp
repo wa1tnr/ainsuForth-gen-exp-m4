@@ -138,10 +138,26 @@ void setup_qspiFlashROM(void) {
             char c = bootPy.read();
             Serial.print(c);
         }
+        bootPy.close();
         Serial.println();
     } else {
         Serial.println("No data.txt found...");
-  }
+    }
+
+    // and another Nov 2018 - writing for the win:
+    File data = pythonfs.open("data.txt", FILE_WRITE);
+    if (data) {
+        data.println("");
+        data.println("We are ainsuForth writing to data dot txt");
+        data.println("That's all for now.");
+        data.println("");
+        data.println("");
+        data.close();
+        Serial.println("Wrote a new line to the end of data.txt!");
+    } else {
+        Serial.println("Error, failed to open data file for writing!");
+    }
+    Serial.println("Finished!");
 }
 
 
