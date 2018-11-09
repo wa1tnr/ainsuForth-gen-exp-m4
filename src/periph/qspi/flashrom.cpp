@@ -27,15 +27,19 @@
     #ifdef FLASH_DEVICE_GD25Q
         /*
          26 #include <SPI.h>
-         27 #include <Adafruit_SPIFlash.h>
         */
+         // 27 #include <Adafruit_SPIFlash.h>
+        #include <Adafruit_SPIFlash.h>
         #include <Adafruit_SPIFlash_FatFs.h>
         /*
          29 #include "Adafruit_QSPI_GD25Q.h"
         */
         #include "Adafruit_QSPI_GD25Q.h"
 
+#define FLASH_TYPE     SPIFLASHTYPE_W25Q16BV  // Flash chip type.
+
 Adafruit_QSPI_GD25Q flash;
+Adafruit_M0_Express_CircuitPython pythonfs(flash);
 
     #else
         #error "Flash Device not supported."
@@ -98,21 +102,46 @@ void setup_qspiFlashROM(void) {
     }
     Serial.println("Found QSPI Flash."); 
 
-    data_fill_qflash();
+    // data_fill_qflash();
 
     // erase_qflash();
 
     // write2qflash();
 
-    Serial.print("note: erase and write are skipped.   ");
+    // readqflash(); // read the memory image stored in QSPI flashROM 
 
-    readqflash(); // read the memory image stored in QSPI flashROM 
+    // compare_flash2src_bufr();
 
-    compare_flash2src_bufr();
+    // Serial.print("note: erase, write, read and compare are all skipped.   ");
 
     // DEBUG // Serial.println("Flash was populated, read back into RAM, then compared.");
     // DEBUG // Serial.println("SUCCESS.  Basic QSPI flashROM use is confirmed.");
 
+
+
+    // new section November 2018 - untried code:
+
+    flash.setFlashType(FLASH_TYPE); // new November 9 2018
+    if (!pythonfs.begin()) {
+        Serial.println("Failed to mount filesystem!");
+        Serial.println("Was CircuitPython loaded on the board first to create the filesystem?");
+        while(1);
+    }
+    Serial.println("NOV 2018: Mounted filesystem!");
+
+    // another new section November 2018
+
+    if (pythonfs.exists("data.txt")) {
+        File bootPy = pythonfs.open("data.txt", FILE_READ);
+        Serial.println("Printing data.txt...");
+        while (bootPy.available()) {
+            char c = bootPy.read();
+            Serial.print(c);
+        }
+        Serial.println();
+    } else {
+        Serial.println("No data.txt found...");
+  }
 }
 
 
