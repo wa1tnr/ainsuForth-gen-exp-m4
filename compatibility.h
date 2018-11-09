@@ -110,6 +110,7 @@
 
 #ifdef ADAFRUIT_METRO_M4_EXPRESS
   #undef HAS_SPI_FLASH_DEMO
+  #define HAS_QSPI_FLASH_DEMO   // note the 'Q' .. takes SPI and makes it QSPI in this flag
   #undef QSPI_FLASHROM_PRESENT
   #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
   #define COMMUTED_PIN_NPX 40 // unused - future dev or delme
@@ -144,6 +145,7 @@
 
 #ifdef ADAFRUIT_FEATHER_M4_EXPRESS // __SAMD51J19A__
   #undef HAS_SPI_FLASH_DEMO
+  #define HAS_QSPI_FLASH_DEMO
   #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
   #undef QSPI_FLASHROM_PRESENT
   #define COMMUTED_PIN_NPX 8
@@ -173,6 +175,7 @@
 
 #ifdef ADAFRUIT_TRELLIS_M4_EXPRESS
   #undef HAS_SPI_FLASH_DEMO
+  #define HAS_QSPI_FLASH_DEMO
   #define QSPI_FLASHROM_PRESENT
   #undef QSPI_FLASHROM_PRESENT
 
@@ -227,6 +230,7 @@
 // adafruit_itsybitsy_m4.build.extra_flags=-D__SAMD51G19A__ -DADAFRUIT_ITSYBITSY_M4_EXPRESS -D__SAMD51__ {build.usb_flags} -D__FPU_PRESENT -DARM_MATH_CM4 -DCRYSTALLESS -mfloat-abi=hard -mfpu=fpv4-sp-d16
 #ifdef ADAFRUIT_ITSYBITSY_M4_EXPRESS
   #undef HAS_SPI_FLASH_DEMO
+  #define HAS_QSPI_FLASH_DEMO
   #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
   #undef QSPI_FLASHROM_PRESENT
 
