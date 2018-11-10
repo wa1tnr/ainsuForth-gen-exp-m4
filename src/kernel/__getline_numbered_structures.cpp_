@@ -662,6 +662,7 @@ void read_from_code_py_file(void) { // LINE 625
 }
     #endif // 15 Jan 2018 // LINE 663 - one _#_if remains open.
 #endif // LINE 664 - zero _#_ifs are open, now.  All are closed.
+// LINE 665
 
 
 
@@ -687,12 +688,11 @@ void read_from_code_py_file(void) { // LINE 625
 
 
 
-
-#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018 // LINE 691
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018 // LINE 691 - this one _#_if is open; none above are open.
 void tail_code_bb(void) { // LINE 692
 
 
-#ifndef HAS_STANDARD_BUILD_HERE // LINE 695
+    #ifndef HAS_STANDARD_BUILD_HERE // LINE 695 - two _#_ifs are open, as of this line.
   File testDirRoot = fatfs.open("/"); // LINE 696
   if (!testDirRoot) {
     Serial.println("Error, failed to open root directory!");
@@ -700,9 +700,9 @@ void tail_code_bb(void) { // LINE 692
   } else {
     Serial.println("Made it past the opening of the root directory.");
   }
-#endif
+    #endif // 15 Jan 2018 // LINE 703 - one _#_if remains open.
 
-#ifdef HAS_STANDARD_BUILD_HERE
+    #ifdef HAS_STANDARD_BUILD_HERE // LINE 705 - two _#_ifs are open, as of this line.
   File testDir = fatfs.open("/lib");
   if (!testDir) {
     Serial.println("Error, failed to open test directory!");
@@ -710,85 +710,85 @@ void tail_code_bb(void) { // LINE 692
   } else {
     Serial.println("Made it past the opening of the /lib directory.");
   }
-#endif
+    #endif
 
-#ifndef HAS_STANDARD_BUILD_HERE
+    #ifndef HAS_STANDARD_BUILD_HERE
   if (!testDirRoot.isDirectory()) {
     Serial.println("Error, expected root to be a directory!");
     while(1);
   } else {
     Serial.println("Good - root is a directory - not a file.  Continue.");
   }
-#endif
+    #endif
 
-#ifdef HAS_STANDARD_BUILD_HERE
+    #ifdef HAS_STANDARD_BUILD_HERE
   if (!testDir.isDirectory()) {
     Serial.println("Error, expected /lib to be a directory!");
     while(1);
   } else {
     Serial.println("Good - /lib is a directory - not a file.  Continue.");
   }
-#endif
+    #endif
 
-#ifndef HAS_STANDARD_BUILD_HERE
+    #ifndef HAS_STANDARD_BUILD_HERE
   Serial.println("Listing children of root directory:");
   File child = testDirRoot.openNextFile();
   while (child) {
-    // Print the file name and mention if it's a directory.
+
     Serial.print("- "); Serial.print(child.name());
     if (child.isDirectory()) {
       Serial.print(" (directory)");
     }
     Serial.println();
-    // Keep calling openNextFile to get a new file.
-    // When you're done enumerating files an unopened one will
-    // be returned (i.e. testing it for true/false like at the
-    // top of this while loop will fail).
+
+
+
+
     child = testDirRoot.openNextFile();
   }
 
-  // If you want to list the files in the directory again call
-  // rewindDirectory().  Then openNextFile will start from the
-  // top again.
+
+
+
   testDirRoot.rewindDirectory();
-#endif
+    #endif
 
 
-// hold: while(1); Serial.println("WILL ROBINSON.");
+
          while(1); Serial.println("WILL ROBINSON.");
 
 
 
-#ifdef HAS_STANDARD_BUILD_HERE
+    #ifdef HAS_STANDARD_BUILD_HERE
   Serial.println("Listing children of directory /lib:");
   File child = testDir.openNextFile();
   while (child) {
-    // Print the file name and mention if it's a directory.
+
     Serial.print("- "); Serial.print(child.name());
     if (child.isDirectory()) {
       Serial.print(" (directory)");
     }
     Serial.println();
-    // Keep calling openNextFile to get a new file.
-    // When you're done enumerating files an unopened one will
-    // be returned (i.e. testing it for true/false like at the
-    // top of this while loop will fail).
+
+
+
+
     child = testDir.openNextFile();
   }
 
 
-  // If you want to list the files in the directory again call
-  // rewindDirectory().  Then openNextFile will start from the
-  // top again.
+
+
+
   testDir.rewindDirectory();
-#endif
+    #endif
 
 
 
-#ifdef HAS_EXTRA_STANDARD_BUILD_HERE
+    #ifdef HAS_EXTRA_STANDARD_BUILD_HERE
 
-  // Delete a file with the remove command.  For example create a test2.txt file
-  // inside /test/foo and then delete it.
+
+
   File test2File = fatfs.open("/forth/foo/test2.txt", FILE_WRITE);
   test2File.close();
   Serial.println("Deleting /forth/foo/test2.txt...");
@@ -798,32 +798,32 @@ void tail_code_bb(void) { // LINE 692
   }
   Serial.println("Deleted file!");
 
-  // Delete a directory with the rmdir command.  Be careful as
-  // this will delete EVERYTHING in the directory at all levels!
-  // I.e. this is like running a recursive delete, rm -rf, in
-  // unix filesystems!
+
+
+
+
   Serial.println("Deleting /test directory and everything inside it...");
   if (!fatfs.rmdir("/test")) {
     Serial.println("Error, couldn't delete test directory!");
     while(1);
   }
-  // Check that test is really deleted.
+
   if (fatfs.exists("/test")) {
     Serial.println("Error, test directory was not deleted!");
     while(1);
   }
-  Serial.println("Test directory was deleted!");
+  Serial.println("Test directory was deleted!"); // LINE 815
   
   Serial.println("Finished!");
-#endif
+    #endif
 
-#ifndef HAS_STANDARD_BUILD_HERE
-#endif
+    #ifndef HAS_STANDARD_BUILD_HERE
+    #endif
 
 }
 #endif // 15 Jan 2018
 
-
+// LINE 862 blank - No more preprocessor directives to the end of the file.
 
 
 
@@ -889,18 +889,18 @@ void tail_code_bb(void) { // LINE 692
 
 
 void ascii_xfer_spi_flash_main(void) {
-  // SHOULD NOT BE NEEDED 06 AUG: ascii_xfer_setup_spi_flash();
-  // _eflmkdir(); // OLD NAME WAS: create_test_directory();
-  // write_a_test_file();
-  // read_a_test_file();
-  read_from_code_py_file(); 
-  tail_code_bb();
+
+
+
+
+  read_from_code_py_file();  // LINE 896
+  tail_code_bb(); // LINE 897
 
 }
 
-// void loop_flash_main(void) {
-  // Nothing to be done in the main loop.
-  // delay(100);
-// }
 
+
+
+
+// LINE 905
 // END.
