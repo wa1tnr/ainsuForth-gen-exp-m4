@@ -116,6 +116,7 @@
 
 
     #endif // POSSIBLY from: #ifdef HAS_SPI_FLASH_DEMO // from line 66 // now at LINE 118
+           // only ONE _#_if is open now, from line 63 (ext_kern_getline)
 
 
 
@@ -126,11 +127,7 @@
 
 
 
-
-
-
-
-#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018 // LINE 130
+    #ifdef HAS_SPI_FLASH_DEMO //               LINE 130 - two _#_ifs are open
 void setup_spi_flash(void) {
 
 
@@ -152,7 +149,7 @@ void setup_spi_flash(void) {
 
 
 }
-#endif // 15 Jan 2018 // LINE 152
+    #endif // 15 Jan 2018 // LINE 152 - one _#_if is still open
 
 
 
@@ -163,17 +160,17 @@ void setup_spi_flash(void) {
 
 
 
-#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018 // LINE 163
+    #ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018 // LINE 163
 File thisFile;
-#endif // 15 Jan 2018 // LINE 165
+    #endif // 15 Jan 2018 // LINE 165 - one _#_if is still open
 
-uint8_t getLine(char* ptr, uint8_t buffSize) {
+uint8_t getLine(char* ptr, uint8_t buffSize) { // LINE 167
   char inChar;
 
 
 
 
-#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018 // LINE 173
+    #ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018 // LINE 173 - two _#_ifs are open
   if (spiFlashReading) {
 
       if (fatfs.exists(SPI_FlashROM_FILENAME)) {
@@ -187,12 +184,12 @@ uint8_t getLine(char* ptr, uint8_t buffSize) {
           }
       }
   } // if (spiFlashReading) {
-#endif // 15 Jan 2018 // LINE 187
+    #endif // 15 Jan 2018 // LINE 187 - one _#_if_ remains open
 
 
 
-  do {
-#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018 // LINE 192
+  do { // LINE 191
+    #ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018 // LINE 192 - two _#_ifs open, now
     if (spiFlashReading) {
         if (thisFile) {
             if (thisFile.available()) {
@@ -210,7 +207,7 @@ uint8_t getLine(char* ptr, uint8_t buffSize) {
         } // if (thisFile) {
 // LINE 208 - blank
     } else { // LINE 209
-#endif // 15 Jan 2018 // LINE 210
+    #endif // 15 Jan 2018 // LINE 210 - one _#_if_ remains open
 
         if (noInterpreter) {
             inChar = getKey();
@@ -220,9 +217,9 @@ uint8_t getLine(char* ptr, uint8_t buffSize) {
         } else {
             inChar = getKey(); 
         }
-#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018 // LINE 220
+    #ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018 // LINE 220 - two _#_ifs open, now
     }
-#endif // 15 Jan 2018 // LINE 222
+    #endif // 15 Jan 2018 // LINE 222 - one _#_if_ remains open
 
     // inChar is now populated; either by keypress or by byte stored in SPI flash.
 
@@ -333,8 +330,8 @@ if (silentReading) { // LINE 314
   } while (count < buffSize);
   return (count); // LINE 331
 }
-
-#endif // LINE 334 ###bookmark - very long code run with no cpp directives
+// LINE 333 blank
+#endif // LINE 334 - no _#_ifs are open at all. ends: // #ifdef EXT_KERN_GETLINE // line 63
 
 // the above _#_endif may be EXT_KERN_GETLINE  on LINE 63 - it's terminator. // LINE 336
 #ifdef EXT_KERN_GETKEY
