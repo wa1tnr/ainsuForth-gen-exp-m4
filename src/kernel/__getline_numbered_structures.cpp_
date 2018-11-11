@@ -59,11 +59,11 @@
 #include <Arduino.h> // LINE 59
 #include "../../yaffa.h" // LINE 60
 
-
 #ifdef EXT_KERN_GETLINE // LINE 63 - one _#_if
     #include "getline.h"
 
     #ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018 // LINE 66 - two _#_ifs are open
+
         #include <SPI.h>
         #include <Adafruit_SPIFlash.h>
         #include <Adafruit_SPIFlash_FatFs.h>
@@ -90,7 +90,7 @@
 
 
 
-        #ifdef ADAFRUIT_METRO_M0_EXPRESS
+        #ifdef ADAFRUIT_METRO_M0_EXPRESS // LINE 94-bbb
             #define FLASH_SPI_PORT      SPI1      // What SPI port is Flash on?
         #endif
 
