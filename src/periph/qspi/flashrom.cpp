@@ -1,3 +1,4 @@
+#ifdef LETS_NOT_HAVE_THIS // 11 NOV 2018  22:40 UTC
 // Sat 26 May 03:36:19 UTC 2018
 // 4737-a3a-05t-
 
@@ -184,3 +185,4 @@ void fomFom(void) { // nonsense - stub - testing
 }
 
 #endif // #ifdef HAS_QSPI_FLASHROM_LIB
+#endif

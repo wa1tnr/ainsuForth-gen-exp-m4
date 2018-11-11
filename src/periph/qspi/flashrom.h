@@ -12,7 +12,7 @@
 
 extern void setup_qspiFlashROM(void);
 extern void _abcdX44(void); // ( n3 n2 n1 -- n1 n2 n3 )
-extern const char ffmt_str[]; // = "ffmt"; // local idiom ainsuForth - TODO: describe this
+// extern const char ffmt_str[]; // = "ffmt"; // local idiom ainsuForth - TODO: describe this
 extern void _ffmt(void); // ( TOS_requirement_if_any -- )
 extern void fomFom(void);
 extern void _rot(void);

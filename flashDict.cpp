@@ -321,7 +321,9 @@ const flashEntry_t flashDict[] = {
 
 #define SPI_FLASH_SRC
 #ifdef SPI_FLASH_SRC
+
 #ifdef HAS_SPI_FLASH_DEMO
+    #warning THIS_THING_TRIPS
 
   { eflmkdir_str,       _eflmkdir,        IMMEDIATE + COMP_ONLY },
   { load_str,           _load,            NORMAL },
@@ -329,12 +331,22 @@ const flashEntry_t flashDict[] = {
   { remove_str,         _remove,          NORMAL },
   { download_str,       _download,        NORMAL },
 #endif // #ifdef HAS_SPI_FLASH_DEMO
+
+#ifdef HAS_QSPI_FLASH_DEMO
+    #warning THAT_THING_TRIPS
+  { eflmkdir_str,       _eflmkdir,        IMMEDIATE + COMP_ONLY },
+  { load_str,           _load,            NORMAL },
+  { echo_bang_str,      _echo_bang,       NORMAL }, 
+  { remove_str,         _remove,          NORMAL },
+  { download_str,       _download,        NORMAL },
+#endif // #ifdef HAS_QSPI_FLASH_DEMO
+
 #endif // #ifdef SPI_FLASH_SRC
 
 #ifdef QSPI_FLASHROM
 #ifdef HAS_QSPI_FLASHROM_LIB
 
-  { ffmt_str,           _ffmt,            NORMAL }, // flash format
+// { ffmt_str,           _ffmt,            NORMAL }, // flash format
 
 #endif // HAS_QSPI_FLASHROM_LIB
 #endif // QSPI_FLASHROM
