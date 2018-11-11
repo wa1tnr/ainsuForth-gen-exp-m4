@@ -12,13 +12,13 @@
 // Tue Jan 16 02:30:09 UTC 2018
 // 4737-a0d-05j-
 
-#ifdef HAS_EXP_MZERO_SPI_FLASH
+#ifdef HAS_EXP_MFOUR_QSPI_FLASH
+
+// #ifdef HAS_EXP_MZERO_SPI_FLASH
 
 
 
-
-
-// Mon Jan 15 18:14:33 UTC 2018
+// Mon Jan 15 18:14:33 UTC 2018 // LINE 21
 // 4737-a0d-05c-
 
 // Fri Nov 24 23:31:39 UTC 2017
