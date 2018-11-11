@@ -1,0 +1,14 @@
+Sun Nov 11 02:50:31 UTC 2018
+
+On branch testing-hh-ii-
+
+This is branch testing-hh-ii- which is a modification of testing-hh-
+
+It is meant as a temporary development area to be merged back
+into the testing-hh- branch (only).
+
+When branch testing-hh- looks more useful, can consider merging
+it back into its parent (testing-gg-).  Branch testing-gg- is eligible
+to be merged into master, so it is looked over more carefully than
+these shorter-term branches are.
+
