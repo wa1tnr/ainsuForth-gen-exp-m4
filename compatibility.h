@@ -92,6 +92,10 @@
   #define HAS_SPI_FLASH_DEMO
 #endif // #ifdef ADAFRUIT_METRO_M0_EXPRESS
 
+#ifdef ADAFRUIT_ITSYBITSY_M0
+  #define HAS_SPI_FLASH_DEMO
+#endif // #ifdef ADAFRUIT_METRO_M0_EXPRESS
+
 // M4 target offers an impoverished test - redefine later, tracking upstream refinements.
 // __SAMD51J19A__
 
