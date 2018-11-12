@@ -107,11 +107,18 @@ uint8_t getToken(void) {
               } else {
 
 
+
 #ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
 
                   write_a_capture_file(); // this routine knows about cpSource
 
 #endif // 15 Jan 2018
+#ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
+                  write_a_capture_file(); // this routine knows about cpSource
+#endif // 15 Jan 2018
+
+
+
               }
 
 
