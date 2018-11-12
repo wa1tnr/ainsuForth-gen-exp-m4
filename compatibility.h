@@ -235,8 +235,8 @@
 #ifdef ADAFRUIT_ITSYBITSY_M4_EXPRESS
   #undef HAS_SPI_FLASH_DEMO
   #define HAS_QSPI_FLASH_DEMO
-  #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
   #undef QSPI_FLASHROM_PRESENT
+  #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
 
 
 // DOTSTAR
