@@ -1,2 +1,4 @@
 .DS_Store
 _next_commit__
+_cruft_now_c*
+src/kernel/showm*

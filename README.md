@@ -15,6 +15,18 @@ place to look for porting issues, across targets).
 This forth is compiled regularly (as targets are reused
 to test other code).  It is usually operational. ;)
 
+
+# New 12 Nov 2018:
+
+On branch _with_file_io_aa-
+
+QSPI flashROM support (basic file i/o) for Metro M4 Express.
+
+
+Older commentary on flashROM support follows:
+
+# SPI flashROM
+
 flashROM support is limited to the JEDEC stuff for samd21
 (SPI rather than QSPI).  It occurs in the form of an ability
 to capture text to disk and replay that text to program
