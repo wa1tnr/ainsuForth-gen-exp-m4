@@ -180,8 +180,8 @@
 #ifdef ADAFRUIT_TRELLIS_M4_EXPRESS
   #undef HAS_SPI_FLASH_DEMO
   #define HAS_QSPI_FLASH_DEMO
-  #define QSPI_FLASHROM_PRESENT
   #undef QSPI_FLASHROM_PRESENT
+  #define QSPI_FLASHROM_PRESENT
 
 
   #define COMMUTED_PIN_NPX 10 // unused - future dev or delme
