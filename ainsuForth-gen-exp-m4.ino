@@ -1,3 +1,24 @@
+// Mon Nov 12 01:42:38 UTC 2018
+// 4737-a3c-00h- // ainsuForth-gen-exp-m4
+
+// On branch _with_file_io_aa-
+
+// Metro M4 Express now has working file i/o
+
+// ATSAMD51J19A
+
+// limited to a single, hard-coded filename -
+// this file is stored in the /forth directory
+// of the FAT filesystem on the 2MB QSPI flashROM
+// at this time (12 NOV 2018, 01:47 UTC).
+
+//   edits as of: Mon Nov 12 01:42:38 UTC 2018
+
+// kerferdi     pliptog      mezveraki    stefafo      pibmarute
+// kelnarg      tifkarsi     sifto        tuzzah       tornaque
+// pivakia      kivandidu    mittaxl      elmatraffi   fostaru
+// keppupp      framata 
+
 // Sun Nov 11 20:45:12 UTC 2018
 // 4737-a3c-00g- // ainsuForth-gen-exp-m4
 // On branch testing-hh-ii-
@@ -5,12 +26,6 @@
 // Fri Nov  9 03:44:59 UTC 2018
 // 4737-a3c-00f- // ainsuForth-gen-exp-m4
 // On branch testing-hh-
-
-//   edits as of: Fri Nov  9 06:28:18 UTC 2018
-
-// mezveraki    stefafo      pibmarute    kelnarg      tifkarsi     sifto
-// tuzzah       tornaque     pivakia      kivandidu    mittaxl
-// elmatraffi   fostaru      keppupp      framata 
 
 // August 28 2018 (or earlier) notes, follow.
 
