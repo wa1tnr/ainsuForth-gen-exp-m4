@@ -150,8 +150,8 @@
 #ifdef ADAFRUIT_FEATHER_M4_EXPRESS // __SAMD51J19A__
   #undef HAS_SPI_FLASH_DEMO
   #define HAS_QSPI_FLASH_DEMO
-  #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
   #undef QSPI_FLASHROM_PRESENT
+  #define QSPI_FLASHROM_PRESENT // problem flag: assumption was: Metro M4 Express Beta - for now (May 2018)
   #define COMMUTED_PIN_NPX 8
 
   // NEO_PIXEL - Feather M4 Express - ENABLED 12 July 2018 06:25z

@@ -1,23 +1,24 @@
-// Mon Nov 12 01:42:38 UTC 2018
-// 4737-a3c-00h- // ainsuForth-gen-exp-m4
+// Mon Nov 12 23:54:26 UTC 2018
+// 4737-a3c-00i- // ainsuForth-gen-exp-m4
 
 // On branch _with_file_io_aa-
 
-// Metro M4 Express now has working file i/o
+// Metro M4 Express now has working file i/o.
+// Trellis M4 Express, ItsyBitsy M4 Express,
+// and Feather M4 Express supported for QSPI
+// flashROM file i/o, as well.
 
-// ATSAMD51J19A
+// ATSAMD51J19A, ATSAMD51G19A
 
-// limited to a single, hard-coded filename -
-// this file is stored in the /forth directory
-// of the FAT filesystem on the 2MB QSPI flashROM
-// at this time (12 NOV 2018, 01:47 UTC).
+// limited to a single, hard-coded filename - this file is
+// stored in the /forth directory of the FAT filesystem on
+// the 2MB QSPI flashROM at this time (12 NOV 2018, 01:47 UTC).
 
-//   edits as of: Mon Nov 12 01:42:38 UTC 2018
+//   edits as of: Mon Nov 12 23:54:26 UTC 2018
 
-// kerferdi     pliptog      mezveraki    stefafo      pibmarute
-// kelnarg      tifkarsi     sifto        tuzzah       tornaque
-// pivakia      kivandidu    mittaxl      elmatraffi   fostaru
-// keppupp      framata 
+// fitudele     neftogr      kerferdi     pliptog      mezveraki
+// stefafo      pibmarute    kelnarg      tifkarsi     sifto
+// tuzzah       tornaque     pivakia      kivandidu    mittaxl
 
 // Sun Nov 11 20:45:12 UTC 2018
 // 4737-a3c-00g- // ainsuForth-gen-exp-m4
