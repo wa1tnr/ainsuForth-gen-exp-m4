@@ -1,3 +1,10 @@
+// Wed May 29 20:34:39 UTC 2019
+// 4737-a3c-00k- // ainsuForth-gen-exp-m4
+
+// On branch develop (for release)
+// branch 'develop' instantiated from branch 'testing-gg-' 29 May 2019
+
+// older:
 // Sun Nov  4 01:50:28 UTC 2018
 // 4737-a3c-00d- // ainsuForth-gen-exp-m4
 // On branch testing-gg-
@@ -331,7 +338,7 @@ void setup(void) {
      Serial.print("\n warm boot message - "    );
      Serial.print("early bird.               " );
      Serial.print("c: "         gitShowStamp() );
-     Serial.print("\r\n SIWNA "  featureList() );
+     Serial.print("\r\n kef-SIWNA "  featureList() );
      Serial.print("  c4e DEVPR - gen-exp-m4  " );
      Serial.print(                 dateStamp() );
      Serial.print("\r\n"                       );
