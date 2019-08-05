@@ -15,6 +15,51 @@ place to look for porting issues, across targets).
 This forth is compiled regularly (as targets are reused
 to test other code).  It is usually operational. ;)
 
+# New 05 Aug 2019:
+
+On branch develop / testing-gg- / master
+
+The code should be ready for a release, against the older
+QSPI flashROM lib (October 2018 timeframe).
+
+Code is broken for latest (2019) Adafruit libs (wrt the
+QSPI flashROM support) and will be addressed some other
+time.
+
+Roll back your libs to an earlier version, to compile. ;)
+
+    Adafruit_QSPI
+    Adafruit_SPIFlash
+
+Both may be affected.  Have not documented just what to
+do with this, though a good test compile was done in
+early August, 2019, by rolling back one or both of these
+(and possibly others; this is off-the-cuff reportage ;)
+
+The program (as-is, and against Oct 2018 Adafruit libs)
+will accept code in the forth interpreter, and write it to
+the flashROM (to a single named file).
+
+It will also 'play back' the same code, as if a human had
+typed it to the regular forth interpreter.
+
+In this way, code may be developed on the device itself,
+and stored for future use. ;)
+
+The user interface is identical to the one used when
+developed for SAMD21.  The (recent) change is about
+supporting similar functionality for the M4 (SAMD51)
+chip series (Feather M4 Express, ItsyBitsyM4, Trellis M4).
+
+Grand Central was not looked into, at the time of this
+writing (August 2019).
+
+Hopefully the release actually works; it's untested but
+believed to have been previously tested (so this is mostly
+a human memory problem, more than an actual, executable
+code problem .. that's the working assumption!)
+
+Mon Aug  5 01:05:34 UTC 2019
 
 # New 12 Nov 2018:
 
