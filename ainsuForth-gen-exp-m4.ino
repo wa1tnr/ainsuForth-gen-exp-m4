@@ -1,3 +1,14 @@
+// Mon Aug  5 01:29:38 UTC 2019
+// 4737-a3c-00m- // ainsuForth-gen-exp-m4
+
+// On branch develop (for release)
+
+// current target: ItsyBitsy M4 (August 2019) WORKING
+
+// kanflu kagnaf
+
+// older:
+
 // Wed May 29 20:34:39 UTC 2019
 // 4737-a3c-00k- // ainsuForth-gen-exp-m4
 
