@@ -15,14 +15,15 @@
 // Mon Jan 15 18:14:33 UTC 2018 // 4737-a0d-05c-
 // Tue Jun 20 21:33:06 UTC 2017 // 4735-a0p-02-
 
-#define timeStamp(t)     "Sun Nov 4 02:32:24 2018"
-#define shredStamp(s)    "4737-a3c-00d-"
+#define timeStamp(t)     "Wed May 29 20:34:39 2019"
+#define shredStamp(s)    "4737-a3c-00k-"
 #define progNameStamp(p) "ainsuForth-gen-exp-m4"
 #define targetStamp(t)   "Trellis M4 Express"
-#define branchStamp(b)   "testing-gg-      "
+#define branchStamp(b)   "develop      "
+//      branchStamp(b)   "develop - from testing-gg-      "
 #define featureList(f)   "+trm4x +fm4x +crickitCPX"
-#define dateStamp(e)     "04 Nov 2018" // infrequently maintained, in the past
-#define gitShowStamp(g)  "8c8141d2866" // arbitrary length to fit aesthetics
+#define dateStamp(e)     "29 May 2019" // infrequently maintained, in the past
+#define gitShowStamp(g)  "7d202fc8b9d" // arbitrary length to fit aesthetics
 
 #include "src/kernel/signon.h"
 #include "src/kernel/getline.h"
