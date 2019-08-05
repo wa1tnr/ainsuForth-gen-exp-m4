@@ -1,3 +1,12 @@
+// Wed May 29 20:34:39 UTC 2019
+// 4737-a3c-00k- // ainsuForth-gen-exp-m4
+
+// On branch develop (for release)
+
+// current target: Trellis M4 (May 2019)
+
+// peltho
+
 // Mon Nov 12 23:54:26 UTC 2018
 // 4737-a3c-00i- // ainsuForth-gen-exp-m4
 
