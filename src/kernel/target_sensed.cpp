@@ -1,4 +1,5 @@
-#ifndef HAS_TARGET_SENSED_INCLUSION
+#ifdef HAS_TARGET_SENSED_INCLUSION // new extra line 28 aug 2019
+// #ifndef HAS_TARGET_SENSED_INCLUSION // commented on 28 august 2019
     #define HAS_TARGET_SENSED_INCLUSION
     #ifdef WANT_FLAG_REPORTS
         #warning SOURCE_target_sensed.cpp BEGINS
