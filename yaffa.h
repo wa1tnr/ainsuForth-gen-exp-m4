@@ -1,5 +1,20 @@
+// Wed Aug 28 19:49:17 UTC 2019
+
+// older:
 // Sun 17 Jun 04:01:59 UTC 2018
 // 4737-a3a-0cc-
+
+#define RESCINDED_CODE
+#undef RESCINDED_CODE
+
+// USE:
+// #ifdef RESCINDED_CODE // enable the old version
+// .
+// .  (statements)
+// or
+// #ifdef PROPOSED_CODE // enable the new version
+// .
+// .  (statements)
 
 // Tue 12 Jun 20:55:50 UTC 2018
 // 4737-a3a-09a-
