@@ -3,6 +3,7 @@
 // On branch testing-hh-ii-
 
 #ifdef HAS_EXP_MFOUR_QSPI_FLASH
+#define CURRENT_FILESYSTEM fatfs
 
 
 
@@ -62,19 +63,49 @@
     #ifdef EXT_KERN_GETLINE
         #include "getline.h" // this is the flag wanted: HAS_QSPI_FLASHROM_LIB
         #ifdef HAS_QSPI_FLASHROM_LIB // 11 Nov 2018 // NEW LINE 64
-            #warning HAS_QSPI_FLASHROM_LIB includes extra code on line 65 __getline_m4_exp.cpp__ // 11 Nov 2018 - NEW LINE 66
+//          #warning HAS_QSPI_FLASHROM_LIB includes extra code on line 65 __getline_m4_exp.cpp__ // 11 Nov 2018 - NEW LINE 66
             #define FLASH_DEVICE_GD25Q
             #ifdef FLASH_DEVICE_GD25Q
+
+// flash_ops.cpp  wa1tnr
+// Wed Aug 21 02:15:00 UTC 2019 0.1.8 good-compiler-aa-bb  shred: abn-515
+
+                #include <SPI.h>
+                // #include "SdFat.h"
+                #include <SdFat.h>
+                // #include "Adafruit_SPIFlash.h"
                 #include <Adafruit_SPIFlash.h> // NEW LINE 68
-                #include <Adafruit_SPIFlash_FatFs.h> // NEW LINE 69
-                #include "Adafruit_QSPI_GD25Q.h"
-                #define FLASH_TYPE     SPIFLASHTYPE_W25Q16BV  // Flash chip type. // NEW LINE 71
+// RESCIND //   #include <Adafruit_SPIFlash_FatFs.h> // NEW LINE 69
+// RESCIND //   #include "Adafruit_QSPI_GD25Q.h"
+// RESCIND //   #define FLASH_TYPE     SPIFLASHTYPE_W25Q16BV  // Flash chip type. // NEW LINE 71
  
-                Adafruit_QSPI_GD25Q flash;
-                Adafruit_M0_Express_CircuitPython pythonfs(flash);
+// RESCIND //   Adafruit_QSPI_GD25Q flash;
+// RESCIND //   Adafruit_M0_Express_CircuitPython CURRENT_FILESYSTEM(flash);
 
 
 // LINE 77
+
+/*
+#if defined(__SAMD51__) || defined(NRF52840_XXAA)
+  Adafruit_FlashTransport_QSPI flashTransport(PIN_QSPI_SCK, PIN_QSPI_CS, PIN_QSPI_IO0, PIN_QSPI_IO1, PIN_QS
+#else
+  #if (SPI_INTERFACES_COUNT == 1)
+    Adafruit_FlashTransport_SPI flashTransport(SS, &SPI);
+  #else
+    Adafruit_FlashTransport_SPI flashTransport(SS1, &SPI1);
+  #endif
+#endif
+
+Adafruit_SPIFlash flash(&flashTransport);
+
+// file system object from SdFat
+FatFileSystem fatfs;
+
+File myFile;
+
+#define WORKING_DIR "/forth"
+*/
+
 
 
 
@@ -113,7 +144,7 @@
 
 // Adafruit_SPIFlash flash(FLASH_SS, &FLASH_SPI_PORT); // Adafruit_QSPI_GD25Q flash;
 
-// Adafruit_W25Q16BV_FatFs fatfs(flash); // Adafruit_M0_Express_CircuitPython pythonfs(flash);
+// Adafruit_W25Q16BV_FatFs fatfs(flash); // Adafruit_M0_Express_CircuitPython CURRENT_FILESYSTEM(flash);
 
 #endif // 15 Jan 2018
 /* these two levels cpp still open 11 Nov 21:53 UTC:
@@ -145,9 +176,9 @@ void setup_qspiFlashROM(void) { // void setup_spi_flash(void) {
     // Serial.println(flash.GetJEDECID(), HEX);
     // Serial.println(" want to see a message that says: Flash chip JEDEC ID: 0x1401501\r\n");
 
-    // pythonfs fatfs
+    // CURRENT_FILESYSTEM fatfs
     flash.setFlashType(FLASH_TYPE); // new November 9 2018
-    if (!pythonfs.begin()) { //  if (!fatfs.begin()) {
+    if (!CURRENT_FILESYSTEM.begin()) {
         Serial.println("Failed to mount filesystem!");
         Serial.println("Was CircuitPython loaded on the board first to create the filesystem?");
         // Serial.println(SPI_FlashROM_FILENAME);
@@ -183,13 +214,13 @@ uint8_t getLine(char* ptr, uint8_t buffSize) {
 
 
 
-      // if (pythonfs.exists("data.txt")) { // if (fatfs.exists(SPI_FlashROM_FILENAME)) {
-      if (pythonfs.exists(SPI_FlashROM_FILENAME)) {
+      // if (CURRENT_FILESYSTEM.exists("data.txt")) { // if (fatfs.exists(SPI_FlashROM_FILENAME)) {
+      if (CURRENT_FILESYSTEM.exists(SPI_FlashROM_FILENAME)) {
 
           if (fileClosed) {
 
-        //  File bootPy = pythonfs.open("data.txt", FILE_READ);
-            File bootPy = pythonfs.open(SPI_FlashROM_FILENAME, FILE_READ);
+        //  File bootPy = CURRENT_FILESYSTEM.open("data.txt", FILE_READ);
+            File bootPy = CURRENT_FILESYSTEM.open(SPI_FlashROM_FILENAME, FILE_READ);
 
         //  File forthSrcFile = fatfs.open(SPI_FlashROM_FILENAME, FILE_READ);
 
@@ -474,12 +505,12 @@ void _eflmkdir(void) {
 // #define SPI_FlashROM_TOPDIR   "/forth"
 // if (!fatfs.exists("/test")) {
   // if (!fatfs.exists(SPI_FlashROM_TOPDIR)) {
-  if (!pythonfs.exists(SPI_FlashROM_TOPDIR)) {
+  if (!CURRENT_FILESYSTEM.exists(SPI_FlashROM_TOPDIR)) {
     Serial.println("/forth directory not found, creating...");
     // Use mkdir to create directory (note you should _not_ have a trailing slash).
   // if (!fatfs.mkdir("/test")) {
     // if (!fatfs.mkdir(SPI_FlashROM_TOPDIR)) {
-    if (!pythonfs.mkdir(SPI_FlashROM_TOPDIR)) {
+    if (!CURRENT_FILESYSTEM.mkdir(SPI_FlashROM_TOPDIR)) {
       Serial.println("Error, failed to create test directory!");
       while(1);
     }
@@ -497,7 +528,7 @@ void _eflmkdir(void) {
 // #define SPI_FlashROM_TOPDIR   "/forth"
 // if (!fatfs.exists("/test")) { Serial.println("BAD ROBOT - fatfs.exists fails on line 97.");
   // if (!fatfs.exists(SPI_FlashROM_TOPDIR)) {
-  if (!pythonfs.exists(SPI_FlashROM_TOPDIR)) {
+  if (!CURRENT_FILESYSTEM.exists(SPI_FlashROM_TOPDIR)) {
     Serial.println("BAD ROBOT - fatfs.exists fails on line 473 June 17, 2018.");
   } else {
     Serial.println("local: assuming /forth directory already exists.");
@@ -516,7 +547,7 @@ void remove_a_file(void) {
   Serial.println("...");
 
   // if (!fatfs.remove(SPI_FlashROM_FILENAME)) {
-  if (!pythonfs.remove(SPI_FlashROM_FILENAME)) {
+  if (!CURRENT_FILESYSTEM.remove(SPI_FlashROM_FILENAME)) {
       Serial.print("Error, file ");
       Serial.print(SPI_FlashROM_FILENAME);
       Serial.println(" was not removed!");
@@ -525,8 +556,8 @@ void remove_a_file(void) {
   Serial.println("Deleted file!");
   // kludge: disallow this filename to be missing from the directory - create a blank new file:
   // File writeFile = fatfs.open(SPI_FlashROM_FILENAME, FILE_WRITE);
-  File writeFile = pythonfs.open(SPI_FlashROM_FILENAME, FILE_WRITE);
-  // if (!pythonfs.remove(SPI_FlashROM_FILENAME)) {
+  File writeFile = CURRENT_FILESYSTEM.open(SPI_FlashROM_FILENAME, FILE_WRITE);
+  // if (!CURRENT_FILESYSTEM.remove(SPI_FlashROM_FILENAME)) {
 
   if (!writeFile) {
       Serial.print("Error, failed to open ");
@@ -559,9 +590,9 @@ void write_a_capture_file(void) {
   // result: does compile just fine.
 
   // File writeFile = ascii_xfer_fatfs.open("/test/ascii_xfer_test.txt", FILE_WRITE);
-    // pythonfs fatfs
+    // CURRENT_FILESYSTEM fatfs
   // File writeFile =               fatfs.open(SPI_FlashROM_FILENAME, FILE_WRITE);
-  File writeFile =               pythonfs.open(SPI_FlashROM_FILENAME, FILE_WRITE);
+  File writeFile =               CURRENT_FILESYSTEM.open(SPI_FlashROM_FILENAME, FILE_WRITE);
   if (!writeFile) {
     Serial.print("Error, failed to open ");
     Serial.print(SPI_FlashROM_FILENAME);
@@ -591,9 +622,9 @@ void write_a_capture_file(void) {
 void read_a_test_file(void) {
   // Now open the same file but for reading.
   // cheap_test: File readFile = fatfs.open("/forth/job.fs",             FILE_READ);
-    // pythonfs fatfs
+    // CURRENT_FILESYSTEM fatfs
   // File readFile = fatfs.open(SPI_FlashROM_FILENAME, FILE_READ);
-  File readFile = pythonfs.open(SPI_FlashROM_FILENAME, FILE_READ);
+  File readFile = CURRENT_FILESYSTEM.open(SPI_FlashROM_FILENAME, FILE_READ);
   if (!readFile) {
     // cheap_test: Serial.println("Error, failed to open job.fs for reading!");
     // Serial.println("Error, failed to open /forth/ascii_xfer_test.txt for reading!");
@@ -649,9 +680,9 @@ void read_a_test_file(void) {
 
 #ifndef HAS_STANDARD_BUILD_HERE
 void read_from_code_py_file(void) {
-    // pythonfs fatfs
+    // CURRENT_FILESYSTEM fatfs
   // File readCodeFile = fatfs.open("/main.py", FILE_READ);
-  File readCodeFile = pythonfs.open("/main.py", FILE_READ);
+  File readCodeFile = CURRENT_FILESYSTEM.open("/main.py", FILE_READ);
   if (!readCodeFile) {
     Serial.println("Error, failed to open code.py for reading!");
     while(1);
@@ -721,9 +752,9 @@ void tail_code_bb(void) {
   // You can open a directory to list all the children (files and directories).
   // Just like the SD library the File type represents either a file or directory.
 #ifndef HAS_STANDARD_BUILD_HERE
-    // pythonfs fatfs
+    // CURRENT_FILESYSTEM fatfs
   // File testDirRoot = fatfs.open("/");
-  File testDirRoot = pythonfs.open("/");
+  File testDirRoot = CURRENT_FILESYSTEM.open("/");
   if (!testDirRoot) {
     Serial.println("Error, failed to open root directory!");
     while(1);
@@ -733,8 +764,8 @@ void tail_code_bb(void) {
 #endif
 
 #ifdef HAS_STANDARD_BUILD_HERE
-    // pythonfs fatfs
-  File testDir = pythonfs.open("/lib");
+    // CURRENT_FILESYSTEM fatfs
+  File testDir = CURRENT_FILESYSTEM.open("/lib");
   if (!testDir) {
     Serial.println("Error, failed to open test directory!");
     while(1);
@@ -820,13 +851,13 @@ void tail_code_bb(void) {
 
   // Delete a file with the remove command.  For example create a test2.txt file
   // inside /test/foo and then delete it.
-    // pythonfs fatfs
+    // CURRENT_FILESYSTEM fatfs
   // File test2File = fatfs.open("/forth/foo/test2.txt", FILE_WRITE);
-  File test2File = pythonfs.open("/forth/foo/test2.txt", FILE_WRITE);
+  File test2File = CURRENT_FILESYSTEM.open("/forth/foo/test2.txt", FILE_WRITE);
   test2File.close();
   Serial.println("Deleting /forth/foo/test2.txt...");
-    // pythonfs fatfs
-  if (!pythonfs.remove("/forth/foo/test2.txt")) {
+    // CURRENT_FILESYSTEM fatfs
+  if (!CURRENT_FILESYSTEM.remove("/forth/foo/test2.txt")) {
     Serial.println("Error, couldn't delete test.txt file!");
     while(1);
   }
@@ -837,16 +868,16 @@ void tail_code_bb(void) {
   // I.e. this is like running a recursive delete, rm -rf, in
   // unix filesystems!
   Serial.println("Deleting /test directory and everything inside it...");
-    // pythonfs fatfs
+    // CURRENT_FILESYSTEM fatfs
   // if (!fatfs.rmdir("/test")) {
-  if (!pythonfs.rmdir("/test")) {
+  if (!CURRENT_FILESYSTEM.rmdir("/test")) {
     Serial.println("Error, couldn't delete test directory!");
     while(1);
   }
   // Check that test is really deleted.
-    // pythonfs fatfs
+    // CURRENT_FILESYSTEM fatfs
   // if (fatfs.exists("/test")) {
-  if (pythonfs.exists("/test")) {
+  if (CURRENT_FILESYSTEM.exists("/test")) {
     Serial.println("Error, test directory was not deleted!");
     while(1);
   }
