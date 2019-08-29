@@ -1,9 +1,14 @@
+// Thu Aug 29 01:47:50 UTC 2019
+// On branch  working_new_libs_aug_2019
+
+// Works with summer 2019 Adafruit_SPIFlash library
+
 // Wed Aug 28 19:49:17 UTC 2019
 // On branch exp-master-aa
 
 // current target: ItsyBitsy M4 (August 2019)
 
-// regnath   eloranique kanflu     kagnaf     x          x
+// monrefe   regnath   eloranique kanflu     kagnaf     x
 
 // older:
 // Mon Aug  5 01:29:38 UTC 2019

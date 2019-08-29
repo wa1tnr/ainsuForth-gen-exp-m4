@@ -15,14 +15,15 @@
 // Mon Jan 15 18:14:33 UTC 2018 // 4737-a0d-05c-
 // Tue Jun 20 21:33:06 UTC 2017 // 4735-a0p-02-
 
-#define timeStamp(t)     "Wed May 29 20:34:39 2019"
+#define timeStamp(t)     "Thu Aug 29 01:47:50 2019"
 #define shredStamp(s)    "4737-a3c-00k-"
 #define progNameStamp(p) "ainsuForth-gen-exp-m4"
-#define targetStamp(t)   "Trellis M4 Express"
-#define branchStamp(b)   "develop      "
+#define targetStamp(t)   "ItsyBitsy M4 Express"
+//      Works with summer 2019 Adafruit_SPIFlash library
+#define branchStamp(b)   "working_new_libs_aug_2019  "
 //      branchStamp(b)   "develop - from testing-gg-      "
-#define featureList(f)   "+trm4x +fm4x +crickitCPX"
-#define dateStamp(e)     "29 May 2019" // infrequently maintained, in the past
+#define featureList(f)   "+SPIFl2k19 +trm4x +fm4x +crickitCPX"
+#define dateStamp(e)     "29 Aug 2019" // infrequently maintained, in the past
 #define gitShowStamp(g)  "7d202fc8b9d" // arbitrary length to fit aesthetics
 
 #include "src/kernel/signon.h"

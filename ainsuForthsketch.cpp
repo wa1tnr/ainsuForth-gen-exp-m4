@@ -338,8 +338,8 @@ void setup(void) {
      Serial.print("\n warm boot message - "    );
      Serial.print("early bird.               " );
      Serial.print("c: "         gitShowStamp() );
-     Serial.print("\r\n kef-SIWNA "  featureList() );
-     Serial.print("  c4e DEVPR - gen-exp-m4  " );
+     Serial.print("\r\n teg-SIWNA "  featureList() );
+     Serial.print("  c6a DEVPR - gen-exp-m4  " );
      Serial.print(                 dateStamp() );
      Serial.print("\r\n"                       );
      Serial.print("          "                 );
