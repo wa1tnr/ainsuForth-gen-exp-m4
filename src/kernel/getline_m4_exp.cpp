@@ -43,7 +43,7 @@
 // #ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
     #define SPI_FlashROM_FILENAME "/forth/ascii_xfer_a001.txt"
     #define SPI_FlashROM_TOPDIR   "/forth"
-// #endif
+
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // 16 January 2018 00:24z:
@@ -63,7 +63,7 @@
     #ifdef EXT_KERN_GETLINE
         #include "getline.h" // this is the flag wanted: HAS_QSPI_FLASHROM_LIB
         #ifdef HAS_QSPI_FLASHROM_LIB // 11 Nov 2018 // NEW LINE 64
-//          #warning HAS_QSPI_FLASHROM_LIB includes extra code on line 65 __getline_m4_exp.cpp__ // 11 Nov 2018 - NEW LINE 66
+            #warning HAS_QSPI_FLASHROM_LIB includes extra code on line 65 __getline_m4_exp.cpp__ // 11 Nov 2018 - NEW LINE 66
             #define FLASH_DEVICE_GD25Q
             #ifdef FLASH_DEVICE_GD25Q
 
@@ -85,9 +85,8 @@
 
 // LINE 77
 
-/*
 #if defined(__SAMD51__) || defined(NRF52840_XXAA)
-  Adafruit_FlashTransport_QSPI flashTransport(PIN_QSPI_SCK, PIN_QSPI_CS, PIN_QSPI_IO0, PIN_QSPI_IO1, PIN_QS
+  Adafruit_FlashTransport_QSPI flashTransport(PIN_QSPI_SCK, PIN_QSPI_CS, PIN_QSPI_IO0, PIN_QSPI_IO1, PIN_QSPI_IO2, PIN_QSPI_IO3);
 #else
   #if (SPI_INTERFACES_COUNT == 1)
     Adafruit_FlashTransport_SPI flashTransport(SS, &SPI);
@@ -104,7 +103,7 @@ FatFileSystem fatfs;
 File myFile;
 
 #define WORKING_DIR "/forth"
-*/
+
 
 
 
@@ -161,7 +160,8 @@ File myFile;
 /**   Tab, Newline (0x0a) and standard (printable) characters                **/
 /******************************************************************************/
 
-        #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
+// 28 august 22:13z after a long hunt, this seems to not be wanted:
+//      #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
 
 void setup_qspiFlashROM(void) { // void setup_spi_flash(void) {
     Serial.print("Hello from setup_qspi m4 getline stuff.   ");
@@ -177,8 +177,12 @@ void setup_qspiFlashROM(void) { // void setup_spi_flash(void) {
     // Serial.println(" want to see a message that says: Flash chip JEDEC ID: 0x1401501\r\n");
 
     // CURRENT_FILESYSTEM fatfs
-    flash.setFlashType(FLASH_TYPE); // new November 9 2018
-    if (!CURRENT_FILESYSTEM.begin()) {
+    // RESCIND // flash.setFlashType(FLASH_TYPE); // new November 9 2018
+
+    // if (!CURRENT_FILESYSTEM.begin()) {
+    //        if    (!fatfs.begin(&flash)) {
+
+    if (!CURRENT_FILESYSTEM.begin(&flash)) {
         Serial.println("Failed to mount filesystem!");
         Serial.println("Was CircuitPython loaded on the board first to create the filesystem?");
         // Serial.println(SPI_FlashROM_FILENAME);
@@ -186,7 +190,7 @@ void setup_qspiFlashROM(void) { // void setup_spi_flash(void) {
     }
     Serial.println("NOV 2018: Mounted filesystem!");
 }
-        #endif // 15 Jan 2018
+//     removed #EnDiF
 
 
 /******************************************************************************/
@@ -744,7 +748,7 @@ void read_from_code_py_file(void) {
 
 
 
-// #endif // 15 Jan 2018
+// #EnDiF removed // 15 Jan 2018
 
 
 #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
