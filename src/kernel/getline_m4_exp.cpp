@@ -44,7 +44,6 @@
     #define SPI_FlashROM_FILENAME "/forth/ascii_xfer_a001.txt"
     #define SPI_FlashROM_TOPDIR   "/forth"
 
-
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // 16 January 2018 00:24z:
 // 
@@ -63,7 +62,7 @@
     #ifdef EXT_KERN_GETLINE
         #include "getline.h" // this is the flag wanted: HAS_QSPI_FLASHROM_LIB
         #ifdef HAS_QSPI_FLASHROM_LIB // 11 Nov 2018 // NEW LINE 64
-            #warning HAS_QSPI_FLASHROM_LIB includes extra code on line 65 __getline_m4_exp.cpp__ // 11 Nov 2018 - NEW LINE 66
+            #warning HAS_QSPI_FLASHROM_LIB includes extra code on line 65 __getline_m4_exp.cpp__
             #define FLASH_DEVICE_GD25Q
             #ifdef FLASH_DEVICE_GD25Q
 
