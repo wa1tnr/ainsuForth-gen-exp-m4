@@ -24,7 +24,7 @@
 //      branchStamp(b)   "develop - from testing-gg-      "
 #define featureList(f)   "+SPIFl2k19 +trm4x +fm4x +crickitCPX"
 #define dateStamp(e)     "29 Aug 2019" // infrequently maintained, in the past
-#define gitShowStamp(g)  "7d202fc8b9d" // arbitrary length to fit aesthetics
+#define gitShowStamp(g)  "14de92dce80" // arbitrary length to fit aesthetics
 
 #include "src/kernel/signon.h"
 #include "src/kernel/getline.h"
