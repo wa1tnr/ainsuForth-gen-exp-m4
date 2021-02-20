@@ -1,14 +1,33 @@
-Sun Nov 11 02:50:31 UTC 2018
+Sat Feb 20 08:55:59 UTC 2021
 
-On branch testing-hh-ii-
+On branch update-2021-aa
 
-This is branch testing-hh-ii- which is a modification of testing-hh-
+Verify anything is still working in February of 2021.
 
-It is meant as a temporary development area to be merged back
-into the testing-hh- branch (only).
+ $ git branch | cat | egrep pd ; date
+* update-2021-aa
+Sat Feb 20 08:58:49 UTC 2021
 
-When branch testing-hh- looks more useful, can consider merging
-it back into its parent (testing-gg-).  Branch testing-gg- is eligible
-to be merged into master, so it is looked over more carefully than
-these shorter-term branches are.
+Generation was:
 
+ $  git branch
+
+* testing-pp-aa-
+  working_new_libs_aug_2019
+
+  (and others)
+
+ $  git checkout working_new_libs_aug_2019
+Switched to branch 'working_new_libs_aug_2019'
+
+ $  git tag
+0.1.0
+0.1.1
+
+ $  git checkout -b update-2021-aa
+Switched to a new branch 'update-2021-aa'
+
+ $  pwd
+/some/path/to/ainsuForth-gen-exp-m4
+
+END.
