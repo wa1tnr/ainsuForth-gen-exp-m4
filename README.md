@@ -15,6 +15,28 @@ place to look for porting issues, across targets).
 This forth is compiled regularly (as targets are reused
 to test other code).  It is usually operational. ;)
 
+# 20 Feb 2021:
+
+Please see branch update-2021-aa
+
+Tested against ItsyBitsyM4 - works okay.  Reads and writes to QSPI flashROM.
+
+signon msg is:
+
+Hello from setup_qspi m4 getline stuff.   Found QSPI Flash.
+NOV 2018: Mounted filesystem!
+
+ warm boot message - early bird.               c: 15e708efc75
+ teg-SIWNA +SPIFl2k19 +trm4x +fm4x +crickitCPX  c6a DEVPR - gen-exp-m4  20 Feb 2021
+          type 'warm' to reboot
+ Sat Feb 20 09:54:27 2021       update-2021-aa
+ xxxx-a3c-00k- ItsyBitsy M4 Express sand birds
+
+     ainsuForth - 2018 - wa1tnr    words: 86
+         YAFFA - Yet Another Forth For Arduino,
+         Copyright (C) 2012 Stuart Wood
+  ok
+
 # New 05 Aug 2019:
 
 On branch develop / testing-gg- / master
