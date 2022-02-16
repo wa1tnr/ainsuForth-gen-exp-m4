@@ -1,3 +1,15 @@
+trellis-m4-express In February of 2022
+
+16 Feb 2022: Project now ported to platformio, without
+             breaking Arduino IDE compatibility.
+
+Makefile driven (optional use of 'make' - just use 'pio' if you like)
+
+Other targets likely to work with little modification.
+
+
+was:
+
 itsybitsy-m4-express
 
 Mon Aug  5 01:29:38 UTC 2019
