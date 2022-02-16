@@ -39,21 +39,6 @@
 /** getDLKey                                                                 **/
 /******************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void setup_qspiFlashROM(void) { // void setup_spi_flash(void) {
     Serial.print("Hello from setup_qspi m4 getline stuff.   ");
     if (!flash.begin()) { // if (!flash.begin(FLASH_TYPE)) {
@@ -74,11 +59,6 @@ void setup_qspiFlashROM(void) { // void setup_spi_flash(void) {
 
 
 
-
-
-
-
-
             #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
                 File thisFile;
             #endif // 15 Jan 2018
@@ -86,14 +66,6 @@ void setup_qspiFlashROM(void) { // void setup_spi_flash(void) {
 /******************************************************************************/
 /** getLine                                                                  **/
 /******************************************************************************/
-
-
-
-
-
-
-
-
 
 uint8_t getLine(char* ptr, uint8_t buffSize) {
     char inChar;
@@ -200,22 +172,6 @@ uint8_t getLine(char* ptr, uint8_t buffSize) {
 /** getKey                                                                   **/
 /******************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 char getKey(void) {
     char inChar;
     if (spiFlashReading) {
@@ -247,35 +203,9 @@ char getKey(void) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     #endif
 
 const char eflmkdir_str[] = "eflmkdir"; // forth vocabulary external flash mkdir
-
-
-
-
-
-
-
-
-
-
-
-
 
 void _eflmkdir(void) {
     #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
@@ -302,31 +232,7 @@ void _eflmkdir(void) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
     #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 void remove_a_file(void) {
@@ -356,35 +262,10 @@ void remove_a_file(void) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
     #endif // 15 Jan 2018
 
 
-
-
     #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 void write_a_capture_file(void) {
