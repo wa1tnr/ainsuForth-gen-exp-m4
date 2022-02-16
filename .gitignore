@@ -1,4 +1,12 @@
+.pio
 .DS_Store
 _next_commit__
 _cruft_now_c*
 src/kernel/showm*
+cruft*
+README.md-*
+_compile_*
+branch-man*
+branch_h*
+freeeb*
+origin_v*
