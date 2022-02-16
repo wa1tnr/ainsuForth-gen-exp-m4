@@ -58,7 +58,7 @@ void signOn(void) {
     Serial.print("m");        // for the stanza
 
     // Serial.print("  ainsuForth - 2018 - wa1tnr  ");
-    Serial.print("  ainsuForth - 2022 - wa1tnr  ykw   ");
+    Serial.print("  ainsuForth - 2022 - wa1tnr  ");
 
     Serial.print("\033\133"); // ESC [
     Serial.print("\064\060"); // 40 - black bg
