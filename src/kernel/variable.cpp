@@ -2,7 +2,7 @@
 // 4735-a0f
 
 #include <Arduino.h>
-#include "../../yaffa.h"
+#include "../yaffa.h"
 // #include "Error_Codes.h"
 
 #ifdef EXT_KERN_VARIABLE

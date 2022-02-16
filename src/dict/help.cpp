@@ -5,8 +5,8 @@
 // 4735-b0b-01-
 
 #include <Arduino.h>
-#include "../../yaffa.h"
-#include "../../Dictionary.h"
+#include "../yaffa.h"
+#include "../Dictionary.h"
 // #include "../../Error_Codes.h"
 
 /*******************************************************************************/

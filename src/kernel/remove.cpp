@@ -6,7 +6,7 @@
 // none.
 
 #include <Arduino.h>
-#include "../../yaffa.h"
+#include "../yaffa.h"
 
 #include "remove.h"
 #include "getline.h"

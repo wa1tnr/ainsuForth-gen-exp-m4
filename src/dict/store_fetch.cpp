@@ -3,8 +3,8 @@
 
 // r_fetch r_from to_r
 #include <Arduino.h>
-#include "../../yaffa.h"
-#include "../../Dictionary.h"
+#include "../yaffa.h"
+#include "../Dictionary.h"
 // #include "../../Error_Codes.h"
 
 /*******************************************************************************/

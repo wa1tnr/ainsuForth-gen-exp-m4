@@ -2,9 +2,9 @@
 // 4735-b0a-07-
 
 #include <Arduino.h>
-#include "../../yaffa.h"
-#include "../../flashDict.h"  // required?
-#include "../../Dictionary.h"
+#include "../yaffa.h"
+#include "../flashDict.h"  // required?
+#include "../Dictionary.h"
 // #include "../../Error_Codes.h"
 
 /*******************************************************************************/

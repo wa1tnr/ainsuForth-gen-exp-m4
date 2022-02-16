@@ -2,7 +2,7 @@
 // 4735-b0e-05-
 
 #include <Arduino.h>
-#include "../../yaffa.h"
+#include "../yaffa.h"
 // #include "Error_Codes.h"
 
 #include "download.h"

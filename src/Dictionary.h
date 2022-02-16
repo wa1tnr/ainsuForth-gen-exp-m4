@@ -33,67 +33,139 @@
 // Wed Aug  2 18:04:12 UTC 2017
 // 4735-b0c-05-
 
-#include "src/kernel/remove.h"
-#include "src/kernel/download.h"
-#include "src/kernel/load.h"
+// #include "src/kernel/remove.h"
+#include "kernel/remove.h"
+
+// #include "src/kernel/download.h"
+#include "kernel/download.h"
+
+// #include "src/kernel/load.h"
+#include "kernel/load.h"
 
 // #include "src/kernel/getkey.h"
-#include "src/kernel/getline.h" // uncommented 17 June 2018 23:04z for efl* words
+
+// #include "src/kernel/getline.h" // uncommented 17 June 2018 23:04z for efl* words
+#include "kernel/getline.h" // uncommented 17 June 2018 23:04z for efl* words
+
 // #include "src/kernel/stacks.h"
 
 // #include "src/dict/commas.cpp"
-#include "src/dict/accept.h"
-#include "src/dict/dump.h"
 
-#include "src/dict/cblink.h"
+// #include "src/dict/accept.h"
+#include "dict/accept.h"
+
+// #include "src/dict/dump.h"
+#include "dict/dump.h"
+
+// #include "src/dict/cblink.h"
+#include "dict/cblink.h"
 
 #ifdef HAS_QSPI_FLASHROM_LIB
-#include "src/periph/qspi/flashrom.h"
+// #include "src/periph/qspi/flashrom.h"
+#include "periph/qspi/flashrom.h"
 #endif
 
 #ifdef HAS_NEO_PIXEL_LIB
-#include "src/periph/neo_pixel.h"
+// #include "src/periph/neo_pixel.h"
+#include "periph/neo_pixel.h"
 #endif
 
-#include "src/dict/help.h"
+// #include "src/dict/help.h"
+#include "dict/help.h"
 
+// #include "src/dict/max_min.h"
+#include "dict/max_min.h"
 
-#include "src/dict/max_min.h"
+// #include "src/dict/char.h"
+#include "dict/char.h"
 
-#include "src/dict/char.h"
-#include "src/dict/do_loop.h"
+// #include "src/dict/do_loop.h"
+#include "dict/do_loop.h"
 
-#include "src/dict/allot.h"
-#include "src/dict/constant.h"
-#include "src/dict/store_fetch.h"
-#include "src/dict/xttoname.h"
+// #include "src/dict/allot.h"
+#include "dict/allot.h"
+
+// #include "src/dict/constant.h"
+#include "dict/constant.h"
+
+// #include "src/dict/store_fetch.h"
+#include "dict/store_fetch.h"
+
+// #include "src/dict/xttoname.h"
+#include "dict/xttoname.h"
+
 // #include "src/dict/colon_semi.h"
-#include "src/dict/stack_ops.h"
-#include "src/dict/iasmd.h"
-#include "src/dict/new_dict_entries.h" // #include "src/dict/dict_entries.h" // 21 June 2018
+
+// #include "src/dict/stack_ops.h"
+#include "dict/stack_ops.h"
+
+// #include "src/dict/iasmd.h"
+#include "dict/iasmd.h"
+
+// #include "src/dict/new_dict_entries.h" // #include "src/dict/dict_entries.h" // 21 June 2018
+#include "dict/new_dict_entries.h" // #include "src/dict/dict_entries.h" // 21 June 2018
 
 // #include "src/kernel/dl_interpreter.h"
-#include "src/kernel/interpreter.h"
-#include "src/kernel/do_sys.h"
-#include "src/kernel/dot_quote.h"
-#include "src/kernel/drop.h"
-#include "src/kernel/eq.h"
-#include "src/kernel/exit.h"
+// #include "src/kernel/interpreter.h"
+#include "kernel/interpreter.h"
+
+// #include "src/kernel/do_sys.h"
+#include "kernel/do_sys.h"
+
+// #include "src/kernel/dot_quote.h"
+#include "kernel/dot_quote.h"
+
+// #include "src/kernel/drop.h"
+#include "kernel/drop.h"
+
+// #include "src/kernel/eq.h"
+#include "kernel/eq.h"
+
+// #include "src/kernel/exit.h"
+#include "kernel/exit.h"
+
 // #include "src/kernel/fake_header.h" // fake header
-#include "src/kernel/jump.h"
-#include "src/kernel/leave_sys.h"
-#include "src/kernel/literal.h"
-#include "src/kernel/loop_sys.h"
-#include "src/kernel/over.h"
-#include "src/kernel/plus_loop_sys.h"
-#include "src/kernel/quit.h"
-#include "src/kernel/s_quote.h"
-#include "src/kernel/subroutine.h"
-#include "src/kernel/throw.h"
-#include "src/kernel/type.h"
-#include "src/kernel/variable.h"
-#include "src/kernel/warm.h"
-#include "src/kernel/zjump.h"
+// #include "src/kernel/jump.h"
+#include "kernel/jump.h"
+
+// #include "src/kernel/leave_sys.h"
+#include "kernel/leave_sys.h"
+
+// #include "src/kernel/literal.h"
+#include "kernel/literal.h"
+
+// #include "src/kernel/loop_sys.h"
+#include "kernel/loop_sys.h"
+
+// #include "src/kernel/over.h"
+#include "kernel/over.h"
+
+// #include "src/kernel/plus_loop_sys.h"
+#include "kernel/plus_loop_sys.h"
+
+// #include "src/kernel/quit.h"
+#include "kernel/quit.h"
+
+// #include "src/kernel/s_quote.h"
+#include "kernel/s_quote.h"
+
+// #include "src/kernel/subroutine.h"
+#include "kernel/subroutine.h"
+
+// #include "src/kernel/throw.h"
+#include "kernel/throw.h"
+
+// #include "src/kernel/type.h"
+#include "kernel/type.h"
+
+// #include "src/kernel/variable.h"
+#include "kernel/variable.h"
+
+// #include "src/kernel/warm.h"
+#include "kernel/warm.h"
+
+// #include "src/kernel/zjump.h"
+#include "kernel/zjump.h"
 
 extern char* cpSource;                // Pointer to the string location that we will
                                       // evaluate. This could be the input buffer or

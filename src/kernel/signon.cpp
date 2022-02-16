@@ -6,7 +6,7 @@
 // 4735-b0c-03-
 
 #include <Arduino.h>
-#include "../../yaffa.h"
+#include "../yaffa.h"
 // #include "../../Error_Codes.h"
 
 #ifdef EXT_KERN_SIGN_ON
@@ -57,7 +57,8 @@ void signOn(void) {
     Serial.print("\064\064"); // 44 - blue bg
     Serial.print("m");        // for the stanza
 
-    Serial.print("  ainsuForth - 2018 - wa1tnr  ");
+    // Serial.print("  ainsuForth - 2018 - wa1tnr  ");
+    Serial.print("  ainsuForth - 2022 - wa1tnr  ykw   ");
 
     Serial.print("\033\133"); // ESC [
     Serial.print("\064\060"); // 40 - black bg

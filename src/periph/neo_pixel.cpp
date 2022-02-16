@@ -54,7 +54,7 @@
 // 3 bl 4 bl 5 bl ok   blanks neoPixels #3, 4 and 5.
 
 #include <Arduino.h>
-#include "../../yaffa.h"
+#include "../yaffa.h"
 
 #ifdef HAS_NEO_PIXEL_LIB
 #include "neo_pixel.h"

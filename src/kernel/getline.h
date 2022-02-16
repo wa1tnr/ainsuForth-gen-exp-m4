@@ -12,7 +12,8 @@
 // 4735-b0f-00-
 
 #include <Arduino.h>
-#include "../../yaffa.h"
+// #include "../../yaffa.h"
+#include "../yaffa.h"
 
 extern uint8_t silentReading;         // the load word is silent, if this flag is set
 

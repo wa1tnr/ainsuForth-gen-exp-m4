@@ -57,7 +57,7 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     #include <Arduino.h> // LINE 59
-    #include "../../yaffa.h" // LINE 60
+    #include "../yaffa.h" // LINE 60
 
     #ifdef EXT_KERN_GETLINE
         #include "getline.h" // this is the flag wanted: HAS_QSPI_FLASHROM_LIB

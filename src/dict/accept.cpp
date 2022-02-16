@@ -12,7 +12,7 @@
 // dictionary (and can be compiled-out easily enough).
 
 #include <Arduino.h>
-#include "../../yaffa.h"
+#include "../yaffa.h"
 // #include "../../flashDict.h"
 // #include "../../Dictionary.h"
 // #include "../../Error_Codes.h"

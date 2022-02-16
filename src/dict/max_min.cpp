@@ -2,7 +2,7 @@
 // 4735-b0a-05-
 
 #include <Arduino.h>
-#include "../../yaffa.h"
+#include "../yaffa.h"
 #include "max_min.h"
 // #include "../../Error_Codes.h"
 

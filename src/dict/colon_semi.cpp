@@ -2,9 +2,9 @@
 // 4735-a0p-03-
 
 #include <Arduino.h>
-#include "../../yaffa.h"
-#include "../../flashDict.h"
-#include "../../Dictionary.h"
+#include "../yaffa.h"
+#include "../flashDict.h"
+#include "../Dictionary.h"
 // #include "../../Error_Codes.h"
 
 // const char not_done_str[] = " NOT Implemented Yet \n\r";

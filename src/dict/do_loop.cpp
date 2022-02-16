@@ -2,7 +2,7 @@
 // 4735-a0s-00-
 
 #include <Arduino.h>
-#include "../../yaffa.h"
+#include "../yaffa.h"
 // #include "../../Error_Codes.h"
 
 // #ifdef EXT_DO_LOOP

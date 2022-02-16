@@ -8,7 +8,7 @@
 // latest timestamp, regardless of its true age.
 
 #include <Arduino.h>
-#include "../../yaffa.h"
+#include "../yaffa.h"
 // #include "Error_Codes.h"
 
 #ifdef EXT_KERN_DO_SYS

@@ -2,7 +2,7 @@
 // 4735-b0d-00-
 
 #include <Arduino.h>
-#include "../../yaffa.h"
+#include "../yaffa.h"
 // #include "../../Error_Codes.h"
 
 #include "is_dl_word_number.h"

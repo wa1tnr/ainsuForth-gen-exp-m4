@@ -4,7 +4,7 @@
 // download interpreter
 
 #include <Arduino.h>
-#include "../../yaffa.h"
+#include "../yaffa.h"
 // #include "../../Error_Codes.h"
 
 #include "dl_interpreter.h"

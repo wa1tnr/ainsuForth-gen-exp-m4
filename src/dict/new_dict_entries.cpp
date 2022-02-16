@@ -73,9 +73,9 @@ void myword_underscore_seps(void) {
 // 4737-a3a-05p-
 
 #include <Arduino.h>
-#include "../../yaffa.h"
-#include "../../flashDict.h"
-#include "../../Dictionary.h"
+#include "../yaffa.h"
+#include "../flashDict.h"
+#include "../Dictionary.h"
 
 // const char not_done_str[] = " NOT Implemented Yet \n\r";
 const char sp_str[] = " "; // does not belong here

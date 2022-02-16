@@ -100,24 +100,31 @@
 // #include "src/periph/fatfs.h"
 // #include "src/kernel/getkey.h"
 
-
-#include "src/kernel/getline.h"
+#warning hey this is the sketch hey hey
+#include <Wire.h>
+#warning hey that is the sketch hey hey
+// #include "src/kernel/getline.h"
+#include "kernel/getline.h"
 
 
 #ifdef HAS_DOTSTAR_LIB
-#include "src/periph/dotstar.h"
+// #include "src/periph/dotstar.h"
+#include "periph/dotstar.h"
 #endif
 
 #include <Arduino.h>
 #include "yaffa.h"
 #include "ainsuForthsketch.h"
-#include "src/periph/neo_pixel.h"
-#include "src/dict/cblink.h"
+// #include "src/periph/neo_pixel.h"
+#include "periph/neo_pixel.h"
+// #include "src/dict/cblink.h"
+#include "dict/cblink.h"
 #include "Error_Codes.h"
 
 // #ifdef HAS_FOUR_H
 #ifdef HAS_QSPI_FLASHROM_LIB
-  #include "src/periph/qspi/flashrom.h"
+  // #include "src/periph/qspi/flashrom.h"
+  #include "periph/qspi/flashrom.h"
 #endif // #ifdef HAS_QSPI_FLASHROM_LIB
 
 /******************************************************************************/

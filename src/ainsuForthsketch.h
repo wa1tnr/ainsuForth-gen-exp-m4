@@ -28,8 +28,17 @@
 // #define gitShowStamp(g)  "14de92dce80" // arbitrary length to fit aesthetics
 #define gitShowStamp(g)  "15e708efc75" // arbitrary length to fit aesthetics
 
-#include "src/kernel/signon.h"
-#include "src/kernel/getline.h"
-#include "src/kernel/dl_interpreter.h"
-#include "src/kernel/interpreter.h"
-#include "src/kernel/stacks.h"
+// #include "src/kernel/signon.h"
+#include "kernel/signon.h"
+
+// #include "src/kernel/getline.h"
+#include "kernel/getline.h"
+
+// #include "src/kernel/dl_interpreter.h"
+#include "kernel/dl_interpreter.h"
+
+// #include "src/kernel/interpreter.h"
+#include "kernel/interpreter.h"
+
+// #include "src/kernel/stacks.h"
+#include "kernel/stacks.h"

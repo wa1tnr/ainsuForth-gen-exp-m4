@@ -14,9 +14,9 @@
 // 4735-a0p-02-
 
 #include <Arduino.h>
-#include "../../yaffa.h"
-#include "../../flashDict.h"
-#include "../../Dictionary.h"
+#include "../yaffa.h"
+#include "../flashDict.h"
+#include "../Dictionary.h"
 // #include "../../Error_Codes.h"
 
 extern const char sp_str[]; // = " "; // does not belong here

@@ -4,9 +4,9 @@
 // iasmd.cpp -- add, subtract, multiply and divide integers
 
 #include <Arduino.h>
-#include "../../yaffa.h"
-#include "../../flashDict.h"
-#include "../../Dictionary.h" // provides: #include "iasmd.h"
+#include "../yaffa.h"
+#include "../flashDict.h"
+#include "../Dictionary.h" // provides: #include "iasmd.h"
 // #include "../../Error_Codes.h"
 
 /*******************************************************************************/

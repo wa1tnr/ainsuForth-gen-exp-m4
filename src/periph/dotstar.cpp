@@ -15,7 +15,7 @@
 
 // very experimental - 18 June:
 #include <Arduino.h>
-#include "../../yaffa.h"
+#include "../yaffa.h"
 
 #ifdef HAS_DOTSTAR_LIB
 #include "dotstar.h"
