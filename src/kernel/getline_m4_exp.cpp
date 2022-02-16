@@ -38,6 +38,22 @@
 /******************************************************************************/
 /** getDLKey                                                                 **/
 /******************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void setup_qspiFlashROM(void) { // void setup_spi_flash(void) {
     Serial.print("Hello from setup_qspi m4 getline stuff.   ");
     if (!flash.begin()) { // if (!flash.begin(FLASH_TYPE)) {
@@ -53,6 +69,16 @@ void setup_qspiFlashROM(void) { // void setup_spi_flash(void) {
     Serial.println("FEB 2022: Mounted filesystem!");
 }
 
+
+
+
+
+
+
+
+
+
+
             #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
                 File thisFile;
             #endif // 15 Jan 2018
@@ -60,6 +86,15 @@ void setup_qspiFlashROM(void) { // void setup_spi_flash(void) {
 /******************************************************************************/
 /** getLine                                                                  **/
 /******************************************************************************/
+
+
+
+
+
+
+
+
+
 uint8_t getLine(char* ptr, uint8_t buffSize) {
     char inChar;
     uint8_t count = 0;
@@ -141,13 +176,46 @@ uint8_t getLine(char* ptr, uint8_t buffSize) {
     } while (count < buffSize);
     return (count);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
         #endif // #ifdef HAS_QSPI_FLASHROM_LIB
     #endif // #ifdef EXT_KERN_GETLINE
+
+
+
     #ifdef EXT_KERN_GETKEY
 
 /******************************************************************************/
 /** getKey                                                                   **/
 /******************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 char getKey(void) {
     char inChar;
     if (spiFlashReading) {
@@ -177,227 +245,160 @@ char getKey(void) {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     #endif
 
 const char eflmkdir_str[] = "eflmkdir"; // forth vocabulary external flash mkdir
+
+
+
+
+
+
+
+
+
+
+
+
+
 void _eflmkdir(void) {
     #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
-  if (!CURRENT_FILESYSTEM.exists(SPI_FlashROM_TOPDIR)) {
-    Serial.println("/forth directory not found, creating...");
-    if (!CURRENT_FILESYSTEM.mkdir(SPI_FlashROM_TOPDIR)) {
-      Serial.println("Error, failed to create test directory!");
-      while(1);
+    if (!CURRENT_FILESYSTEM.exists(SPI_FlashROM_TOPDIR)) {
+        Serial.println("/forth directory not found, creating...");
+        if (!CURRENT_FILESYSTEM.mkdir(SPI_FlashROM_TOPDIR)) {
+            Serial.println("Error, failed to create test directory!");
+            while(1);
+        }
+        Serial.println("Created /forth directory!");
     }
-    Serial.println("Created /forth directory!");
-  }
     #endif
     #ifdef NEVER_DEFINED_TEN_THREE // nonsense tag to prevent compile
         #ifndef HAS_STANDARD_BUILD_HERE
             #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
-  if (!CURRENT_FILESYSTEM.exists(SPI_FlashROM_TOPDIR)) {
-    Serial.println("BAD ROBOT - fatfs.exists fails on line 473 June 17, 2018.");
-  } else {
-    Serial.println("local: assuming /forth directory already exists.");
-  }
+    if (!CURRENT_FILESYSTEM.exists(SPI_FlashROM_TOPDIR)) {
+        Serial.println("BAD ROBOT - fatfs.exists fails on line 473 June 17, 2018.");
+    } else {
+        Serial.println("local: assuming /forth directory already exists.");
+    }
             #endif // 15 Jan 2018
         #endif
     #endif
 }
+
+
+
+
+
+
+
+
+
+
+
+
     #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void remove_a_file(void) {
-  Serial.print("file: Deleting ");
-  Serial.print(SPI_FlashROM_FILENAME);
-  Serial.println("...");
-  if (!CURRENT_FILESYSTEM.remove(SPI_FlashROM_FILENAME)) {
-      Serial.print("Error, file ");
-      Serial.print(SPI_FlashROM_FILENAME);
-      Serial.println(" was not removed!");
-      while(1);
-  }
-  Serial.println("Deleted file!");
-  File writeFile = CURRENT_FILESYSTEM.open(SPI_FlashROM_FILENAME, FILE_WRITE);
-  if (!writeFile) {
-      Serial.print("Error, failed to open ");
-      Serial.print(SPI_FlashROM_FILENAME);
-      Serial.println(" for writing!");
-      while(1); // what does this do .. hold the program in a forever loop upon failure?
-      Serial.println("Exiting forever loop of getline.cpp -- probably means a serious error occurred. LINE 408.");
-  } else {
-  Serial.println("An empty new file was created in its place.");
-  Serial.println("This kludge will go away when multi-filename usage is more fully integrated.");
-  writeFile.println(" ");
-  writeFile.close(); // housekeeping.
-  }
+    Serial.print("file: Deleting ");
+    Serial.print(SPI_FlashROM_FILENAME);
+    Serial.println("...");
+    if (!CURRENT_FILESYSTEM.remove(SPI_FlashROM_FILENAME)) {
+        Serial.print("Error, file ");
+        Serial.print(SPI_FlashROM_FILENAME);
+        Serial.println(" was not removed!");
+        while(1);
+    }
+    Serial.println("Deleted file!");
+    File writeFile = CURRENT_FILESYSTEM.open(SPI_FlashROM_FILENAME, FILE_WRITE);
+    if (!writeFile) {
+        Serial.print("Error, failed to open ");
+        Serial.print(SPI_FlashROM_FILENAME);
+        Serial.println(" for writing!");
+        while(1); // what does this do .. hold the program in a forever loop upon failure?
+        Serial.println("Exiting forever loop of getline.cpp -- probably means a serious error occurred. LINE 408.");
+    } else {
+        Serial.println("An empty new file was created in its place.");
+        Serial.println("This kludge will go away when multi-filename usage is more fully integrated.");
+        writeFile.println(" ");
+        writeFile.close(); // housekeeping.
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
     #endif // 15 Jan 2018
+
+
+
+
     #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void write_a_capture_file(void) {
-  File writeFile =               CURRENT_FILESYSTEM.open(SPI_FlashROM_FILENAME, FILE_WRITE);
-  if (!writeFile) {
-    Serial.print("Error, failed to open ");
-    Serial.print(SPI_FlashROM_FILENAME);
-    Serial.println(" for writing!");
-    while(1);
-  }
-  writeFile.println(cpSource);
-  writeFile.close();
-}
-    #endif // 15 Jan 2018
-    #ifndef HAS_STANDARD_BUILD_HERE
-        #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
-void read_a_test_file(void) {
-  File readFile = CURRENT_FILESYSTEM.open(SPI_FlashROM_FILENAME, FILE_READ);
-  if (!readFile) {
-    Serial.print("Error, failed to open ");
-    Serial.print(SPI_FlashROM_FILENAME);
-    Serial.println(" for reading!");
-    while(1);
-  }
-  String line = readFile.readStringUntil('\n');
-  Serial.print("First line of ");
-  Serial.print(SPI_FlashROM_FILENAME);
-  Serial.println(line);
-  Serial.print("Ignore job.fs and say ");
-  Serial.print(SPI_FlashROM_FILENAME);
-  Serial.print(" here - several lines.");
-  Serial.print("Total size of job.fs (bytes): "); Serial.println(readFile.size(), DEC);
-  Serial.print("Current position in job.fs: "); Serial.println(readFile.position(), DEC);
-  Serial.print("Available data to read in job.fs: "); Serial.println(readFile.available(), DEC);
-  Serial.print("File name: "); Serial.println(readFile.name());
-  Serial.print("Is file a directory? "); Serial.println(readFile.isDirectory() ? "Yes" : "No");
-  if (!readFile.seek(0)) {
-    Serial.println("Error, failed to seek back to start of file!");
-    while(1);
-  }
-  Serial.println("Entire contents of job.fs:");
-  while (readFile.available()) {
-    char c = readFile.read();
-    Serial.print(c);
-  }
-  readFile.close();
-}
-        #endif // 15 Jan 2018
-    #endif
-    #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
-        #ifndef HAS_STANDARD_BUILD_HERE
-void read_from_code_py_file(void) {
-  File readCodeFile = CURRENT_FILESYSTEM.open("/main.py", FILE_READ);
-  if (!readCodeFile) {
-    Serial.println("Error, failed to open code.py for reading!");
-    while(1);
-  }
-  String line = readCodeFile.readStringUntil('\n');
-  Serial.print("First line of code.py: "); Serial.println(line);
-  Serial.print("Total size of code.py (bytes): "); Serial.println(readCodeFile.size(), DEC);
-  Serial.print("Current position in code.py: "); Serial.println(readCodeFile.position(), DEC);
-  Serial.print("Available data to read in code.py: "); Serial.println(readCodeFile.available(), DEC);
-  Serial.print("File name: "); Serial.println(readCodeFile.name());
-  Serial.print("Is file a directory? "); Serial.println(readCodeFile.isDirectory() ? "Yes" : "No");
-  if (!readCodeFile.seek(0)) {
-    Serial.println("Error, failed to seek back to start of file!");
-    while(1);
-  }
-  Serial.println("Entire contents of code.py:");
-  while (readCodeFile.available()) {
-    char c = readCodeFile.read();
-    Serial.print(c);
-  }
-  readCodeFile.close();
-}
-        #endif // 15 Jan 2018
-    #endif
-    #ifdef HAS_QSPI_FLASH_DEMO // 15 Jan 2018
-void tail_code_bb(void) {
-        #ifndef HAS_STANDARD_BUILD_HERE
-  File testDirRoot = CURRENT_FILESYSTEM.open("/");
-  if (!testDirRoot) {
-    Serial.println("Error, failed to open root directory!");
-    while(1);
-  } else {
-    Serial.println("Made it past the opening of the root directory.");
-  }
-        #endif
-        #ifdef HAS_STANDARD_BUILD_HERE
-  File testDir = CURRENT_FILESYSTEM.open("/lib");
-  if (!testDir) {
-    Serial.println("Error, failed to open test directory!");
-    while(1);
-  } else {
-    Serial.println("Made it past the opening of the /lib directory.");
-  }
-        #endif
-        #ifndef HAS_STANDARD_BUILD_HERE
-  if (!testDirRoot.isDirectory()) {
-    Serial.println("Error, expected root to be a directory!");
-    while(1);
-  } else {
-    Serial.println("Good - root is a directory - not a file.  Continue.");
-  }
-        #endif
-        #ifdef HAS_STANDARD_BUILD_HERE
-  if (!testDir.isDirectory()) {
-    Serial.println("Error, expected /lib to be a directory!");
-    while(1);
-  } else {
-    Serial.println("Good - /lib is a directory - not a file.  Continue.");
-  }
-        #endif
-        #ifndef HAS_STANDARD_BUILD_HERE
-  Serial.println("Listing children of root directory:");
-  File child = testDirRoot.openNextFile();
-  while (child) {
-    Serial.print("- "); Serial.print(child.name());
-    if (child.isDirectory()) {
-      Serial.print(" (directory)");
+    File writeFile = CURRENT_FILESYSTEM.open(SPI_FlashROM_FILENAME, FILE_WRITE);
+    if (!writeFile) {
+        Serial.print("Error, failed to open ");
+        Serial.print(SPI_FlashROM_FILENAME);
+        Serial.println(" for writing!");
+        while(1);
     }
-    Serial.println();
-    child = testDirRoot.openNextFile();
-  }
-  testDirRoot.rewindDirectory();
-        #endif
-        while(1); Serial.println("WILL ROBINSON.");
-        #ifdef HAS_STANDARD_BUILD_HERE
-  Serial.println("Listing children of directory /lib:");
-  File child = testDir.openNextFile();
-  while (child) {
-    Serial.print("- "); Serial.print(child.name());
-    if (child.isDirectory()) {
-      Serial.print(" (directory)");
-    }
-    Serial.println();
-    child = testDir.openNextFile();
-  }
-  testDir.rewindDirectory();
-        #endif
-        #ifdef HAS_EXTRA_STANDARD_BUILD_HERE
-  File test2File = CURRENT_FILESYSTEM.open("/forth/foo/test2.txt", FILE_WRITE);
-  test2File.close();
-  Serial.println("Deleting /forth/foo/test2.txt...");
-  if (!CURRENT_FILESYSTEM.remove("/forth/foo/test2.txt")) {
-    Serial.println("Error, couldn't delete test.txt file!");
-    while(1);
-  }
-  Serial.println("Deleted file!");
-  Serial.println("Deleting /test directory and everything inside it...");
-  if (!CURRENT_FILESYSTEM.rmdir("/test")) {
-    Serial.println("Error, couldn't delete test directory!");
-    while(1);
-  }
-  if (CURRENT_FILESYSTEM.exists("/test")) {
-    Serial.println("Error, test directory was not deleted!");
-    while(1);
-  }
-  Serial.println("Test directory was deleted!");
-  
-  Serial.println("Finished!");
-        #endif
-        #ifndef HAS_STANDARD_BUILD_HERE
-        #endif
+    writeFile.println(cpSource);
+    writeFile.close();
 }
+
     #endif // 15 Jan 2018
-void ascii_xfer_spi_flash_main(void) {
-  read_from_code_py_file(); 
-  tail_code_bb();
-}
 #endif // #ifdef HAS_EXP_MFOUR_QSPI_FLASH - entire file omitted when this flag is set
 // END.
