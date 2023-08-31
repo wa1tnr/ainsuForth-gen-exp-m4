@@ -1,6 +1,7 @@
 # ainsuForth-gen-exp-m4
 ainsuForth - generalized - all targets including SAMD51 M4 - experimental
 
++NeoTrellis M4        - SAMD51G19A
 +Metro M4 Express     - SAMD51J19A
 +ItsyBitsy M4 Express - SAMD51G19A
 +Feather M4 Express   - SAMD51J19A
@@ -14,6 +15,17 @@ place to look for porting issues, across targets).
 
 This forth is compiled regularly (as targets are reused
 to test other code).  It is usually operational. ;)
+
+# 31 Aug 2023
+
+Quick check on NeoTrellis M4 - was able to recreate the load file after a remove.
+
+Main purpose of checking the program in August of 2023 to make sure it still compiles - it does.
+
+No obvious operational impairment noticed.
+
+eflmkdir is 'rigged' to disallow command line use - just alias it in a colon definition to use it.
+
 
 # 20 Feb 2021:
 
